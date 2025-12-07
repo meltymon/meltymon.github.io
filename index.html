@@ -7,7 +7,7 @@
     <style>
         :root {
             --bg-color: #121212;
-            --text-color: #e0e0e0;
+            --text-color: #f0f0f0; /* AUFGEHELLT für bessere Lesbarkeit */
             --accent-color: #4caf50; /* Terminal Grün */
             --warning-color: #ffc107; /* Helles Gelb/Orange für Warnungen */
             --card-bg: #1e1e1e;
@@ -63,6 +63,17 @@
             padding: 2px 4px;
             border-radius: 3px;
             font-family: var(--font-terminal);
+        }
+        
+        /* Abschnitte (Sections) im Hauptinhalt */
+        .section {
+            padding: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
         }
 
         /* NEUES LAYOUT: Flexbox für Sidebar und Content */
@@ -158,7 +169,7 @@
             margin-left: 5px;
         }
         
-        /* Permanentes Blinken für den Start-Link */
+        /* Permanentes Blinken für den Start-Link und Cursor im Header */
         @keyframes startblink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
@@ -208,6 +219,33 @@
         .main-content {
             flex-grow: 1; 
             min-width: 0; 
+        }
+
+        /* Header Fixes - ZENTRIERT und Schriftgröße angepasst */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #121212 0%, #171717 100%);
+            border-bottom: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        header h1 {
+            font-size: 1.8rem; /* Größe reduziert */
+            text-align: center; /* Zentriert */
+        }
+        
+        /* Blinkender Cursor (vertikaler Strich nach dem H1-Befehl) */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.5em; /* An H1-Höhe angepasst */
+            background-color: var(--accent-color); 
+            animation: startblink 1s infinite step-end;
+            margin-left: 5px;
+            vertical-align: middle;
         }
         
         /* Footer und Easter Eggs */
@@ -271,6 +309,101 @@
             margin: 0 5px;
             display: inline-block;
         }
+        
+        /* Buttons für Kontakt */
+        .action-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 15px;
+            margin-top: 15px;
+            font-weight: bold;
+            font-family: var(--font-terminal);
+            transition: background-color 0.2s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .action-button:hover {
+            background-color: #66bb6a;
+            transform: translateY(-2px);
+        }
+
+        .action-button.discord {
+            background-color: #7289da; /* Discord Blau */
+        }
+        .action-button.discord:hover {
+            background-color: #99aab5;
+        }
+        
+        /* ########################################## */
+        /* # MOBILE OPTIMIERUNG (MEDIA QUERIES) # # # */
+        /* ########################################## */
+
+        @media (max-width: 768px) {
+            
+            /* Layout: Stapeln und Sticky Sidebar entfernen */
+            .main-layout {
+                flex-direction: column;
+                padding: 10px; /* Weniger globaler Padding */
+            }
+
+            .sidebar {
+                width: 100%; /* Sidebar volle Breite */
+                margin-right: 0;
+                position: static; /* Sticky entfernen */
+                top: 0;
+                order: 0; /* Sidebar kommt zuerst */
+            }
+
+            .main-content {
+                padding-top: 20px; 
+                order: 1; /* Hauptinhalt kommt danach */
+            }
+            
+            /* Header-Anpassungen */
+            header {
+                padding: 30px 10px; 
+            }
+            header h1 {
+                font-size: 1.5rem; /* H1 etwas kleiner */
+            }
+            .tagline {
+                font-size: 0.9rem;
+            }
+
+            /* Sidebar Menü: Kompakter */
+            .sidebar nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            /* Hover-Effekt vereinfachen für Touch-Geräte */
+            .sidebar nav a:hover {
+                padding-left: 20px; 
+            }
+            .sidebar nav a:hover::before {
+                content: ''; /* Pfeil entfernen */
+            }
+            
+            /* Buttons stapeln */
+            .action-button {
+                display: block;
+                width: 90%; 
+                margin: 10px auto;
+                text-align: center;
+            }
+            
+            /* Terminal Overlay kleiner und dezenter */
+            .terminal-overlay {
+                width: 90%;
+                height: 100px;
+                opacity: 0.1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -286,7 +419,7 @@ INFO: CachyOS kernel 6.9.3 loaded successfully.
 DEBUG: Interface 'eth0' transmitting 1024 packets/sec.
 WARN: Dependency meltymon-cli.sh not found. Using fallback.
 INFO: Startup sequence complete. Ready for input.
-[SYSTEM] Rendering environment 8.1... 
+[SYSTEM] Rendering environment 8.6 (Versions Log Added)... 
 [OK] Rendering completed.
 </pre>
         </div>
@@ -294,7 +427,8 @@ INFO: Startup sequence complete. Ready for input.
 
     <header>
         <h1>root@meltymon:~# echo "Willkommen auf meltymon.org"<span class="cursor"></span></h1>
-        <p class="tagline">IT-Veteran <span class="separator-blink" style="color:#FFF;">|</span> Gaming-Strategist <span class="separator-blink" style="color:#FFF;">|</span> CachyOS-Enthusiast <span class="separator-blink" style="color:#FFF;">|</span> <span style="color:var(--accent-color);">Deployed via Cloudflare A-Record</span></p>
+        
+        <p class="tagline">IT-Veteran <span class="separator-blink" style="color:#FFF;">|</span> Gaming-Strategist <span class="separator-blink" style="color:#FFF;">|</span> CachyOS-Enthusiast <span class="separator-blink" style="color:var(--cachy-blue);">|</span> <span style="color:var(--accent-color);">Deployed via Cloudflare A-Record</span></p>
     </header>
 
     <div class="main-layout">
@@ -304,6 +438,8 @@ INFO: Startup sequence complete. Ready for input.
             <nav>
                 <a href="#">@start: <span class="blinking-text">echo "Willkommen"</span></a>
                 
+                <a href="#versions-log">versions.log</a> 
+
                 <a href="#competencies" class="marquee-link">
                     <span>STATUS: System-Check OK. | Akkuzellen-Prüfung läuft...</span>
                 </a>
@@ -314,16 +450,74 @@ INFO: Startup sequence complete. Ready for input.
                 <a href="#hardware">system_info.hw</a>
                 <a href="#competencies">comp_matrix.json</a>
                 
+                <a href="#blog">journal.log</a> 
+                
                 <a href="#tools">tools-config.ini</a>
                 <a href="#ethics-repair">ethics-report.sh</a>
                 <a href="#vitals">vitals.log</a>
                 <a href="#gaming">games.log</a>
                 <a href="#diablo">diablo3-active.run</a>
                 <a href="#contact">kontakt@meltymon.org</a>
+                
+                <a href="#privacy">datenschutz.txt</a>
             </nav>
         </aside>
 
         <div class="main-content">
+            
+            <section id="versions-log" class="section" style="border-left-color: var(--cachy-blue);">
+                <h2>> versions.log --full-dump</h2>
+                <p>Dokumentation der wichtigsten Änderungen und Feature-Implementierungen seit der Initialisierung der Seite.</p>
+
+                <div style="max-height: 400px; overflow-y: auto; padding: 10px; background-color: #000; border: 1px solid #333;">
+                    <pre style="font-family: var(--font-terminal); font-size: 0.85rem; color: #FFF; line-height: 1.4;">
+<span style="color: var(--accent-color);">[SYSTEM] Initializing Version Log...</span>
+
+<span style="color: var(--cachy-blue);">-- V 8.6 (2025-12-07) --</span>
+FEATURE: Implementierung des vollständigen Versions-Logs (<a style="color:var(--cachy-blue);">versions.log</a>).
+UPDATE: Versionsnummer im Terminal-Overlay angepasst.
+
+<span style="color: var(--cachy-blue);">-- V 8.5 (2025-12-07) --</span>
+FIX: Implementierung umfassender <span style="color: var(--warning-color);">Media Queries</span> für optimale mobile Darstellung (unter 768px).
+FIX: Sidebar auf mobilen Geräten nun <span style="color: var(--warning-color);">100% Breite und static</span>.
+UPDATE: Header-Größen und Padding für kleine Viewports reduziert.
+
+<span style="color: var(--cachy-blue);">-- V 8.4 (2025-12-07) --</span>
+FEATURE: Hinzufügen der Blog/Journal-Sektion (<a style="color:var(--cachy-blue);">journal.log</a>) als manuelle HTML-Einträge (kein DB/PHP).
+UPDATE: Interne Code-Struktur für zukünftige manuelle Blog-Posts vorbereitet.
+
+<span style="color: var(--cachy-blue);">-- V 8.3 (2025-12-07) --</span>
+FIX: **Rechtliche Anpassung:** <span style="color: var(--warning-color);">Impressum-Sektion entfernt</span>, da die Seite privat betrieben wird.
+FIX: E-Mail-Kontakt von sysadmin@ auf <a style="color:var(--cachy-blue);">kontakt@meltymon.org</a> geändert.
+
+<span style="color: var(--cachy-blue);">-- V 8.2 (2025-12-06) --</span>
+FEATURE: Erweiterte Gaming-Sektion mit <a style="color:var(--cachy-blue);">diablo3-active.run</a>.
+FEATURE: Hinzufügen der Buttons für Discord, E-Mail und Twitch im <a style="color:var(--cachy-blue);">Kontakt-Bereich</a>.
+FEATURE: Marquee-Link im Menü für Status-Updates eingefügt.
+
+<span style="color: var(--cachy-blue);">-- V 8.0 (2025-12-06) --</span>
+REFACTOR: Umfassender Refactor zu <span style="color: var(--warning-color);">Flexbox-Layout</span> (Sidebar links, Content rechts).
+STYLE: Einführung des Terminal-Fonts (<a style="color:var(--cachy-blue);">Courier New</a>) für Header und Menü.
+FEATURE: Implementierung des **Persistent Terminal Overlays**.
+
+<span style="color: var(--cachy-blue);">-- V 6.0 - 7.x (2025-12-05) --</span>
+REFACTOR: Migration von klassischem Layout zu modernem <a style="color:var(--cachy-blue);">Dark-Mode-Design</a>.
+STYLE: Einführung der spezifischen Farbschemata (CachyOS Blue, Diablo Red).
+
+<span style="color: var(--cachy-blue);">-- V 4.0 - 5.x (2025-12-04) --</span>
+FEATURE: Aufbau der ersten thematischen Sektionen (Hardware, Tools, Gaming).
+FEATURE: Hinzufügen der Footer-Elemente (Easter Eggs, Besucherzähler).
+
+<span style="color: var(--cachy-blue);">-- V 3.0 (2025-12-03) --</span>
+FEATURE: Implementierung der <a style="color:var(--cachy-blue);">Sticky Sidebar</a> für Desktop.
+STYLE: Erste CSS-Anpassungen für Dark Mode und Font-Auswahl.
+
+<span style="color: var(--cachy-blue);">-- V 1.0 (2025-12-01) --</span>
+INIT: Initialer Aufbau der Seite als statische HTML-Datei.
+CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
+</pre>
+                </div>
+            </section>
             
             <section id="whoami" class="section">
                 <h2>> whoami --CachyOS-Build</h2>
@@ -385,6 +579,33 @@ INFO: Startup sequence complete. Ready for input.
                     <li style="color: var(--warning-color);">**Akku-Bau und Instandsetzung:** **Rekonstruktion und Instandsetzung** von Akkupacks (Löten, Balancing, BMS-Verständnis).</li>
                 </ul>
             </section>
+            
+            <section id="blog" class="section">
+                <h2>> journal.log --tail 3</h2> 
+                <p>Hier finden Sie meine aktuellen Gedanken, Projekte und technischen Herausforderungen.</p>
+
+                <article class="blog-post">
+                    <h3>> post_2025_12_07.txt --read</h3>
+                    <p class="meta" style="color:var(--warning-color); font-size:0.85em;">[Timestamp: 14:00:00 UTC | Status: Deploy Successful]</p>
+                    <p>
+                        Der Umstieg auf den **CachyOS-Kernel** war eine der besten Entscheidungen der letzten Monate. Die Performance-Steigerung, gerade bei I/O-lastigen Aufgaben, ist beeindruckend. Ich habe das Gefühl, mein System ist jetzt endlich zu 100% auf mich zugeschnitten. 
+                    </p>
+                    <p>
+                        Das nächste Projekt ist die Optimierung der **Motorrad-Batterie-Ladeelektronik** für die nächste Reise. Ich forsche gerade an einem BMS-Bypass für kritische Situationen. Weitere Details folgen!
+                    </p>
+                </article>
+                
+                <hr style="border-color:#333; opacity:0.3;">
+                
+                <article class="blog-post">
+                    <h3>> post_2025_11_29.txt --read</h3>
+                    <p class="meta" style="color:var(--warning-color); font-size:0.85em;">[Timestamp: 18:30:00 UTC | Status: Completed]</p>
+                    <p>
+                        Ich habe erfolgreich die alte FritzBox 7490 gegen einen AVM-Repeater mit **OpenWRT-Firmware** ersetzt. Die Stabilität ist jetzt deutlich besser, und ich habe volle Kontrolle über alle Traffic-Regeln. Ein voller Erfolg.
+                    </p>
+                </article>
+                
+            </section>
 
             <section id="tools" class="section cachy-highlight">
                 <h2>> tools-config.ini --view</h2>
@@ -394,3 +615,150 @@ INFO: Startup sequence complete. Ready for input.
                 <h3>Meine Gaming-Plattformen und Tools:</h3>
                 <ul class="icon-list">
                     <li>**Wine & Lutris:** Die Basis für alles, was nicht nativ läuft.</li>
+                    <li>**Heroic Games Launcher, GOG Games, Epicgames:** Die zentralen Schnittstellen für meine Bibliotheken.</li>
+                    <li>**Pacman:** Das Herzstück meiner CachyOS-Umgebung.</li>
+                </ul>
+            </section>
+
+            <section id="ethics-repair" class="section repair-highlight">
+                <h2>> ethics-report.sh --run</h2>
+                <p>
+                    Die Wegwerf-Mentalität großer Konzerne lehne ich ab. Ich berate meine Kunden immer dahingehend, das **Nachhaltigste** und **Kostengünstigste** zu tun.
+                </p>
+                <p>
+                    **Das Recht auf Reparatur** ist für mich mehr als nur ein politisches Schlagwort. Ich zeige gerne, wie man kleine Probleme selbst behebt und behalte Wissen nicht für mich.
+                </p>
+            </section>
+            
+            <section id="vitals" class="section vitals-highlight">
+                <h2>> vitals.log --export</h2>
+                <p>
+                    Abseits von Terminals und Pacman-Updates finde ich Balance in ehrenamtlichem Engagement und Abenteuer. Diese Erfahrungen schärfen meine Fähigkeiten zur **Krisenbewältigung, Planung und Menschenführung**.
+                </p>
+
+                <h3>Ehrenamt & Soziales Engagement</h3>
+                <ul class="icon-list">
+                    <li>**Jugendleiter:** Als ehrenamtlicher **Jugendleiter** helfe ich jungen Menschen.</li>
+                    <li>**Sanitäter:** Mein Engagement als **Sanitäter** erfordert schnelle, präzise Entscheidungen unter Druck.</li>
+                </ul>
+                
+                <h3>Globale Abenteuer & Logistik</h3>
+                <ul class="icon-list">
+                    <li>**Zwei Weltreisen mit dem Motorrad:** Lehre in **extremer Improvisation, Ausdauer und präziser Logistik**.</li>
+                    <li>**Segeln:** Die Wichtigkeit, mit minimalistischen Mitteln maximale Ergebnisse zu erzielen.</li>
+                </ul>
+            </section>
+
+
+            <section id="gaming" class="section">
+                <h2>> games.log --favorites</h2>
+                <p>
+                    Ich spiele gerne strategisch, taktisch und tiefgründig.
+                </p>
+                <h3>Meine Klassiker und Remakes:</h3>
+                <ul class="icon-list">
+                    <li>**Taktik:** XCOM Serie (1-12) & Jagged Alliance.</li>
+                    <li>**Remakes:** Return to the Roots (Siedler 2) und Settlers United (Siedler 3/4).</li>
+                </ul>
+            </section>
+            
+            <section id="diablo" class="section diablo-highlight">
+                <h2>> diablo3-active.run --status</h2>
+                <p>
+                    **STATUS: Aktiv & Grind-Modus**
+                </p>
+                <p>
+                    Seit Freitag ist die **Season 37 von Diablo 3: Reaper of Souls** aktiv! Wenn du mit mir Dämonen jagen möchtest, kontaktiere mich am besten über Discord!
+                </p>
+                <p>
+                    **Battle.net:** `meltymon`
+                </p>
+            </section>
+
+            <section id="contact" class="section" style="border-left-color: #ff9800;">
+                <h2>> kontakt@meltymon.org</h2>
+                <p>
+                    Du brauchst Hilfe mit deinem **PC, Mac, Linux-System, Smartphone oder Tablet**? Oder willst einfach über Retro-Games fachsimpeln? Wähle den schnellsten Weg:
+                </p>
+                
+                <a href="mailto:kontakt@meltymon.org" class="action-button">
+                    ✉️ E-Mail senden
+                </a>
+                <a href="https://discordapp.com/users/meltymon" target="_blank" class="action-button discord">
+                    💬 Discord (@meltymon)
+                </a>
+                <a href="https://www.twitch.tv/meltymon" target="_blank" class="action-button">
+                    📺 Twitch (@meltymon)
+                </a>
+                
+                <h3 style="margin-top: 30px; border-bottom: none;">Weitere Kontakte:</h3>
+                <ul class="icon-list">
+                    <li>**Discord:** `@meltymon` (Bevorzugt für schnelle Fragen)</li>
+                    <li>**Twitch:** `@meltymon`</li>
+                </ul>
+            </section>
+            
+            <section id="privacy" class="section" style="border-left-color: #ff5722;">
+                <h2>> datenschutz.txt --read</h2>
+                <p>
+                    **Hinweis:** Diese Sektion ist für die **Datenschutzerklärung** vorgesehen, welche Sie für die Einhaltung der DSGVO benötigen.
+                </p>
+                <p>
+                    Bitte fügen Sie hier den korrekten Text der Datenschutzerklärung ein.
+                </p>
+                <div class="quote-box" style="border-left-color: #ff5722; color: #ff5722;">
+                    [Hier den vollständigen Text der Datenschutzerklärung einfügen]
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        
+        <div class="footer-content">
+            <div class="visitor-count">
+                Besucher seit Deployment (Total): 
+                <span class="animated-counter"></span>
+            </div>
+
+            <div class="oneplus-slogan">
+                <div class="oneplus-icon"></div>
+                NEVER SETTLE
+            </div>
+
+            <div class="easter-egg-hint">
+                <strong>System Log: [HINWEIS]</strong> - Scan nach versteckten Assets beendet.<span class="status-indicator">[OK]</span><br>
+                Ergebnis: 3 nicht indizierte Dateien gefunden.<br>
+                Rätsel: 1x Oldschool-Modus, 1x Mauszeiger-Test, 1x Terminal-Symbol.<br>
+                Status: Suche wird nicht automatisch beendet.
+            </div>
+            
+            <pre class="ascii-logo">
+      _  __         _    _  _   _ 
+     | |/ /  _ __  | |__| || |_| |
+     | ' /  | '_ \ | '_ \| || __| |
+     | . \  | | | || | | | || |_|_|
+     |_|\_\ |_| |_||_| |_||_| \__(_)
+            </pre>
+            <p>Erstellt mit 100% Handarbeit. Keine Cookies. Kein Tracking. Nur HTML & CSS.</p>
+            <p>&copy; 2025 Christian Faßbender | <a href="https://meltymon.org" style="color:var(--accent-color);">meltymon.org</a></p>
+            
+            <p style="font-size: 0.8rem; margin-top: 10px;">
+                <a href="https://archive.org/details/msdos_X-COM_UFO_Defense_1994_552" target="_blank" 
+                   title="Das wahre Ende des Tages..." 
+                   style="color: var(--accent-color); text-decoration: none; font-weight: bold; border-bottom: 1px dotted var(--accent-color);">
+                   [OLD-SCHOOL MODE: X-COM START]
+                </a>
+            </p>
+            
+            <div class="hidden-code">
+                cat /etc/meltymon-motto
+                # Trust but verify. Always backup before running unknown scripts.
+                # CachyOS & Pacman are love.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
