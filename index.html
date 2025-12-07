@@ -35,6 +35,15 @@
             color: var(--accent-color);
         }
 
+        /* NEU: Inline Code Styling */
+        code {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--accent-color);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: var(--font-terminal);
+        }
+
         /* NEUES LAYOUT: Flexbox für Sidebar und Content */
         .main-layout {
             display: flex;
@@ -90,9 +99,11 @@
             min-width: 0; 
         }
 
+        /* NEU: Header mit dunklem Verlauf */
         header {
             text-align: center;
             padding: 60px 20px;
+            background: linear-gradient(180deg, #121212 0%, #171717 100%);
             border-bottom: 1px solid #333;
         }
 
@@ -241,7 +252,7 @@
             opacity: 0.8; 
         }
         
-        /* Cursor und Responsiveness bleibt erhalten... */
+        /* Blinking Cursor Effekt - Wiederhergestellt */
         .cursor {
             display: inline-block;
             width: 10px;
@@ -278,7 +289,7 @@
 <body>
 
     <header>
-        <h1>echo "Willkommen auf meltymon.org"</h1>
+        <h1>root@meltymon:~#<span class="cursor"></span></h1>
         <p class="tagline">IT-Veteran | Gaming-Strategist | CachyOS-Enthusiast | <span style="color:var(--accent-color);">Deployed via Cloudflare A-Record</span></p>
     </header>
 
@@ -344,7 +355,7 @@
                 <h3>Kompetenzfeld II: Spezialwissen Hardware & Akku-Bau</h3>
                 <ul class="icon-list">
                     <li>**Hardware-Reparatur:** Ich hauche Geräten neues Leben ein. **Reparatur vor Austausch** ist hier das Credo.</li>
-                    <li>**Akku-Bau und Instandsetzung:** Ein Spezialgebiet ist die **Rekonstruktion und Instandsetzung** von Akkupacks (z.B. für E-Bikes oder ältere Werkzeuge). Dies erfordert präzises Löten, Zellen-Balancing und tiefes Verständnis für BMS – ein wichtiger Beitrag zur **Nachhaltigkeit**.</li>
+                    <li>**Akku-Bau und Instandsetzung:** Ein Spezialgebiet ist die **Rekonstruktion und Instandsetzung** von Akkupacks. Dies erfordert präzises Löten, Zellen-Balancing und tiefes Verständnis für BMS – ein wichtiger Beitrag zur **Nachhaltigkeit**.</li>
                 </ul>
             </section>
 
@@ -379,14 +390,14 @@
 
                 <h3>Ehrenamt & Soziales Engagement</h3>
                 <ul class="icon-list">
-                    <li>**Jugendleiter:** Als ehrenamtlicher **Jugendleiter** helfe ich jungen Menschen bei der Entwicklung von Teamfähigkeit und strukturiertem Denken – essenzielle Fähigkeiten, die auch in der IT helfen.</li>
+                    <li>**Jugendleiter:** Als ehrenamtlicher **Jugendleiter** helfe ich jungen Menschen bei der Entwicklung von Teamfähigkeit und strukturiertem Denken.</li>
                     <li>**Sanitäter:** Mein Engagement als **Sanitäter** erfordert schnelle, präzise Entscheidungen unter Druck und hohe Empathiefähigkeit – entscheidend im Kundensupport.</li>
                 </ul>
                 
                 <h3>Globale Abenteuer & Logistik</h3>
                 <ul class="icon-list">
-                    <li>**Zwei Weltreisen mit dem Motorrad:** Ich war schon **überall auf der Welt** unterwegs. Diese Reisen – oft abseits ausgetretener Pfade – lehrten mich **extreme Improvisation, Ausdauer und präzise Logistik** unter widrigsten Umständen.</li>
-                    <li>**Segeln:** Die Faszination für das Segeln vermittelt die Wichtigkeit, mit minimalistischen Mitteln maximale Ergebnisse zu erzielen – eine Philosophie, die ich auch im Umgang mit Hardware verfolge.</li>
+                    <li>**Zwei Weltreisen mit dem Motorrad:** Ich war schon **überall auf der Welt** unterwegs. Diese Reisen lehrten mich **extreme Improvisation, Ausdauer und präzise Logistik** unter widrigsten Umständen.</li>
+                    <li>**Segeln:** Die Faszination für das Segeln vermittelt die Wichtigkeit, mit minimalistischen Mitteln maximale Ergebnisse zu erzielen.</li>
                 </ul>
             </section>
 
@@ -419,7 +430,7 @@
             <section id="contact" class="section" style="border-left-color: #ff9800;">
                 <h2>> kontakt@meltymon.org</h2>
                 <p>
-                    Du brauchst Hilfe, hast Fragen zu CachyOS oder willst über Retro-Games fachsimpeln? Wähle den schnellsten Weg:
+                    Du brauchst Hilfe mit deinem **PC, Mac, Linux-System, Smartphone oder Tablet**? Oder willst einfach über Retro-Games fachsimpeln? Wähle den schnellsten Weg:
                 </p>
                 
                 <a href="mailto:sysadmin@meltymon.org" class="action-button">
