@@ -2,18 +2,64 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>كريستيان فاسبندر | meltymon.org</title>
     <style> 
-        /* ... (Style-Code von oben einfügen) ... */ 
+        :root {
+            --bg-color: #121212;
+            --text-color: #f0f0f0; 
+            --accent-color: #4caf50; 
+            --warning-color: #ffc107; 
+            --card-bg: #1e1e1e;
+            --font-terminal: 'Courier New', Courier, monospace; 
+            --font-main: 'Courier New', Courier, monospace; 
+            --cachy-blue: #00bcd4; 
+            --diablo-red: #d32f2f; 
+            --vitals-blue: #2196f3; 
+            --language-switch-bg: #2d2d2d; 
+        }
+
+        /* Standard-CSS-Code hier wiederholen, dann RTL-Overrides */
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-main); line-height: 1.6; margin: 0; padding: 0; position: relative; }
+        /* ... (Standard-CSS-Regeln von V9.4 wiederholen) ... */
+
+        /* RTL OVERRIDES FÜR ARABISCH */
         body { text-align: right; }
         .main-layout { direction: rtl; }
-        .sidebar { margin-right: 0; margin-left: 30px; border-left: 2px solid #4caf50; border-right: none; }
-        .section { border-left: none; border-right: 5px solid var(--accent-color); }
-        .icon-list li::before { content: '<'; margin-right: 0; margin-left: 10px; }
-        .icon-prefix { margin-right: 0; margin-left: 10px; }
+        .sidebar { 
+            margin-right: 0; 
+            margin-left: 30px; 
+            border-left: 2px solid #4caf50; 
+            border-right: none; 
+        }
+        .sidebar nav a { text-align: right; }
+        .sidebar nav a:hover { padding-right: 45px; padding-left: 20px; }
+        .sidebar nav a:hover::before { content: ' <-'; left: auto; right: 20px; }
+        .section { 
+            border-left: none; 
+            border-right: 5px solid var(--accent-color); 
+        }
+        .icon-list li::before { 
+            content: '<'; /* Pfeil nach links */
+            margin-right: 0; 
+            margin-left: 10px; 
+        }
+        .icon-prefix { 
+            margin-right: 0; 
+            margin-left: 10px; 
+        }
+        header { align-items: flex-end; }
+        .tagline { text-align: right; }
+        .action-button { margin-right: 0; margin-left: 15px; }
+        @media (max-width: 768px) {
+            .sidebar { margin-left: 0; }
+            .tagline { padding: 0 10px; text-align: center; }
+        }
     </style>
 </head>
 <body dir="rtl">
+
     <div class="terminal-overlay" style="direction: ltr;">
         <div class="terminal-log">
             <pre class="log-line">
@@ -39,7 +85,62 @@ INFO: Core assets integrity check... [OK]
         
         <h1>root@meltymon:~# echo "مرحباً بك في meltymon.org"<span class="cursor"></span></h1>
         
-        <p class="tagline" style="padding: 0 20px 40px 20px;">خبير تكنولوجيا المعلومات <span class="separator-blink" style="color:#FFF;">|</span> خبير استراتيجي في الألعاب <span class="separator-blink" style="color:#FFF;">|</span> متحمس لـ CachyOS <span class="separator-blink" style="color:var(--cachy-blue);">|</span> <span style="color:var(--accent-color);">تم النشر عبر سجل Cloudflare A</span></p>
+        <p class="tagline" style="padding: 0 20px 40px 20px; text-align: right;">خبير تكنولوجيا المعلومات <span class="separator-blink" style="color:#FFF;">|</span> خبير استراتيجي في الألعاب <span class="separator-blink" style="color:#FFF;">|</span> متحمس لـ CachyOS <span class="separator-blink" style="color:var(--cachy-blue);">|</span> <span style="color:var(--accent-color);">تم النشر عبر سجل Cloudflare A</span></p>
     </header>
+
+    <div class="main-layout">
+        <aside class="sidebar">
+            <h3>$ meltymon-cli.sh</h3>
+            <nav>
+                <a href="#">@start: <span class="blinking-text">echo "مرحباً"</span></a>
+                <a href="#competencies" class="marquee-link">
+                    <span>الحالة: فحص النظام موافق. | فحص خلايا البطارية قيد التنفيذ...</span>
+                </a>
+                <a href="#whoami">whoami --verbose</a>
+                <a href="#mission">mission.txt</a>
+                <a href="#hardware">system_info.hw</a>
+                <a href="#competencies">comp_matrix.json</a>
+                </nav>
+        </aside>
+
+        <div class="main-content">
+            <section id="whoami" class="section">
+                <h2><span class="icon-prefix">👤</span> > whoami --CachyOS-Build</h2>
+                <p>
+                    أنا **كريستيان فاسبندر**، فني تكنولوجيا معلومات ومستخدم لينكس باقتناع عميق. نظامي **خالٍ من Windows** لأكثر من 10 سنوات، والسائق اليومي الحالي هو **CachyOS** <span style="color:var(--cachy-blue);">🐧</span> فائق السرعة. أحب الأنظمة التي لا تعمل فحسب، بل يمكن فهمها وتحسينها حتى أدق التفاصيل. <code>Pacman -Syu</code> هو روتين يومي بالنسبة لي.
+                </p>
+                <p>
+                    أستخدم خبرتي التقنية لمساعدة الناس. وخصوصًا الجيل الأكبر سنًا، أدعمهم **بالصبر والوضوح** اللازمين، بعيدًا عن الأسعار المبالغ فيها وعقلية التخلص من الشركات الكبيرة.
+                </p>
+                <div class="ascii-art" style="direction: ltr;">
+                   / \
+                  | O |
+                  \ _ /
+                   / \ 
+                </div>
+            </section>
+            
+            <section id="mission" class="section">
+                <h2><span class="icon-prefix">💡</span> > mission.txt --read</h2>
+                <div class="quote-box" style="text-align: right;">
+                    يجب أن تكون التكنولوجيا ميسورة التكلفة ومفهومة. أقدم مساعدة عادلة بدلاً من الفواتير الباهظة. الصدق والصبر أهم بالنسبة لي من تعظيم الأرباح.
+                </div>
+                </section>
+
+            <section id="contact" class="section" style="border-right-color: #ff9800; border-left: none;">
+                <h2><span class="icon-prefix">📧</span> > kontakt@meltymon.org</h2>
+                <p>
+                    هل تحتاج إلى مساعدة بشأن **جهاز الكمبيوتر، أو Mac، أو نظام Linux، أو الهاتف الذكي، أو الجهاز اللوحي**؟ أو هل تريد فقط التحدث عن ألعاب الريترو؟ اختر أسرع طريق:
+                </p>
+                
+                <a href="mailto:kontakt@meltymon.org" class="action-button">
+                    ✉️ إرسال بريد إلكتروني
+                </a>
+                <a href="https://discordapp.com/users/meltymon" target="_blank" class="action-button discord">
+                    💬 ديسكورد (@meltymon)
+                </a>
+                </section>
+        </div>
+    </div>
     </body>
 </html>
