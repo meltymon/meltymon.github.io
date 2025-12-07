@@ -19,6 +19,7 @@
 
 html { scroll-behavior: smooth; }
 body { 
+    /* KORREKTUR: Verhindert Scrollen nach rechts */
     overflow-x: hidden;
     background-color: var(--bg-color); 
     color: var(--text-color); 
@@ -42,6 +43,22 @@ h1, h2, h3 {
     text-shadow: 0 0 3px rgba(0, 255, 196, 0.5); /* Leichter Neon-Glow */
 }
 .icon-prefix { margin-right: 10px; color: var(--cachy-blue); }
+
+/* Globale Flexibilitäts-Regeln für Inhalt */
+img, video {
+    max-width: 100%; /* Stellt sicher, dass Bilder nie überlaufen */
+    height: auto;
+}
+/* Behandelt Code-Blöcke und ASCII-Art */
+pre, code {
+    white-space: pre-wrap; /* Erlaubt Zeilenumbruch bei Code */
+    word-wrap: break-word; /* Erzwingt Umbruch bei sehr langen Wörtern */
+    max-width: 100%;
+}
+.ascii-art {
+    overflow-x: auto; /* Erlaubt Scrollen NUR für die ASCII-Art, falls sie zu breit ist */
+}
+
 
 .section { 
     padding: 20px; 
@@ -98,6 +115,9 @@ header h1 {
     padding: 20px; 
     margin: 0; 
     text-align: center;
+    /* KORREKTUR FÜR MOBILE: Erlaubt dem Text, bei Platzmangel umzubrechen */
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 .tagline { 
@@ -159,7 +179,7 @@ footer {
     /* Layout: Stapeln und Sticky Sidebar entfernen */
     .main-layout {
         flex-direction: column;
-        /* KORREKTUR A: Reduziert das Padding für kleine Bildschirme */
+        /* KORREKTUR: Reduziert das Padding für kleine Bildschirme */
         padding: 10px; 
     }
 
