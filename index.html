@@ -13,7 +13,8 @@
             --font-terminal: 'Courier New', Courier, monospace; 
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             --cachy-blue: #00bcd4; /* Türkis/Blau für CachyOS */
-            --diablo-red: #d32f2f; /* Diablo-Rot für aktuelle Spiele */
+            --diablo-red: #d32f2f; /* Diablo-Rot */
+            --vitals-blue: #2196f3; /* Tiefes Blau für Reisen/Vitals */
         }
 
         html {
@@ -113,6 +114,10 @@
         .section.diablo-highlight {
             border-left-color: var(--diablo-red);
         }
+        
+        .section.vitals-highlight {
+            border-left-color: var(--vitals-blue);
+        }
 
         /* Zitat-Box für Credo */
         .quote-box {
@@ -187,7 +192,7 @@
             margin-top: 30px;
         }
         
-        /* NEU: Besucherzähler Stil */
+        /* Besucherzähler Stil */
         .visitor-count {
             color: var(--text-color);
             font-size: 0.9rem;
@@ -235,8 +240,8 @@
         .hidden-code:hover {
             opacity: 0.8; 
         }
-
-        /* Bestehendes CSS für Cursor und Responsiveness bleibt erhalten... */
+        
+        /* Cursor und Responsiveness bleibt erhalten... */
         .cursor {
             display: inline-block;
             width: 10px;
@@ -284,8 +289,10 @@
             <nav>
                 <a href="#whoami">whoami --verbose</a>
                 <a href="#mission">mission.txt</a>
+                <a href="#competencies">comp_matrix.json</a>
                 <a href="#tools">tools-config.ini</a>
-                <a href="#ethics">ethics-report.sh</a>
+                <a href="#ethics-repair">ethics-report.sh</a>
+                <a href="#vitals">vitals.log</a>
                 <a href="#gaming">games.log</a>
                 <a href="#diablo">diablo3-active.run</a>
                 <a href="#contact">kontakt@meltymon.org</a>
@@ -316,49 +323,83 @@
                     Technik muss bezahlbar und verständlich sein. Ich biete faire Hilfe statt horrender Rechnungen. Ehrlichkeit und Geduld sind mir wichtiger als Profitmaximierung.
                 </div>
                 <p>
-                    Meine Aufgabe ist es, **Komplexität zu reduzieren** und **Vertrauen** zu schaffen. Ich bin der IT-Techniker, den man gerne anruft, weil er zuhört und nicht urteilt. Speziell bei der Arbeit mit Senioren ist mir wichtig, nicht nur Probleme zu lösen, sondern Wissen zu vermitteln.
+                    Meine Aufgabe ist es, **Komplexität zu reduzieren** und **Vertrauen** zu schaffen. Ich bin der IT-Techniker, den man gerne anruft, weil er zuhört und nicht urteilt.
                 </p>
             </section>
             
+            <section id="competencies" class="section cachy-highlight">
+                <h2>> comp_matrix.json --display</h2>
+                <p>
+                    Meine Kompetenzen reichen von der täglichen IT-Betreuung bis hin zu hochspezialisierten, handwerklichen Aufgaben. Mein Fokus liegt auf **Langlebigkeit, Effizienz und Sicherheit** – in der privaten wie in der geschäftlichen IT.
+                </p>
+
+                <h3>Kompetenzfeld I: IT-Services (Privat & Geschäftlich)</h3>
+                <ul class="icon-list">
+                    <li>**Netzwerk- und Infrastruktur-Wartung:** Aufbau, Konfiguration und Wartung stabiler, sicherer Netzwerke (Router, Firewalls, VPNs).</li>
+                    <li>**Datensicherung und Wiederherstellung:** Entwicklung solider Backup-Strategien für Privat- und KMU-Kunden.</li>
+                    <li>**Reparieren, Installieren und Warten:** Service für **alle möglichen Geräte** – von Laptops und Desktop-PCs bis zu komplexer Peripherie.</li>
+                    <li>**Digitalisierungssupport:** Unterstützung bei Cloud-Lösungen und der verständlichen Einrichtung digitaler Prozesse für die ältere Generation.</li>
+                </ul>
+
+                <h3>Kompetenzfeld II: Spezialwissen Hardware & Akku-Bau</h3>
+                <ul class="icon-list">
+                    <li>**Hardware-Reparatur:** Ich hauche Geräten neues Leben ein. **Reparatur vor Austausch** ist hier das Credo.</li>
+                    <li>**Akku-Bau und Instandsetzung:** Ein Spezialgebiet ist die **Rekonstruktion und Instandsetzung** von Akkupacks (z.B. für E-Bikes oder ältere Werkzeuge). Dies erfordert präzises Löten, Zellen-Balancing und tiefes Verständnis für BMS – ein wichtiger Beitrag zur **Nachhaltigkeit**.</li>
+                </ul>
+            </section>
+
             <section id="tools" class="section cachy-highlight">
                 <h2>> tools-config.ini --view</h2>
                 <p>
-                    Als begeisterter Gamer und Linux-Nutzer habe ich mich auf die reibungslose Integration von Windows-Spielen unter Linux spezialisiert. Meine Werkzeugkiste ist immer optimiert, um maximale Performance zu erzielen.
+                    Als begeisterter Gamer und Linux-Nutzer habe ich mich auf die reibungslose Integration von Windows-Spielen unter Linux spezialisiert.
                 </p>
                 <h3>Meine Gaming-Plattformen und Tools:</h3>
                 <ul class="icon-list">
                     <li>**Wine & Lutris:** Die Basis für alles, was nicht nativ läuft.</li>
                     <li>**Heroic Games Launcher, GOG Games, Epicgames:** Die zentralen Schnittstellen für meine Bibliotheken.</li>
-                    <li>**Steam & Winboat:** Für die Standardbibliothek und ältere Titel.</li>
-                    <li>**Ubisoft-Connector/Origin:** Für die selteneren Bibliotheken.</li>
                     <li>**Pacman:** Das Herzstück meiner CachyOS-Umgebung.</li>
                 </ul>
             </section>
 
-            <section id="ethics" class="section cachy-highlight" style="border-left-color: #ff5722;">
+            <section id="ethics-repair" class="section cachy-highlight" style="border-left-color: #ff5722;">
                 <h2>> ethics-report.sh --run</h2>
                 <p>
                     Die Wegwerf-Mentalität großer Konzerne lehne ich ab. Ich berate meine Kunden immer dahingehend, das **Nachhaltigste** und **Kostengünstigste** zu tun.
                 </p>
                 <p>
-                    **Das Recht auf Reparatur** ist für mich mehr als nur ein politisches Schlagwort. Ich zeige gerne, wie man kleine Probleme selbst behebt und behalte Wissen nicht für mich. Meine Schwerpunkte:
+                    **Das Recht auf Reparatur** ist für mich mehr als nur ein politisches Schlagwort. Ich zeige gerne, wie man kleine Probleme selbst behebt und behalte Wissen nicht für mich.
                 </p>
+            </section>
+            
+            <section id="vitals" class="section vitals-highlight">
+                <h2>> vitals.log --export</h2>
+                <p>
+                    Abseits von Terminals und Pacman-Updates finde ich Balance in ehrenamtlichem Engagement und Abenteuer. Diese Erfahrungen schärfen meine Fähigkeiten zur **Krisenbewältigung, Planung und Menschenführung**.
+                </p>
+
+                <h3>Ehrenamt & Soziales Engagement</h3>
                 <ul class="icon-list">
-                    <li>**Hardware-Reparatur & Aufrüstung:** Verlängern der Lebensdauer alter PCs.</li>
-                    <li>**Linux-Migration & Wartung:** Für ein sicheres, stabiles System.</li>
+                    <li>**Jugendleiter:** Als ehrenamtlicher **Jugendleiter** helfe ich jungen Menschen bei der Entwicklung von Teamfähigkeit und strukturiertem Denken – essenzielle Fähigkeiten, die auch in der IT helfen.</li>
+                    <li>**Sanitäter:** Mein Engagement als **Sanitäter** erfordert schnelle, präzise Entscheidungen unter Druck und hohe Empathiefähigkeit – entscheidend im Kundensupport.</li>
+                </ul>
+                
+                <h3>Globale Abenteuer & Logistik</h3>
+                <ul class="icon-list">
+                    <li>**Zwei Weltreisen mit dem Motorrad:** Ich war schon **überall auf der Welt** unterwegs. Diese Reisen – oft abseits ausgetretener Pfade – lehrten mich **extreme Improvisation, Ausdauer und präzise Logistik** unter widrigsten Umständen.</li>
+                    <li>**Segeln:** Die Faszination für das Segeln vermittelt die Wichtigkeit, mit minimalistischen Mitteln maximale Ergebnisse zu erzielen – eine Philosophie, die ich auch im Umgang mit Hardware verfolge.</li>
                 </ul>
             </section>
+
 
             <section id="gaming" class="section">
                 <h2>> games.log --favorites</h2>
                 <p>
-                    Ich spiele gerne strategisch, taktisch und tiefgründig. Das spiegelt meinen Ansatz in der IT wider: Vorausschauend planen, Fehler beheben und aufbauen.
+                    Ich spiele gerne strategisch, taktisch und tiefgründig.
                 </p>
                 <h3>Meine Klassiker und Remakes:</h3>
                 <ul class="icon-list">
                     <li>**Taktik:** XCOM Serie (1-12) & Jagged Alliance.</li>
                     <li>**Remakes:** Return to the Roots (Siedler 2) und Settlers United (Siedler 3/4).</li>
-                    <li>**Aktion-RPG:** Diablo 2+3.</li>
                 </ul>
             </section>
             
@@ -368,7 +409,7 @@
                     **STATUS: Aktiv & Grind-Modus**
                 </p>
                 <p>
-                    Seit Freitag ist die **Season 37 von Diablo 3: Reaper of Souls** aktiv! Das ist mein aktueller Hauptfokus. Wenn du mit mir Dämonen jagen möchtest, kontaktiere mich am besten über Discord!
+                    Seit Freitag ist die **Season 37 von Diablo 3: Reaper of Souls** aktiv! Wenn du mit mir Dämonen jagen möchtest, kontaktiere mich am besten über Discord!
                 </p>
                 <p>
                     **Battle.net:** `meltymon`
