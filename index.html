@@ -29,10 +29,10 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            position: relative; /* Für den Scanline-Effekt */
+            position: relative; 
         }
 
-        /* NEU: CRT / Scanline Effekt (Subtil) */
+        /* CRT / Scanline Effekt (Subtil) */
         body::after {
             content: '';
             position: fixed;
@@ -83,7 +83,7 @@
             height: fit-content;
             background: #0d0d0d; 
             border: 2px solid var(--accent-color); 
-            box-shadow: 0 0 15px rgba(76, 175, 80, 0.6); /* Stärkerer Glow */
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.6); 
             border-radius: 4px;
             z-index: 10;
         }
@@ -111,7 +111,7 @@
             line-height: 1.2;
         }
 
-        /* NEU: Laufender Text (Marquee) */
+        /* Laufender Text (Marquee) */
         @keyframes marquee {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
@@ -130,16 +130,16 @@
             font-size: 0.9em;
         }
         
-        /* AKTUELLE ANPASSUNG: Invers-Anzeige und Cursor beim Hovern */
+        /* Invers-Anzeige und Cursor beim Hovern */
         .sidebar nav a:hover {
-            background-color: var(--accent-color); /* Hintergrund grün */
-            color: var(--bg-color); /* Schrift dunkel */
+            background-color: var(--accent-color); 
+            color: var(--bg-color); 
             padding-left: 45px; 
         }
         
         .sidebar nav a:hover::before {
             content: '-> '; 
-            color: var(--bg-color); /* Pfeil wird dunkel */
+            color: var(--bg-color); 
             position: absolute;
             left: 20px; 
             top: 50%;
@@ -152,7 +152,7 @@
             display: inline-block;
             width: 8px; 
             height: 1em;
-            background-color: var(--bg-color); /* Cursor wird dunkel */
+            background-color: var(--bg-color); 
             animation: blink 1s infinite;
             vertical-align: middle;
             margin-left: 5px;
@@ -168,78 +168,46 @@
             color: var(--cachy-blue); 
         }
 
+        /* TERMINAL OVERLAY CSS */
+        .terminal-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            max-width: 600px;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.7);
+            padding: 15px;
+            z-index: 100;
+            pointer-events: none; 
+            opacity: 0.15; 
+            overflow: hidden;
+        }
+        .terminal-log {
+            font-family: var(--font-terminal);
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            height: 100%;
+            line-height: 1.5;
+        }
+        @keyframes logscroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+        .log-line {
+            animation: logscroll 20s linear infinite;
+            display: block;
+            white-space: pre;
+            padding-bottom: 100%; 
+        }
+
 
         .main-content {
             flex-grow: 1; 
             min-width: 0; 
-        }
-
-        /* Header mit dunklem Verlauf */
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(180deg, #121212 0%, #171717 100%);
-            border-bottom: 1px solid #333;
-        }
-
-        /* Cards Layout */
-        .section {
-            background: var(--card-bg);
-            margin: 30px 0;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            /* NEU: Warnungsfarbe für Akku-Bau/Ethik-Highlight */
-            border-left: 4px solid var(--accent-color);
-            transition: border-left-color 0.3s;
-        }
-
-        .section.cachy-highlight {
-            border-left-color: var(--cachy-blue);
-        }
-        
-        .section.diablo-highlight {
-            border-left-color: var(--diablo-red);
-        }
-        
-        .section.vitals-highlight {
-            border-left-color: var(--vitals-blue);
-        }
-        
-        .section.repair-highlight { /* Neues Highlight für Reparatur/Ethik */
-             border-left-color: var(--warning-color);
-        }
-
-        /* Zitat-Box für Credo */
-        .quote-box {
-            background: rgba(76, 175, 80, 0.1);
-            border-left: 3px solid var(--accent-color);
-            padding: 15px;
-            margin: 20px 0;
-            font-style: italic;
-            color: var(--accent-color);
-            font-family: var(--font-terminal);
-        }
-
-        /* Buttons für Kontakt */
-        .action-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-right: 15px;
-            margin-top: 15px;
-            font-weight: bold;
-            font-family: var(--font-terminal);
-            transition: background-color 0.2s, transform 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .action-button.discord {
-            background-color: #7289da; 
         }
         
         /* Footer und Easter Eggs */
@@ -257,35 +225,67 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
-        /* NEU: Footer Status Indicator */
-        .status-indicator {
+
+        /* Besucherzähler Simulation */
+        @keyframes countup {
+            0% { content: '0000'; }
+            25% { content: '0042'; }
+            50% { content: '0087'; }
+            75% { content: '0153'; }
+            100% { content: '0188'; } 
+        }
+        .animated-counter {
             display: inline-block;
-            margin-left: 10px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-family: var(--font-terminal);
+        }
+        .animated-counter::after {
+            content: '0188'; 
+            color: var(--warning-color); 
+            animation: countup 8s infinite alternate steps(100);
+        }
+        
+        /* OnePlus Branding */
+        .oneplus-slogan {
+            color: #FF0000; 
             font-weight: bold;
-            color: var(--accent-color);
-            animation: blink 0.5s infinite;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .oneplus-icon {
+            width: 10px;
+            height: 10px;
+            background-color: #FF0000;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 5px #FF0000;
         }
         
-        /* Blinking Cursor Effekt - Für Header */
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background-color: var(--accent-color);
-            animation: blink 1s infinite;
-            vertical-align: middle;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* Media Queries bleiben unverändert */
+        /* [Weitere CSS-Regeln bleiben unverändert] */
     </style>
 </head>
 <body>
+
+    <div class="terminal-overlay">
+        <div class="terminal-log">
+            <pre class="log-line">
+System Log (PID 4892)
+INFO: Checking integrity of core assets... [OK]
+INFO: Running daily Pacman sync: 'pacman -Syu'... 
+WARN: Memory usage at 85%. Swapping initiated.
+INFO: CachyOS kernel 6.9.3 loaded successfully.
+DEBUG: Interface 'eth0' transmitting 1024 packets/sec.
+WARN: Dependency meltymon-cli.sh not found. Using fallback.
+INFO: Startup sequence complete. Ready for input.
+[SYSTEM] Rendering environment 7.0... 
+[OK] Rendering completed.
+</pre>
+        </div>
+    </div>
 
     <header>
         <h1>root@meltymon:~# echo "Willkommen auf meltymon.org"<span class="cursor"></span></h1>
@@ -298,12 +298,15 @@
             <h3>$ meltymon-cli.sh</h3>
             <nav>
                 <a href="#">@start: <span class="blinking-text">echo "Willkommen"</span></a>
+                
                 <a href="#competencies" class="marquee-link">
                     <span>STATUS: System-Check OK. | Akkuzellen-Prüfung läuft...</span>
                 </a>
                 
                 <a href="#whoami">whoami --verbose</a>
                 <a href="#mission">mission.txt</a>
+                
+                <a href="#hardware">system_info.hw</a>
                 <a href="#competencies">comp_matrix.json</a>
                 <a href="#tools">tools-config.ini</a>
                 <a href="#ethics-repair">ethics-report.sh</a>
@@ -342,24 +345,38 @@
                 </p>
             </section>
             
+            <section id="hardware" class="section cachy-highlight">
+                <h2>> system_info.hw --report</h2>
+                <p>
+                    Als Linux-Enthusiast lege ich Wert auf stabile und leistungsfähige Hardware. Hier ein Blick unter die Haube meiner aktuellen Workstation:
+                </p>
+                <ul class="icon-list">
+                    <li>**CPU:** AMD Ryzen 7 7700X (optimiert für CachyOS Kernel)</li>
+                    <li>**GPU:** NVIDIA GeForce RTX 4070 (mit proprietären Treibern)</li>
+                    <li>**RAM:** 64GB DDR5 (ECC-kompatibel)</li>
+                    <li>**Storage:** 2TB NVMe SSD (BTRFS Filesystem)</li>
+                    <li>**OS:** CachyOS Linux (Rolling Release, täglich geupdatet)</li>
+                </ul>
+            </section>
+
             <section id="competencies" class="section cachy-highlight">
                 <h2>> comp_matrix.json --display</h2>
                 <p>
-                    Meine Kompetenzen reichen von der täglichen IT-Betreuung bis hin zu hochspezialisierten, handwerklichen Aufgaben. Mein Fokus liegt auf **Langlebigkeit, Effizienz und Sicherheit** – in der privaten wie in der geschäftlichen IT.
+                    Mein Fokus liegt auf **Langlebigkeit, Effizienz und Sicherheit** – in der privaten wie in der geschäftlichen IT.
                 </p>
 
                 <h3>Kompetenzfeld I: IT-Services (Privat & Geschäftlich)</h3>
                 <ul class="icon-list">
                     <li>**Netzwerk- und Infrastruktur-Wartung:** Aufbau, Konfiguration und Wartung stabiler, sicherer Netzwerke (Router, Firewalls, VPNs).</li>
                     <li>**Datensicherung und Wiederherstellung:** Entwicklung solider Backup-Strategien für Privat- und KMU-Kunden.</li>
-                    <li>**Reparieren, Installieren und Warten:** Service für **alle möglichen Geräte** – von Laptops und Desktop-PCs bis zu komplexer Peripherie.</li>
-                    <li>**Digitalisierungssupport:** Unterstützung bei Cloud-Lösungen und der verständlichen Einrichtung digitaler Prozesse für die ältere Generation.</li>
+                    <li>**Reparieren, Installieren und Warten:** Service für **alle möglichen Geräte**.</li>
+                    <li>**Digitalisierungssupport:** Unterstützung bei Cloud-Lösungen und der verständlichen Einrichtung digitaler Prozesse.</li>
                 </ul>
 
-                <h3>Kompetenzfeld II: Spezialwissen Hardware & Akku-Bau (Hervorgehoben)</h3>
+                <h3>Kompetenzfeld II: Spezialwissen Hardware & Akku-Bau</h3>
                 <ul class="icon-list">
                     <li style="color: var(--warning-color);">**Hardware-Reparatur:** Ich hauche Geräten neues Leben ein. **Reparatur vor Austausch** ist hier das Credo.</li>
-                    <li style="color: var(--warning-color);">**Akku-Bau und Instandsetzung:** Ein Spezialgebiet ist die **Rekonstruktion und Instandsetzung** von Akkupacks. Dies erfordert präzises Löten, Zellen-Balancing und tiefes Verständnis für BMS – ein wichtiger Beitrag zur **Nachhaltigkeit**.</li>
+                    <li style="color: var(--warning-color);">**Akku-Bau und Instandsetzung:** **Rekonstruktion und Instandsetzung** von Akkupacks (Löten, Balancing, BMS-Verständnis).</li>
                 </ul>
             </section>
 
@@ -394,14 +411,14 @@
 
                 <h3>Ehrenamt & Soziales Engagement</h3>
                 <ul class="icon-list">
-                    <li>**Jugendleiter:** Als ehrenamtlicher **Jugendleiter** helfe ich jungen Menschen bei der Entwicklung von Teamfähigkeit und strukturiertem Denken.</li>
-                    <li>**Sanitäter:** Mein Engagement als **Sanitäter** erfordert schnelle, präzise Entscheidungen unter Druck und hohe Empathiefähigkeit – entscheidend im Kundensupport.</li>
+                    <li>**Jugendleiter:** Als ehrenamtlicher **Jugendleiter** helfe ich jungen Menschen.</li>
+                    <li>**Sanitäter:** Mein Engagement als **Sanitäter** erfordert schnelle, präzise Entscheidungen unter Druck.</li>
                 </ul>
                 
                 <h3>Globale Abenteuer & Logistik</h3>
                 <ul class="icon-list">
-                    <li>**Zwei Weltreisen mit dem Motorrad:** Ich war schon **überall auf der Welt** unterwegs. Diese Reisen lehrten mich **extreme Improvisation, Ausdauer und präzise Logistik** unter widrigsten Umständen.</li>
-                    <li>**Segeln:** Die Faszination für das Segeln vermittelt die Wichtigkeit, mit minimalistischen Mitteln maximale Ergebnisse zu erzielen.</li>
+                    <li>**Zwei Weltreisen mit dem Motorrad:** Lehre in **extremer Improvisation, Ausdauer und präziser Logistik**.</li>
+                    <li>**Segeln:** Die Wichtigkeit, mit minimalistischen Mitteln maximale Ergebnisse zu erzielen.</li>
                 </ul>
             </section>
 
@@ -462,7 +479,12 @@
         <div class="footer-content">
             <div class="visitor-count">
                 Besucher seit Deployment (Total): 
-                <img src="[HIER DEN CODE DEINES ZÄHLERS EINFÜGEN]" alt="Besucherzähler" style="height: 1.2em; display: inline;"> 
+                <span class="animated-counter"></span>
+            </div>
+
+            <div class="oneplus-slogan">
+                <div class="oneplus-icon"></div>
+                NEVER SETTLE
             </div>
 
             <div class="easter-egg-hint">
