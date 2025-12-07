@@ -16,6 +16,7 @@
             --cachy-blue: #00bcd4; 
             --diablo-red: #d32f2f; 
             --vitals-blue: #2196f3; 
+            --language-switch-bg: #2d2d2d; 
         }
 
         html {
@@ -132,6 +133,43 @@
             line-height: 1.2;
         }
 
+        /* Sprachumschalter */
+        .language-switcher {
+            background-color: var(--language-switch-bg); 
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            text-align: center;
+            font-family: var(--font-terminal); 
+            gap: 8px 10px; 
+        }
+
+        .language-switcher a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 3px 6px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .language-switcher a:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .language-switcher a.active {
+            color: var(--accent-color); 
+            font-weight: bold;
+            border-color: var(--accent-color);
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+        /* Ende Sprachumschalter */
+
         /* Laufender Text (Marquee) */
         @keyframes marquee {
             0% { transform: translateX(100%); }
@@ -234,7 +272,7 @@
         /* Header Fixes - LINKSSEITIG */
         header {
             text-align: left; 
-            padding: 60px 20px;
+            padding-top: 20px;
             background: linear-gradient(180deg, #121212 0%, #171717 100%);
             border-bottom: 1px solid #333;
             display: flex;
@@ -245,6 +283,8 @@
         header h1 {
             font-size: 1.8rem; 
             text-align: left; 
+            padding: 20px 20px 0 20px; 
+            margin: 0;
         }
         
         /* Blinkender Cursor (vertikaler Strich nach dem H1-Befehl) */
@@ -401,15 +441,25 @@
             
             /* Header-Anpassungen */
             header {
-                padding: 30px 10px; 
+                padding: 10px 10px 20px 10px; 
             }
             header h1 {
                 font-size: 1.5rem; 
+                padding: 0 0 10px 0;
             }
             .tagline {
                 font-size: 0.9rem;
+                padding: 0 10px;
             }
 
+            /* Sprachumschalter */
+            .language-switcher {
+                padding: 10px 5px;
+            }
+            .language-switcher a {
+                padding: 2px 4px;
+            }
+            
             /* Sidebar Menü: Kompakter */
             .sidebar nav a {
                 padding: 8px 15px;
@@ -454,16 +504,28 @@ INFO: CachyOS kernel 6.9.3 loaded successfully.
 DEBUG: Interface 'eth0' transmitting 1024 packets/sec.
 WARN: Dependency meltymon-cli.sh not found. Using fallback.
 INFO: Startup sequence complete. Ready for input.
-[SYSTEM] Rendering environment 9.3 (Hardware Config Clean-up)... 
+[SYSTEM] Rendering environment 9.4 (Multilingual Switch Implemented)... 
 [OK] Rendering completed.
 </pre>
         </div>
     </div>
 
     <header>
+        <div class="language-switcher">
+            🌐 Sprache: 
+            <a href="index.html" class="active">DE</a>
+            <a href="index_en.html" title="English (USA)">EN</a>
+            <a href="index_fr.html" title="Français (France)">FR</a>
+            <a href="index_it.html" title="Italiano (Italia)">IT</a>
+            <a href="index_no.html" title="Norsk (Norge)">NO</a>
+            <a href="index_tr.html" title="Türkçe (Türkiye)">TR</a>
+            <a href="index_ar.html" title="العربية (Arabic)">AR</a>
+            <a href="index_ua.html" title="Українська (Ukrainian)">UA</a>
+        </div>
+        
         <h1>root@meltymon:~# echo "Willkommen auf meltymon.org"<span class="cursor"></span></h1>
         
-        <p class="tagline">IT-Veteran <span class="separator-blink" style="color:#FFF;">|</span> Gaming-Strategist <span class="separator-blink" style="color:#FFF;">|</span> CachyOS-Enthusiast <span class="separator-blink" style="color:var(--cachy-blue);">|</span> <span style="color:var(--accent-color);">Deployed via Cloudflare A-Record</span></p>
+        <p class="tagline" style="padding: 0 20px 40px 20px;">IT-Veteran <span class="separator-blink" style="color:#FFF;">|</span> Gaming-Strategist <span class="separator-blink" style="color:#FFF;">|</span> CachyOS-Enthusiast <span class="separator-blink" style="color:var(--cachy-blue);">|</span> <span style="color:var(--accent-color);">Deployed via Cloudflare A-Record</span></p>
     </header>
 
     <div class="main-layout">
@@ -714,8 +776,12 @@ INFO: Startup sequence complete. Ready for input.
                     <pre style="font-family: var(--font-terminal); font-size: 0.85rem; color: #FFF; line-height: 1.4;">
 <span style="color: var(--accent-color);">[SYSTEM] Initializing Version Log...</span>
 
+<span style="color: var(--cachy-blue);">-- V 9.4 (2025-12-07) --</span>
+FEATURE: Implementierung des <span style="color: var(--warning-color);">Multilingual-Switches</span> im Header.
+NOTE: Erfordert separate HTML-Dateien (index_en.html, index_fr.html, etc.) für volle Funktionalität.
+
 <span style="color: var(--cachy-blue);">-- V 9.3 (2025-12-07) --</span>
-FIX: Entfernung des alten, fehlerhaften <span style="color: var(--warning-color);">Hardware-Platzhalter-Textes</span> aus der Sektion #hardware.
+FIX: Entfernung des alten, fehlerhaften Hardware-Platzhalter-Textes aus der Sektion #hardware.
 
 <span style="color: var(--cachy-blue);">-- V 9.2 (2025-12-07) --</span>
 UPDATE: Sektion <span style="color: var(--warning-color);">#hardware</span> mit detaillierten Lenovo Thinkstation P700 Specs, Dual-Xeon, 768GB ECC-RAM und Intel Arc A750 aktualisiert.
@@ -727,15 +793,6 @@ FIX: Battle.net-ID in #diablo auf <span style="color: var(--warning-color);">rip
 
 <span style="color: var(--cachy-blue);">-- V 9.0 (2025-12-07) --</span>
 FEATURE: Implementierung einer DSGVO-konformen Datenschutzerklärung für statische Seite.
-UPDATE: Icons und Emojis für visuelle Attraktivität hinzugefügt.
-UPDATE: Gaming-Tools um <a style="color:var(--cachy-blue);">Steam</a> und <a style="color:var(--cachy-blue);">Ubisoft-Connector</a> erweitert.
-FIX: Sektion <a style="color:var(--cachy-blue);">versions.log</a> ans Ende des Hauptinhalts verschoben.
-
-<span style="color: var(--cachy-blue);">-- V 8.7 (2025-12-07) --</span>
-FIX: Header-Ausrichtung auf Links-Seiten-Bündig gesetzt (Terminal-Look).
-
-<span style="color: var(--cachy-blue);">-- V 8.0 (2025-12-06) --</span>
-REFACTOR: Umfassender Refactor zu Flexbox-Layout (Sidebar links, Content rechts).
 
 <span style="color: var(--cachy-blue);">-- V 1.0 (2025-12-01) --</span>
 INIT: Initialer Aufbau der Seite als statische HTML-Datei.
