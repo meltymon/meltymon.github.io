@@ -88,6 +88,18 @@
             transition: background-color 0.3s, color 0.3s, padding 0.3s;
         }
 
+        /* AKTUELLE ANPASSUNG: Blinkender Cursor beim Hovern in der Navigation */
+        .sidebar nav a:hover::after {
+            content: ''; 
+            display: inline-block;
+            width: 8px; 
+            height: 1em;
+            background-color: var(--accent-color);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
         .sidebar nav a:hover {
             background-color: rgba(76, 175, 80, 0.25); 
             color: var(--accent-color);
@@ -252,7 +264,7 @@
             opacity: 0.8; 
         }
         
-        /* Blinking Cursor Effekt - Wiederhergestellt */
+        /* Blinking Cursor Effekt - Für Header */
         .cursor {
             display: inline-block;
             width: 10px;
@@ -364,134 +376,3 @@
                 <h2>> tools-config.ini --view</h2>
                 <p>
                     Als begeisterter Gamer und Linux-Nutzer habe ich mich auf die reibungslose Integration von Windows-Spielen unter Linux spezialisiert.
-                </p>
-                <h3>Meine Gaming-Plattformen und Tools:</h3>
-                <ul class="icon-list">
-                    <li>**Wine & Lutris:** Die Basis für alles, was nicht nativ läuft.</li>
-                    <li>**Heroic Games Launcher, GOG Games, Epicgames:** Die zentralen Schnittstellen für meine Bibliotheken.</li>
-                    <li>**Pacman:** Das Herzstück meiner CachyOS-Umgebung.</li>
-                </ul>
-            </section>
-
-            <section id="ethics-repair" class="section cachy-highlight" style="border-left-color: #ff5722;">
-                <h2>> ethics-report.sh --run</h2>
-                <p>
-                    Die Wegwerf-Mentalität großer Konzerne lehne ich ab. Ich berate meine Kunden immer dahingehend, das **Nachhaltigste** und **Kostengünstigste** zu tun.
-                </p>
-                <p>
-                    **Das Recht auf Reparatur** ist für mich mehr als nur ein politisches Schlagwort. Ich zeige gerne, wie man kleine Probleme selbst behebt und behalte Wissen nicht für mich.
-                </p>
-            </section>
-            
-            <section id="vitals" class="section vitals-highlight">
-                <h2>> vitals.log --export</h2>
-                <p>
-                    Abseits von Terminals und Pacman-Updates finde ich Balance in ehrenamtlichem Engagement und Abenteuer. Diese Erfahrungen schärfen meine Fähigkeiten zur **Krisenbewältigung, Planung und Menschenführung**.
-                </p>
-
-                <h3>Ehrenamt & Soziales Engagement</h3>
-                <ul class="icon-list">
-                    <li>**Jugendleiter:** Als ehrenamtlicher **Jugendleiter** helfe ich jungen Menschen bei der Entwicklung von Teamfähigkeit und strukturiertem Denken.</li>
-                    <li>**Sanitäter:** Mein Engagement als **Sanitäter** erfordert schnelle, präzise Entscheidungen unter Druck und hohe Empathiefähigkeit – entscheidend im Kundensupport.</li>
-                </ul>
-                
-                <h3>Globale Abenteuer & Logistik</h3>
-                <ul class="icon-list">
-                    <li>**Zwei Weltreisen mit dem Motorrad:** Ich war schon **überall auf der Welt** unterwegs. Diese Reisen lehrten mich **extreme Improvisation, Ausdauer und präzise Logistik** unter widrigsten Umständen.</li>
-                    <li>**Segeln:** Die Faszination für das Segeln vermittelt die Wichtigkeit, mit minimalistischen Mitteln maximale Ergebnisse zu erzielen.</li>
-                </ul>
-            </section>
-
-
-            <section id="gaming" class="section">
-                <h2>> games.log --favorites</h2>
-                <p>
-                    Ich spiele gerne strategisch, taktisch und tiefgründig.
-                </p>
-                <h3>Meine Klassiker und Remakes:</h3>
-                <ul class="icon-list">
-                    <li>**Taktik:** XCOM Serie (1-12) & Jagged Alliance.</li>
-                    <li>**Remakes:** Return to the Roots (Siedler 2) und Settlers United (Siedler 3/4).</li>
-                </ul>
-            </section>
-            
-            <section id="diablo" class="section diablo-highlight">
-                <h2>> diablo3-active.run --status</h2>
-                <p>
-                    **STATUS: Aktiv & Grind-Modus**
-                </p>
-                <p>
-                    Seit Freitag ist die **Season 37 von Diablo 3: Reaper of Souls** aktiv! Wenn du mit mir Dämonen jagen möchtest, kontaktiere mich am besten über Discord!
-                </p>
-                <p>
-                    **Battle.net:** `meltymon`
-                </p>
-            </section>
-
-            <section id="contact" class="section" style="border-left-color: #ff9800;">
-                <h2>> kontakt@meltymon.org</h2>
-                <p>
-                    Du brauchst Hilfe mit deinem **PC, Mac, Linux-System, Smartphone oder Tablet**? Oder willst einfach über Retro-Games fachsimpeln? Wähle den schnellsten Weg:
-                </p>
-                
-                <a href="mailto:sysadmin@meltymon.org" class="action-button">
-                    ✉️ E-Mail senden
-                </a>
-                <a href="https://discordapp.com/users/meltymon" target="_blank" class="action-button discord">
-                    💬 Discord (@meltymon)
-                </a>
-                <a href="https://www.twitch.tv/meltymon" target="_blank" class="action-button">
-                    📺 Twitch (@meltymon)
-                </a>
-                
-                <h3 style="margin-top: 30px; border-bottom: none;">Weitere Kontakte:</h3>
-                <ul class="icon-list">
-                    <li>**Discord:** `@meltymon` (Bevorzugt für schnelle Fragen)</li>
-                    <li>**Twitch:** `@meltymon`</li>
-                </ul>
-            </section>
-
-        </div>
-    </div>
-
-    <footer>
-        
-        <div class="visitor-count">
-            Besucher seit Deployment (Total): 
-            <img src="[HIER DEN CODE DEINES ZÄHLERS EINFÜGEN]" alt="Besucherzähler" style="height: 1.2em; display: inline;"> 
-        </div>
-
-        <div class="easter-egg-hint">
-            <strong>System Log: [HINWEIS]</strong> - Scan nach versteckten Assets beendet.<br>
-            Ergebnis: 3 nicht indizierte Dateien gefunden.<br>
-            Rätsel: 1x Oldschool-Modus, 1x Mauszeiger-Test, 1x Terminal-Symbol.<br>
-            Status: Suche wird nicht automatisch beendet.
-        </div>
-        
-        <pre class="ascii-logo">
-      _  __         _    _  _   _ 
-     | |/ /  _ __  | |__| || |_| |
-     | ' /  | '_ \ | '_ \| || __| |
-     | . \  | | | || | | | || |_|_|
-     |_|\_\ |_| |_||_| |_||_| \__(_)
-        </pre>
-        <p>Erstellt mit 100% Handarbeit. Keine Cookies. Kein Tracking. Nur HTML & CSS.</p>
-        <p>&copy; 2025 Christian Faßbender | <a href="https://meltymon.org" style="color:var(--accent-color);">meltymon.org</a></p>
-        
-        <p style="font-size: 0.8rem; margin-top: 10px;">
-            <a href="https://archive.org/details/msdos_X-COM_UFO_Defense_1994" target="_blank" 
-               title="Das wahre Ende des Tages..." 
-               style="color: var(--accent-color); text-decoration: none; font-weight: bold; border-bottom: 1px dotted var(--accent-color);">
-               [OLD-SCHOOL MODE: X-COM START]
-            </a>
-        </p>
-        
-        <div class="hidden-code">
-            cat /etc/meltymon-motto
-            # Trust but verify. Always backup before running unknown scripts.
-            # CachyOS & Pacman are love.
-        </div>
-    </footer>
-
-</body>
-</html>
