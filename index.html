@@ -86,28 +86,28 @@
             font-size: 0.95rem;
             border-top: 1px solid #222;
             transition: background-color 0.3s, color 0.3s, padding 0.3s;
-            position: relative; /* Für den Hover-Effekt notwendig */
+            position: relative; 
         }
 
-        /* AKTUELLE ANPASSUNG: Blinkender Cursor und aktiver Pfeil beim Hovern */
+        /* Blinkender Cursor und aktiver Pfeil beim Hovern */
         .sidebar nav a:hover {
             background-color: rgba(76, 175, 80, 0.25); 
             color: var(--accent-color);
-            padding-left: 45px; /* Mehr Platz für den Pfeil */
+            padding-left: 45px; 
         }
         
         .sidebar nav a:hover::before {
-            content: '-> '; /* NEU: aktiver Pfeil */
+            content: '-> '; 
             color: var(--accent-color);
             position: absolute;
-            left: 20px; /* Positioniert den Pfeil links neben dem Text */
+            left: 20px; 
             top: 50%;
             transform: translateY(-50%);
             font-weight: bold;
         }
         
         .sidebar nav a:hover::after {
-            content: ''; /* Blinkender Cursor */
+            content: ''; 
             display: inline-block;
             width: 8px; 
             height: 1em;
@@ -226,15 +226,22 @@
             background-color: #99aab5;
         }
 
-        /* Footer und Easter Eggs */
+        /* Footer und Easter Eggs - KORRIGIERT */
         footer {
-            text-align: center;
-            padding: 40px;
+            /* Entfernt die Linksbündigkeit */
+            text-align: center; 
+            padding: 40px 20px;
             font-size: 0.8rem;
             opacity: 0.9;
             font-family: var(--font-terminal);
             border-top: 1px solid #333;
             margin-top: 30px;
+        }
+        
+        /* Sorgt dafür, dass der Inhalt des Footers zentriert und begrenzt ist */
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         /* Besucherzähler Stil */
@@ -488,7 +495,7 @@
         </div>
     </div>
 
-    <footer>
+    <footer class="footer-content">
         
         <div class="visitor-count">
             Besucher seit Deployment (Total): 
