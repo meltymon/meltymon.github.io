@@ -86,7 +86,7 @@
         
         /* Sidebar Styling */
         .sidebar {
-            width: 280px; 
+            width: 250px; /* Breite reduziert */
             margin-right: 30px;
             padding: 0;
             position: sticky; 
@@ -221,27 +221,27 @@
             min-width: 0; 
         }
 
-        /* Header Fixes - ZENTRIERT und Schriftgröße angepasst */
+        /* Header Fixes - LINKSSEITIG und Schriftgröße angepasst */
         header {
-            text-align: center;
+            text-align: left; /* LINKSSEITIG */
             padding: 60px 20px;
             background: linear-gradient(180deg, #121212 0%, #171717 100%);
             border-bottom: 1px solid #333;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* Links ausrichten */
         }
         
         header h1 {
-            font-size: 1.8rem; /* Größe reduziert */
-            text-align: center; /* Zentriert */
+            font-size: 1.8rem; 
+            text-align: left; 
         }
         
         /* Blinkender Cursor (vertikaler Strich nach dem H1-Befehl) */
         .cursor {
             display: inline-block;
             width: 10px;
-            height: 1.5em; /* An H1-Höhe angepasst */
+            height: 1.5em; 
             background-color: var(--accent-color); 
             animation: startblink 1s infinite step-end;
             margin-left: 5px;
@@ -419,7 +419,7 @@ INFO: CachyOS kernel 6.9.3 loaded successfully.
 DEBUG: Interface 'eth0' transmitting 1024 packets/sec.
 WARN: Dependency meltymon-cli.sh not found. Using fallback.
 INFO: Startup sequence complete. Ready for input.
-[SYSTEM] Rendering environment 8.6 (Versions Log Added)... 
+[SYSTEM] Rendering environment 8.7 (Tools Text Added, Header Left-aligned)... 
 [OK] Rendering completed.
 </pre>
         </div>
@@ -473,13 +473,18 @@ INFO: Startup sequence complete. Ready for input.
                     <pre style="font-family: var(--font-terminal); font-size: 0.85rem; color: #FFF; line-height: 1.4;">
 <span style="color: var(--accent-color);">[SYSTEM] Initializing Version Log...</span>
 
+<span style="color: var(--cachy-blue);">-- V 8.7 (2025-12-07) --</span>
+FIX: Header-Ausrichtung auf <span style="color: var(--warning-color);">Links-Seiten-Bündig</span> gesetzt (Terminal-Look).
+FIX: Sidebar-Breite auf Desktop reduziert (<span style="color: var(--warning-color);">250px</span>).
+UPDATE: Fehlender Beschreibungstext und Liste in <span style="color: var(--warning-color);">#tools</span> ergänzt.
+
 <span style="color: var(--cachy-blue);">-- V 8.6 (2025-12-07) --</span>
 FEATURE: Implementierung des vollständigen Versions-Logs (<a style="color:var(--cachy-blue);">versions.log</a>).
 UPDATE: Versionsnummer im Terminal-Overlay angepasst.
 
 <span style="color: var(--cachy-blue);">-- V 8.5 (2025-12-07) --</span>
-FIX: Implementierung umfassender <span style="color: var(--warning-color);">Media Queries</span> für optimale mobile Darstellung (unter 768px).
-FIX: Sidebar auf mobilen Geräten nun <span style="color: var(--warning-color);">100% Breite und static</span>.
+FIX: Implementierung umfassender Media Queries für optimale mobile Darstellung (unter 768px).
+FIX: Sidebar auf mobilen Geräten nun 100% Breite und static.
 UPDATE: Header-Größen und Padding für kleine Viewports reduziert.
 
 <span style="color: var(--cachy-blue);">-- V 8.4 (2025-12-07) --</span>
@@ -487,7 +492,7 @@ FEATURE: Hinzufügen der Blog/Journal-Sektion (<a style="color:var(--cachy-blue)
 UPDATE: Interne Code-Struktur für zukünftige manuelle Blog-Posts vorbereitet.
 
 <span style="color: var(--cachy-blue);">-- V 8.3 (2025-12-07) --</span>
-FIX: **Rechtliche Anpassung:** <span style="color: var(--warning-color);">Impressum-Sektion entfernt</span>, da die Seite privat betrieben wird.
+FIX: **Rechtliche Anpassung:** Impressum-Sektion entfernt, da die Seite privat betrieben wird.
 FIX: E-Mail-Kontakt von sysadmin@ auf <a style="color:var(--cachy-blue);">kontakt@meltymon.org</a> geändert.
 
 <span style="color: var(--cachy-blue);">-- V 8.2 (2025-12-06) --</span>
@@ -496,7 +501,7 @@ FEATURE: Hinzufügen der Buttons für Discord, E-Mail und Twitch im <a style="co
 FEATURE: Marquee-Link im Menü für Status-Updates eingefügt.
 
 <span style="color: var(--cachy-blue);">-- V 8.0 (2025-12-06) --</span>
-REFACTOR: Umfassender Refactor zu <span style="color: var(--warning-color);">Flexbox-Layout</span> (Sidebar links, Content rechts).
+REFACTOR: Umfassender Refactor zu Flexbox-Layout (Sidebar links, Content rechts).
 STYLE: Einführung des Terminal-Fonts (<a style="color:var(--cachy-blue);">Courier New</a>) für Header und Menü.
 FEATURE: Implementierung des **Persistent Terminal Overlays**.
 
@@ -613,10 +618,13 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
                     Als begeisterter Gamer und Linux-Nutzer habe ich mich auf die reibungslose Integration von Windows-Spielen unter Linux spezialisiert.
                 </p>
                 <h3>Meine Gaming-Plattformen und Tools:</h3>
+                <p>
+                    Die moderne Gaming-Landschaft unter Linux ist dank der Arbeit von Valve, WINE und der Community hervorragend. Ich helfe Ihnen gerne bei der Einrichtung, um Windows-Titel stabil und schnell auf Linux zum Laufen zu bringen. 
+                </p>
                 <ul class="icon-list">
-                    <li>**Wine & Lutris:** Die Basis für alles, was nicht nativ läuft.</li>
-                    <li>**Heroic Games Launcher, GOG Games, Epicgames:** Die zentralen Schnittstellen für meine Bibliotheken.</li>
-                    <li>**Pacman:** Das Herzstück meiner CachyOS-Umgebung.</li>
+                    <li>**Wine & Lutris:** Die Basis für alles, was nicht nativ läuft, optimiert mit den neuesten Kernel- und Treiber-Patches.</li>
+                    <li>**Heroic Games Launcher, GOG Games, Epicgames:** Die zentralen Schnittstellen für meine Bibliotheken und die Verwaltung verschiedener Kompatibilitätsschichten (Wine/Proton).</li>
+                    <li>**Pacman:** Das Herzstück meiner CachyOS-Umgebung, um stets die aktuellsten Gaming-spezifischen Pakete (z.B. Mesa, Vulkan) zu installieren.</li>
                 </ul>
             </section>
 
