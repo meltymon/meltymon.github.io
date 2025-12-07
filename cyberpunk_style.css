@@ -47,6 +47,7 @@ h1, h2, h3 {
     background-color: var(--card-bg); 
     border: 1px solid #333; 
     margin-bottom: 25px; 
+    /* Basis-Akzent: Secondary Accent für Kontrast */
     border-left: 5px solid var(--secondary-accent); 
     box-shadow: 0 0 8px rgba(255, 0, 255, 0.15); /* Subtile Magenta-Box-Shadow */
     border-radius: 4px; 
