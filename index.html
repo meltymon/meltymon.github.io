@@ -152,7 +152,139 @@
             transition: border-left-color 0.3s;
         }
 
-        /* ... [Weitere Style-Regeln bleiben unverändert] ... */
+        .section.cachy-highlight {
+            border-left-color: var(--cachy-blue);
+        }
+        
+        .section.diablo-highlight {
+            border-left-color: var(--diablo-red);
+        }
+        
+        .section.vitals-highlight {
+            border-left-color: var(--vitals-blue);
+        }
+
+        /* Zitat-Box für Credo */
+        .quote-box {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: var(--accent-color);
+            font-family: var(--font-terminal);
+        }
+
+        /* Listen-Icons für Nerd-Look (Unicode-Pfeil) */
+        ul.icon-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul.icon-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+        
+        ul.icon-list li::before {
+            content: '>'; /* Terminal-Pfeil */
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            font-family: var(--font-terminal);
+        }
+
+        /* Buttons für Kontakt */
+        .action-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 15px;
+            margin-top: 15px;
+            font-weight: bold;
+            font-family: var(--font-terminal);
+            transition: background-color 0.2s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .action-button:hover {
+            background-color: #66bb6a;
+            transform: translateY(-2px);
+        }
+
+        .action-button.discord {
+            background-color: #7289da; /* Discord Blau */
+        }
+        .action-button.discord:hover {
+            background-color: #99aab5;
+        }
+
+        /* Footer und Easter Eggs */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-family: var(--font-terminal);
+            border-top: 1px solid #333;
+            margin-top: 30px;
+        }
+        
+        /* Besucherzähler Stil */
+        .visitor-count {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .visitor-count img {
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        /* Easter Egg Hinweis Box */
+        .easter-egg-hint {
+            background: #282828;
+            padding: 10px;
+            border: 1px dashed #555;
+            margin: 20px auto 10px auto;
+            max-width: 600px;
+            color: #ccc;
+            font-family: var(--font-terminal);
+            font-size: 0.8rem;
+            text-align: left;
+        }
+
+        /* ASCII Art Logo */
+        .ascii-logo {
+            white-space: pre; 
+            font-size: 0.7rem;
+            line-height: 1;
+            color: var(--cachy-blue); 
+            margin: 15px auto 5px auto;
+            display: block;
+            text-align: center;
+        }
+
+        /* Zweites Easter Egg (Versteckter Code) */
+        .hidden-code {
+            color: #444; 
+            font-size: 0.6rem;
+            opacity: 0.1; 
+            transition: opacity 0.3s;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .hidden-code:hover {
+            opacity: 0.8; 
+        }
         
         /* Blinking Cursor Effekt - Für Header */
         .cursor {
