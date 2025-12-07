@@ -2,15 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christian Faßbender | meltymon.org</title>
-    <style> /* ... (Style-Code von oben einfügen) ... */ </style>
+    <style> 
+        :root {
+            --bg-color: #121212;
+            --text-color: #f0f0f0; 
+            --accent-color: #4caf50; 
+            --warning-color: #ffc107; 
+            --card-bg: #1e1e1e;
+            --font-terminal: 'Courier New', Courier, monospace; 
+            --font-main: 'Courier New', Courier, monospace; 
+            --cachy-blue: #00bcd4; 
+            --diablo-red: #d32f2f; 
+            --vitals-blue: #2196f3; 
+            --language-switch-bg: #2d2d2d; 
+        }
+
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-main); line-height: 1.6; margin: 0; padding: 0; position: relative; }
+        body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: repeating-linear-gradient( 0deg, rgba(18, 18, 18, 0.1), rgba(18, 18, 18, 0.2) 1px, transparent 1px, transparent 2px ); opacity: 0.15; z-index: 9999; }
+        h1, h2, h3 { font-family: var(--font-terminal); color: var(--accent-color); }
+        .icon-prefix { margin-right: 10px; color: var(--cachy-blue); }
+        .icon-warn { color: var(--warning-color); }
+        code { background-color: rgba(76, 175, 80, 0.1); color: var(--accent-color); padding: 2px 4px; border-radius: 3px; font-family: var(--font-terminal); }
+        .section { padding: 20px; background-color: var(--card-bg); border: 1px solid #333; margin-bottom: 25px; border-left: 5px solid var(--accent-color); box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); border-radius: 4px; }
+        .main-layout { display: flex; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .sidebar { width: 250px; margin-right: 30px; padding: 0; position: sticky; top: 20px; height: fit-content; background: #0d0d0d; border: 2px solid var(--accent-color); box-shadow: 0 0 15px rgba(76, 175, 80, 0.6); border-radius: 4px; z-index: 10; }
+        .sidebar h3 { background-color: var(--accent-color); color: #0d0d0d; padding: 10px 20px; margin-top: 0; margin-bottom: 0; font-size: 1.2rem; text-align: center; }
+        .sidebar nav a { display: block; padding: 10px 20px; text-decoration: none; color: var(--text-color); font-family: var(--font-terminal); font-size: 0.95rem; border-top: 1px solid #222; transition: background-color 0.3s, color 0.3s, padding 0.3s; position: relative; line-height: 1.2; }
+        .language-switcher { background-color: var(--language-switch-bg); color: var(--text-color); padding: 10px 20px; border-bottom: 1px solid #333; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; font-size: 0.8rem; text-align: center; font-family: var(--font-terminal); gap: 8px 10px; }
+        .language-switcher a { color: var(--text-color); text-decoration: none; padding: 3px 6px; border: 1px solid transparent; transition: all 0.2s; }
+        .language-switcher a:hover { color: var(--accent-color); border-color: var(--accent-color); }
+        .language-switcher a.active { color: var(--accent-color); font-weight: bold; border-color: var(--accent-color); background-color: rgba(76, 175, 80, 0.1); }
+        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        .marquee-link { overflow: hidden; white-space: nowrap; border-top: 1px solid var(--warning-color) !important; background-color: rgba(255, 193, 7, 0.05); color: var(--warning-color) !important; }
+        .marquee-link span { display: inline-block; padding-left: 100%; animation: marquee 10s linear infinite; font-size: 0.9em; }
+        .sidebar nav a:hover { background-color: var(--accent-color); color: var(--bg-color); padding-left: 45px; }
+        .sidebar nav a:hover::before { content: '-> '; color: var(--bg-color); position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-weight: bold; }
+        .sidebar nav a:hover::after { content: ''; display: inline-block; width: 8px; height: 1em; background-color: var(--bg-color); animation: blink 1s infinite; vertical-align: middle; margin-left: 5px; }
+        @keyframes startblink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .blinking-text { animation: startblink 1.5s infinite step-end; color: var(--cachy-blue); }
+        .terminal-overlay { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%; max-width: 600px; height: 150px; background: rgba(0, 0, 0, 0.9); border: 1px solid var(--accent-color); box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); padding: 15px; z-index: 100; pointer-events: none; opacity: 0.15; overflow: hidden; }
+        .terminal-log { font-family: var(--font-terminal); color: var(--accent-color); font-size: 0.8rem; height: 100%; line-height: 1.5; }
+        @keyframes logscroll { 0% { transform: translateY(0); } 100% { transform: translateY(-100%); } }
+        .log-line { animation: logscroll 20s linear infinite; display: block; white-space: pre; padding-bottom: 100%; }
+        .main-content { flex-grow: 1; min-width: 0; }
+        header { text-align: left; padding-top: 20px; background: linear-gradient(180deg, #121212 0%, #171717 100%); border-bottom: 1px solid #333; display: flex; flex-direction: column; align-items: flex-start; }
+        header h1 { font-size: 1.8rem; text-align: left; padding: 20px 20px 0 20px; margin: 0; }
+        .cursor { display: inline-block; width: 10px; height: 1.5em; background-color: var(--accent-color); animation: startblink 1s infinite step-end; margin-left: 5px; vertical-align: middle; }
+        footer { text-align: center; padding: 40px 20px; font-size: 0.8rem; opacity: 0.9; font-family: var(--font-terminal); border-top: 1px solid #333; margin-top: 30px; }
+        .footer-content { max-width: 800px; margin: 0 auto; }
+        @keyframes countup { 0% { content: '0000'; } 25% { content: '0042'; } 50% { content: '0087'; } 75% { content: '0153'; } 100% { content: '0188'; } }
+        .animated-counter { display: inline-block; color: var(--text-color); font-size: 0.9rem; font-family: var(--font-terminal); }
+        .animated-counter::after { content: '0188'; color: var(--warning-color); animation: countup 8s infinite alternate steps(100); }
+        .oneplus-slogan { color: #FF0000; font-weight: bold; font-size: 0.9em; margin-top: 10px; display: flex; justify-content: center; align-items: center; }
+        .oneplus-icon { width: 10px; height: 10px; background-color: #FF0000; border-radius: 50%; margin-right: 8px; box-shadow: 0 0 5px #FF0000; }
+        .separator-blink { animation: startblink 1s infinite step-end; margin: 0 5px; display: inline-block; }
+        .action-button { display: inline-block; background-color: var(--accent-color); color: var(--bg-color); padding: 12px 25px; text-decoration: none; border-radius: 4px; margin-right: 15px; margin-top: 15px; font-weight: bold; font-family: var(--font-terminal); transition: background-color 0.2s, transform 0.2s; border: none; cursor: pointer; }
+        .action-button:hover { background-color: #66bb6a; transform: translateY(-2px); }
+        .action-button.discord { background-color: #7289da; }
+        .action-button.discord:hover { background-color: #99aab5; }
+        .icon-list { list-style: none; padding-left: 0; }
+        .icon-list li::before { content: '>'; color: var(--cachy-blue); font-family: var(--font-terminal); margin-right: 10px; font-weight: bold; }
+        .datenschutz p { font-size: 0.9rem; margin-bottom: 15px; }
+        .datenschutz h3 { color: #ff5722; border-bottom: 1px dotted #ff5722; padding-bottom: 5px; margin-top: 30px; }
+        @media (max-width: 768px) {
+            .main-layout { flex-direction: column; padding: 10px; }
+            .sidebar { width: 100%; margin-right: 0; position: static; top: 0; order: 0; }
+            .main-content { padding-top: 20px; order: 1; }
+            header { padding: 10px 10px 20px 10px; }
+            header h1 { font-size: 1.5rem; padding: 0 0 10px 0; }
+            .tagline { font-size: 0.9rem; padding: 0 10px; }
+            .language-switcher { padding: 10px 5px; }
+            .language-switcher a { padding: 2px 4px; }
+            .sidebar nav a { padding: 8px 15px; font-size: 0.9rem; }
+            .sidebar nav a:hover { padding-left: 20px; }
+            .sidebar nav a:hover::before { content: ''; }
+            .action-button { display: block; width: 90%; margin: 10px auto; text-align: center; }
+            .terminal-overlay { width: 90%; height: 100px; opacity: 0.1; }
+        }
+    </style>
 </head>
 <body>
+
     <div class="terminal-overlay">
         <div class="terminal-log">
             <pre class="log-line">
+System Log (PID 4892)
 [SYSTEM] Rendering environment 9.4 (English Language Pack)...
-INFO: Core assets integrity check... [OK]
+INFO: Checking integrity of core assets... [OK]
+INFO: Running daily Pacman sync: 'pacman -Syu'... 
 ...
 </pre>
         </div>
@@ -43,7 +125,19 @@ INFO: Core assets integrity check... [OK]
                     <span>STATUS: System Check OK. | Battery Cell Inspection Running...</span>
                 </a>
                 <a href="#whoami">whoami --verbose</a>
-                </nav>
+                <a href="#mission">mission.txt</a>
+                <a href="#hardware">system_info.hw</a>
+                <a href="#competencies">comp_matrix.json</a>
+                <a href="#blog">journal.log</a> 
+                <a href="#tools">tools-config.ini</a>
+                <a href="#ethics-repair">ethics-report.sh</a>
+                <a href="#vitals">vitals.log</a>
+                <a href="#gaming">games.log</a>
+                <a href="#diablo">diablo3-active.run</a>
+                <a href="#contact">contact@meltymon.org</a>
+                <a href="#versions-log">versions.log</a> 
+                <a href="#privacy">privacy.txt</a>
+            </nav>
         </aside>
 
         <div class="main-content">
@@ -52,9 +146,64 @@ INFO: Core assets integrity check... [OK]
                 <p>
                     I am **Christian Faßbender**, an IT technician and Linux user by deepest conviction. My system has been **Windows-free** for over 10 years, and my current daily driver is the super-fast **CachyOS** <span style="color:var(--cachy-blue);">🐧</span>. I love systems that not only work but can be understood and optimized down to the smallest detail. <code>Pacman -Syu</code> is a daily routine for me.
                 </p>
-                </section>
+                <p>
+                    I use my technical expertise to help people. Especially the older generation, I support with the necessary **patience and clarity**, far away from overpriced bills and the throwaway mentality of large corporations.
+                </p>
+                <div class="ascii-art">
+                   / \
+                  | O |
+                  \ _ /
+                   / \ 
+                </div>
+            </section>
             
-            </div>
+            <section id="mission" class="section">
+                <h2><span class="icon-prefix">💡</span> > mission.txt --read</h2>
+                <div class="quote-box">
+                    Technology must be affordable and understandable. I offer fair help instead of horrendous bills. Honesty and patience are more important to me than maximizing profit.
+                </div>
+                </section>
+
+            <section id="hardware" class="section cachy-highlight">
+                <h2><span class="icon-prefix">💻</span> > system_info.hw --report</h2>
+                <p>
+                    My workstation is based on an uncompromising server foundation, optimized for performance, stability, and memory redundancy.
+                </p>
+                <h3>Base System (Lenovo Thinkstation P700)</h3>
+                <ul class="icon-list">
+                    <li>**CPUs (2x):** Intel Xeon E5-2697 V3 (Maximum multi-core performance for VMs and compilation)</li>
+                    <li>**RAM (768 GB):** 12x 64GB Hynix DDR4 ECC 2133 MHz (Octa-channel operation, absolute stability)</li>
+                    <li>**GPU:** Sparkle Intel Arc A750 Titan (Gaming and content creation on Linux)</li>
+                </ul>
+                </section>
+
+            <section id="contact" class="section" style="border-left-color: #ff9800;">
+                <h2><span class="icon-prefix">📧</span> > contact@meltymon.org</h2>
+                <p>
+                    Do you need help with your **PC, Mac, Linux system, smartphone, or tablet**? Or do you just want to talk shop about retro games? Choose the fastest route:
+                </p>
+                <a href="mailto:kontakt@meltymon.org" class="action-button">
+                    ✉️ Send E-Mail
+                </a>
+                <a href="https://discordapp.com/users/meltymon" target="_blank" class="action-button discord">
+                    💬 Discord (@meltymon)
+                </a>
+                </section>
+
+            <section id="privacy" class="section datenschutz" style="border-left-color: #ff5722;">
+                <h2><span class="icon-prefix" style="color:#ff5722;">🔒</span> > privacy.txt --read</h2>
+                <p>
+                    **Responsible Party according to GDPR:**<br>
+                    Christian Faßbender<br>
+                    [Your Address] <br>
+                    [Your E-Mail Address] 
+                </p>
+                </section>
+
+        </div>
     </div>
-    </body>
+    <footer>
+        </footer>
+
+</body>
 </html>
