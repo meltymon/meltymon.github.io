@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dein Name | IT & Strategy</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #4caf50; /* Terminal Grün */
+            --card-bg: #1e1e1e;
+            --font-main: 'Courier New', Courier, monospace; /* Retro Feeling */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Typography für den Tech-Look */
+        h1, h2, h3 {
+            font-family: var(--font-main);
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-style: italic;
+            opacity: 0.8;
+            font-family: var(--font-main);
+        }
+
+        /* Cards Layout */
+        .section {
+            background: var(--card-bg);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* Gaming Liste */
+        ul.game-list {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        
+        ul.game-list li::marker {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            font-family: var(--font-main);
+        }
+
+        /* Kleiner Cursor Effekt */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--accent-color);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>root@DeinName:~#<span class="cursor"></span></h1>
+        <p class="tagline">IT aus Berufung | Linux-Enthusiast | Strategie-Gamer</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="section">
+            <h2>> whoami</h2>
+            <p>
+                Willkommen in meiner digitalen Ecke. Ich bin kein Fan von großen Worten, aber ein Fan von funktionierender Technik.
+                Vor über 10 Jahren habe ich Windows den Rücken gekehrt und in <strong>Linux</strong> meine Heimat gefunden. 
+                Ich mag Systeme, die transparent, sicher und anpassbar sind.
+            </p>
+            <p>
+                Beruflich bin ich IT-Techniker mit Leib und Seele. Mein Ansatz unterscheidet sich jedoch von den großen Ketten:
+                Ich repariere lieber, als wegzuwerfen. Ich erkläre lieber, als Fachchinesisch zu reden.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>> mission</h2>
+            <p>
+                In einer Welt, die immer schneller und komplizierter wird, lasse ich niemanden zurück. 
+                Meine besondere Leidenschaft gilt der Unterstützung von Menschen – besonders der älteren Generation –, 
+                die sich von der Digitalisierung abgehängt fühlen.
+            </p>
+            <p>
+                <strong>Mein Credo:</strong> Technik muss bezahlbar und verständlich sein. Ich biete faire Hilfe statt horrender Rechnungen. 
+                Ehrlichkeit und Geduld sind mir wichtiger als Profitmaximierung.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>> hobbies --gaming</h2>
+            <p>
+                Wenn der Lötkolben kalt ist und das Terminal geschlossen, entspanne ich beim Zocken. 
+                Aber keine Hektik – ich brauche Strategie. Ich bin aufgewachsen mit DOS und liebe Spiele, 
+                die das Gehirn fordern.
+            </p>
+            <h3>Meine Favoriten:</h3>
+            <ul class="game-list">
+                <li><strong>XCOM Serie (1-12):</strong> Der ewige Kampf gegen die Alien-Invasion.</li>
+                <li><strong>Aufbau-Klassiker:</strong> Die Siedler, Anno, Command & Conquer.</li>
+                <li><strong>Retro & DOS:</strong> Alles, was Atmosphäre hat und pixelig ist.</li>
+            </ul>
+        </section>
+
+        <section class="section" style="border-left-color: #ff9800;">
+            <h2>> contact</h2>
+            <p>
+                Du brauchst Hilfe bei einem PC-Problem, suchst Rat für ein Linux-Setup oder willst einfach über alte DOS-Spiele fachsimpeln?
+            </p>
+            <p>
+                Schreib mir gerne: <a href="mailto:deine-email@beispiel.de" style="color: var(--accent-color);">deine-email@beispiel.de</a>
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Erstellt mit 100% Handarbeit. Keine Cookies. Kein Tracking. Nur HTML & CSS.</p>
+        <p>&copy; 2024 Dein Name</p>
+    </footer>
+
+</body>
+</html>
