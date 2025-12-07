@@ -149,8 +149,40 @@ footer {
 .terminal-log { font-family: var(--font-terminal); color: var(--accent-color); font-size: 0.8rem; }
 .log-line { animation: logscroll 20s linear infinite; display: block; white-space: pre; }
 @keyframes logscroll { 0% { transform: translateY(0); } 100% { transform: translateY(-100%); } }
+
+/* ########################################## */
+/* # KORREKTUR: MOBILE OPTIMIERUNG # # # # # */
+/* ########################################## */
+
 @media (max-width: 768px) {
-    .main-layout { flex-direction: column; }
-    .sidebar { width: 100%; position: static; margin: 0; }
-    .action-button { display: block; width: 90%; margin: 10px auto; text-align: center; }
+    
+    /* Layout: Stapeln und Sticky Sidebar entfernen */
+    .main-layout {
+        flex-direction: column;
+        /* KORREKTUR A: Reduziert das Padding für kleine Bildschirme */
+        padding: 10px; 
+    }
+
+    .sidebar {
+        width: 100%; 
+        margin: 0; /* Entfernt jeglichen Außenabstand */
+        position: static;
+    }
+    
+    .main-content {
+        padding-top: 20px;
+        order: 1; /* Stellt sicher, dass der Hauptinhalt unter der Sidebar erscheint */
+    }
+
+    .action-button { 
+        display: block; 
+        width: 90%; 
+        margin: 10px auto; 
+        text-align: center; 
+    }
+    
+    /* Header-Anpassungen */
+    header {
+        padding: 30px 10px;
+    }
 }
