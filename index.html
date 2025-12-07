@@ -7,15 +7,15 @@
     <style>
         :root {
             --bg-color: #121212;
-            --text-color: #f0f0f0; /* AUFGEHELLT für bessere Lesbarkeit */
+            --text-color: #f0f0f0; 
             --accent-color: #4caf50; /* Terminal Grün */
-            --warning-color: #ffc107; /* Helles Gelb/Orange für Warnungen */
+            --warning-color: #ffc107; 
             --card-bg: #1e1e1e;
             --font-terminal: 'Courier New', Courier, monospace; 
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            --cachy-blue: #00bcd4; /* Türkis/Blau für CachyOS */
-            --diablo-red: #d32f2f; /* Diablo-Rot */
-            --vitals-blue: #2196f3; /* Tiefes Blau für Reisen/Vitals */
+            --font-main: 'Courier New', Courier, monospace; 
+            --cachy-blue: #00bcd4; 
+            --diablo-red: #d32f2f; 
+            --vitals-blue: #2196f3; 
         }
 
         html {
@@ -56,6 +56,16 @@
             font-family: var(--font-terminal);
             color: var(--accent-color);
         }
+        
+        /* Akzent für Emojis/Icons */
+        .icon-prefix {
+            margin-right: 10px;
+            color: var(--cachy-blue); 
+        }
+        .icon-warn {
+            color: var(--warning-color); 
+        }
+
 
         code {
             background-color: rgba(76, 175, 80, 0.1);
@@ -86,7 +96,7 @@
         
         /* Sidebar Styling */
         .sidebar {
-            width: 250px; /* Breite reduziert */
+            width: 250px; 
             margin-right: 30px;
             padding: 0;
             position: sticky; 
@@ -221,15 +231,15 @@
             min-width: 0; 
         }
 
-        /* Header Fixes - LINKSSEITIG und Schriftgröße angepasst */
+        /* Header Fixes - LINKSSEITIG */
         header {
-            text-align: left; /* LINKSSEITIG */
+            text-align: left; 
             padding: 60px 20px;
             background: linear-gradient(180deg, #121212 0%, #171717 100%);
             border-bottom: 1px solid #333;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Links ausrichten */
+            align-items: flex-start; 
         }
         
         header h1 {
@@ -338,6 +348,31 @@
         .action-button.discord:hover {
             background-color: #99aab5;
         }
+
+        /* Liste mit Icon-Prefix (Anstelle von Standard-Kugeln) */
+        .icon-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .icon-list li::before {
+            content: '>'; /* Pfeil als Listenzeichen */
+            color: var(--cachy-blue);
+            font-family: var(--font-terminal);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* Datenschutzerklärung Styling */
+        .datenschutz p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .datenschutz h3 {
+            color: #ff5722; /* Rot-Akzent für rechtliches */
+            border-bottom: 1px dotted #ff5722;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
         
         /* ########################################## */
         /* # MOBILE OPTIMIERUNG (MEDIA QUERIES) # # # */
@@ -348,20 +383,20 @@
             /* Layout: Stapeln und Sticky Sidebar entfernen */
             .main-layout {
                 flex-direction: column;
-                padding: 10px; /* Weniger globaler Padding */
+                padding: 10px; 
             }
 
             .sidebar {
-                width: 100%; /* Sidebar volle Breite */
+                width: 100%; 
                 margin-right: 0;
-                position: static; /* Sticky entfernen */
+                position: static; 
                 top: 0;
-                order: 0; /* Sidebar kommt zuerst */
+                order: 0; 
             }
 
             .main-content {
                 padding-top: 20px; 
-                order: 1; /* Hauptinhalt kommt danach */
+                order: 1; 
             }
             
             /* Header-Anpassungen */
@@ -369,7 +404,7 @@
                 padding: 30px 10px; 
             }
             header h1 {
-                font-size: 1.5rem; /* H1 etwas kleiner */
+                font-size: 1.5rem; 
             }
             .tagline {
                 font-size: 0.9rem;
@@ -386,7 +421,7 @@
                 padding-left: 20px; 
             }
             .sidebar nav a:hover::before {
-                content: ''; /* Pfeil entfernen */
+                content: ''; 
             }
             
             /* Buttons stapeln */
@@ -419,7 +454,7 @@ INFO: CachyOS kernel 6.9.3 loaded successfully.
 DEBUG: Interface 'eth0' transmitting 1024 packets/sec.
 WARN: Dependency meltymon-cli.sh not found. Using fallback.
 INFO: Startup sequence complete. Ready for input.
-[SYSTEM] Rendering environment 8.7 (Tools Text Added, Header Left-aligned)... 
+[SYSTEM] Rendering environment 9.2 (Full Hardware Overhaul)... 
 [OK] Rendering completed.
 </pre>
         </div>
@@ -438,8 +473,6 @@ INFO: Startup sequence complete. Ready for input.
             <nav>
                 <a href="#">@start: <span class="blinking-text">echo "Willkommen"</span></a>
                 
-                <a href="#versions-log">versions.log</a> 
-
                 <a href="#competencies" class="marquee-link">
                     <span>STATUS: System-Check OK. | Akkuzellen-Prüfung läuft...</span>
                 </a>
@@ -459,75 +492,18 @@ INFO: Startup sequence complete. Ready for input.
                 <a href="#diablo">diablo3-active.run</a>
                 <a href="#contact">kontakt@meltymon.org</a>
                 
+                <a href="#versions-log">versions.log</a> 
+                
                 <a href="#privacy">datenschutz.txt</a>
             </nav>
         </aside>
 
         <div class="main-content">
             
-            <section id="versions-log" class="section" style="border-left-color: var(--cachy-blue);">
-                <h2>> versions.log --full-dump</h2>
-                <p>Dokumentation der wichtigsten Änderungen und Feature-Implementierungen seit der Initialisierung der Seite.</p>
-
-                <div style="max-height: 400px; overflow-y: auto; padding: 10px; background-color: #000; border: 1px solid #333;">
-                    <pre style="font-family: var(--font-terminal); font-size: 0.85rem; color: #FFF; line-height: 1.4;">
-<span style="color: var(--accent-color);">[SYSTEM] Initializing Version Log...</span>
-
-<span style="color: var(--cachy-blue);">-- V 8.7 (2025-12-07) --</span>
-FIX: Header-Ausrichtung auf <span style="color: var(--warning-color);">Links-Seiten-Bündig</span> gesetzt (Terminal-Look).
-FIX: Sidebar-Breite auf Desktop reduziert (<span style="color: var(--warning-color);">250px</span>).
-UPDATE: Fehlender Beschreibungstext und Liste in <span style="color: var(--warning-color);">#tools</span> ergänzt.
-
-<span style="color: var(--cachy-blue);">-- V 8.6 (2025-12-07) --</span>
-FEATURE: Implementierung des vollständigen Versions-Logs (<a style="color:var(--cachy-blue);">versions.log</a>).
-UPDATE: Versionsnummer im Terminal-Overlay angepasst.
-
-<span style="color: var(--cachy-blue);">-- V 8.5 (2025-12-07) --</span>
-FIX: Implementierung umfassender Media Queries für optimale mobile Darstellung (unter 768px).
-FIX: Sidebar auf mobilen Geräten nun 100% Breite und static.
-UPDATE: Header-Größen und Padding für kleine Viewports reduziert.
-
-<span style="color: var(--cachy-blue);">-- V 8.4 (2025-12-07) --</span>
-FEATURE: Hinzufügen der Blog/Journal-Sektion (<a style="color:var(--cachy-blue);">journal.log</a>) als manuelle HTML-Einträge (kein DB/PHP).
-UPDATE: Interne Code-Struktur für zukünftige manuelle Blog-Posts vorbereitet.
-
-<span style="color: var(--cachy-blue);">-- V 8.3 (2025-12-07) --</span>
-FIX: **Rechtliche Anpassung:** Impressum-Sektion entfernt, da die Seite privat betrieben wird.
-FIX: E-Mail-Kontakt von sysadmin@ auf <a style="color:var(--cachy-blue);">kontakt@meltymon.org</a> geändert.
-
-<span style="color: var(--cachy-blue);">-- V 8.2 (2025-12-06) --</span>
-FEATURE: Erweiterte Gaming-Sektion mit <a style="color:var(--cachy-blue);">diablo3-active.run</a>.
-FEATURE: Hinzufügen der Buttons für Discord, E-Mail und Twitch im <a style="color:var(--cachy-blue);">Kontakt-Bereich</a>.
-FEATURE: Marquee-Link im Menü für Status-Updates eingefügt.
-
-<span style="color: var(--cachy-blue);">-- V 8.0 (2025-12-06) --</span>
-REFACTOR: Umfassender Refactor zu Flexbox-Layout (Sidebar links, Content rechts).
-STYLE: Einführung des Terminal-Fonts (<a style="color:var(--cachy-blue);">Courier New</a>) für Header und Menü.
-FEATURE: Implementierung des **Persistent Terminal Overlays**.
-
-<span style="color: var(--cachy-blue);">-- V 6.0 - 7.x (2025-12-05) --</span>
-REFACTOR: Migration von klassischem Layout zu modernem <a style="color:var(--cachy-blue);">Dark-Mode-Design</a>.
-STYLE: Einführung der spezifischen Farbschemata (CachyOS Blue, Diablo Red).
-
-<span style="color: var(--cachy-blue);">-- V 4.0 - 5.x (2025-12-04) --</span>
-FEATURE: Aufbau der ersten thematischen Sektionen (Hardware, Tools, Gaming).
-FEATURE: Hinzufügen der Footer-Elemente (Easter Eggs, Besucherzähler).
-
-<span style="color: var(--cachy-blue);">-- V 3.0 (2025-12-03) --</span>
-FEATURE: Implementierung der <a style="color:var(--cachy-blue);">Sticky Sidebar</a> für Desktop.
-STYLE: Erste CSS-Anpassungen für Dark Mode und Font-Auswahl.
-
-<span style="color: var(--cachy-blue);">-- V 1.0 (2025-12-01) --</span>
-INIT: Initialer Aufbau der Seite als statische HTML-Datei.
-CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
-</pre>
-                </div>
-            </section>
-            
             <section id="whoami" class="section">
-                <h2>> whoami --CachyOS-Build</h2>
+                <h2><span class="icon-prefix">👤</span> > whoami --CachyOS-Build</h2>
                 <p>
-                    Ich bin **Christian Faßbender**, IT-Techniker und Linux-User aus tiefster Überzeugung. Seit über 10 Jahren ist mein System **Windows-frei**, und mein aktueller Daily Driver ist das superschnelle **CachyOS**. Ich liebe Systeme, die nicht nur funktionieren, sondern die man bis ins Detail verstehen und optimieren kann. <code>Pacman -Syu</code> ist bei mir eine tägliche Routine.
+                    Ich bin **Christian Faßbender**, IT-Techniker und Linux-User aus tiefster Überzeugung. Seit über 10 Jahren ist mein System **Windows-frei**, und mein aktueller Daily Driver ist das superschnelle **CachyOS** <span style="color:var(--cachy-blue);">🐧</span>. Ich liebe Systeme, die nicht nur funktionieren, sondern die man bis ins Detail verstehen und optimieren kann. <code>Pacman -Syu</code> ist bei mir eine tägliche Routine.
                 </p>
                 <p>
                     Mein technisches Know-how setze ich ein, um Menschen zu helfen. Besonders die ältere Generation unterstütze ich mit der nötigen **Geduld und Verständlichkeit**, fernab der überteuerten Preise und der Wegwerfmentalität der großen Konzerne.
@@ -541,7 +517,7 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
             </section>
 
             <section id="mission" class="section">
-                <h2>> mission.txt --read</h2>
+                <h2><span class="icon-prefix">💡</span> > mission.txt --read</h2>
                 <div class="quote-box">
                     Technik muss bezahlbar und verständlich sein. Ich biete faire Hilfe statt horrender Rechnungen. Ehrlichkeit und Geduld sind mir wichtiger als Profitmaximierung.
                 </div>
@@ -551,21 +527,43 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
             </section>
             
             <section id="hardware" class="section cachy-highlight">
-                <h2>> system_info.hw --report</h2>
+                <h2><span class="icon-prefix">💻</span> > system_info.hw --report</h2>
                 <p>
-                    Als Linux-Enthusiast lege ich Wert auf stabile und leistungsfähige Hardware. Hier ein Blick unter die Haube meiner aktuellen Workstation:
+                    Meine Workstation basiert auf einem kompromisslosen Server-Fundament, optimiert für Performance, Stabilität und Speicher-Redundanz.
                 </p>
+
+                <h3>Basis-System (Lenovo Thinkstation P700)</h3>
                 <ul class="icon-list">
-                    <li>**CPU:** AMD Ryzen 7 7700X (optimiert für CachyOS Kernel)</li>
-                    <li>**GPU:** NVIDIA GeForce RTX 4070 (mit proprietären Treibern)</li>
-                    <li>**RAM:** 64GB DDR5 (ECC-kompatibel)</li>
-                    <li>**Storage:** 2TB NVMe SSD (BTRFS Filesystem)</li>
-                    <li>**OS:** CachyOS Linux (Rolling Release, täglich geupdatet)</li>
+                    <li>**CPUs (2x):** Intel Xeon E5-2697 V3 (Maximale Multi-Core-Leistung für VMs und Kompilierung)</li>
+                    <li>**RAM (768 GB):** 12x 64GB Hynix DDR4 ECC 2133 MHz (Octa-Channel-Betrieb, absolute Stabilität)</li>
+                    <li>**GPU:** Sparkle Intel Arc A750 Titan (Gaming und Content-Erstellung unter Linux)</li>
+                </ul>
+
+                <h3>Speicher & Peripherie</h3>
+                <ul class="icon-list">
+                    <li>**Mass Storage (RAID 5):** 4x 48TB Western Digital Red (Gesamtspeicherplatz und Redundanz)</li>
+                    <li>**NVME (RAID 1):** 2x 2TB Samsung Evo 990+ (Blitzschneller System- und Anwendungs-Speicher)</li>
+                    <li>**Optisch:** LG Blu-ray Brenner mit **LightScribe** Technik <span class="icon-warn"> (Retro-Tech, auf die ich stolz bin!)</span></li>
+                </ul>
+
+                <h3>Netzwerk & Sound</h3>
+                <ul class="icon-list">
+                    <li>**WLAN/BT:** TP-Link WiFi 6 + Bluetooth-Karte</li>
+                    <li>**LAN:** TP-Link PCIe 10 Gbit/s LAN-Karte (für Hochgeschwindigkeits-Netzwerk)</li>
+                    <li>**Sound:** Soundblaster X4 Soundkarte, Behringer QX1812 USB Mischpult, Rode NT2-A Mikrofon</li>
+                    <li>**Peripherie:** Logitech G502 Hero Maus, Logitech G219 Tastatur, Logitech G432 Headset</li>
+                    <li>**Monitor:** Samsung 32" Curved LED Monitor</li>
+                </ul>
+
+                <h3>Internet-Infrastruktur</h3>
+                <ul class="icon-list">
+                    <li>**Primär-Router:** Fritzbox 6860 5G (1.3 Gbit/s Down, 500 Mbit/s Up)</li>
+                    <li>**Kopplung/Switch:** Fritzbox 4690 (Anschaffung wegen der 2x 10 Gbit/s LAN-Ports und WiFi 7-Fähigkeit)</li>
                 </ul>
             </section>
 
             <section id="competencies" class="section cachy-highlight">
-                <h2>> comp_matrix.json --display</h2>
+                <h2><span class="icon-prefix">🛠️</span> > comp_matrix.json --display</h2>
                 <p>
                     Mein Fokus liegt auf **Langlebigkeit, Effizienz und Sicherheit** – in der privaten wie in der geschäftlichen IT.
                 </p>
@@ -586,7 +584,7 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
             </section>
             
             <section id="blog" class="section">
-                <h2>> journal.log --tail 3</h2> 
+                <h2><span class="icon-prefix">📝</span> > journal.log --tail 3</h2> 
                 <p>Hier finden Sie meine aktuellen Gedanken, Projekte und technischen Herausforderungen.</p>
 
                 <article class="blog-post">
@@ -613,7 +611,7 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
             </section>
 
             <section id="tools" class="section cachy-highlight">
-                <h2>> tools-config.ini --view</h2>
+                <h2><span class="icon-prefix">🎮</span> > tools-config.ini --view</h2>
                 <p>
                     Als begeisterter Gamer und Linux-Nutzer habe ich mich auf die reibungslose Integration von Windows-Spielen unter Linux spezialisiert.
                 </p>
@@ -623,13 +621,15 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
                 </p>
                 <ul class="icon-list">
                     <li>**Wine & Lutris:** Die Basis für alles, was nicht nativ läuft, optimiert mit den neuesten Kernel- und Treiber-Patches.</li>
-                    <li>**Heroic Games Launcher, GOG Games, Epicgames:** Die zentralen Schnittstellen für meine Bibliotheken und die Verwaltung verschiedener Kompatibilitätsschichten (Wine/Proton).</li>
+                    <li>**Heroic Games Launcher, GOG Games, Epicgames:** Die zentralen Schnittstellen für meine Bibliotheken.</li>
+                    <li>**Steam:** <span class="icon-warn">Große Steam-Bibliotheken lassen sich dank Proton/WINE schnell migrieren und sind oft sofort lauffähig.</span></li>
+                    <li>**Ubisoft-Connector:** <span class="icon-warn">Einrichtung des Ubisoft-Connectors unter Linux für Spiele aus dieser Bibliothek.</span></li>
                     <li>**Pacman:** Das Herzstück meiner CachyOS-Umgebung, um stets die aktuellsten Gaming-spezifischen Pakete (z.B. Mesa, Vulkan) zu installieren.</li>
                 </ul>
             </section>
 
             <section id="ethics-repair" class="section repair-highlight">
-                <h2>> ethics-report.sh --run</h2>
+                <h2><span class="icon-prefix">♻️</span> > ethics-report.sh --run</h2>
                 <p>
                     Die Wegwerf-Mentalität großer Konzerne lehne ich ab. Ich berate meine Kunden immer dahingehend, das **Nachhaltigste** und **Kostengünstigste** zu tun.
                 </p>
@@ -639,7 +639,7 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
             </section>
             
             <section id="vitals" class="section vitals-highlight">
-                <h2>> vitals.log --export</h2>
+                <h2><span class="icon-prefix">🌍</span> > vitals.log --export</h2>
                 <p>
                     Abseits von Terminals und Pacman-Updates finde ich Balance in ehrenamtlichem Engagement und Abenteuer. Diese Erfahrungen schärfen meine Fähigkeiten zur **Krisenbewältigung, Planung und Menschenführung**.
                 </p>
@@ -659,7 +659,7 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
 
 
             <section id="gaming" class="section">
-                <h2>> games.log --favorites</h2>
+                <h2><span class="icon-prefix">👾</span> > games.log --favorites</h2>
                 <p>
                     Ich spiele gerne strategisch, taktisch und tiefgründig.
                 </p>
@@ -670,8 +670,8 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
                 </ul>
             </section>
             
-            <section id="diablo" class="section diablo-highlight">
-                <h2>> diablo3-active.run --status</h2>
+            <section id="diablo" class="section diablo-highlight" style="border-left-color: var(--diablo-red);">
+                <h2><span class="icon-prefix" style="color:var(--diablo-red);">🔥</span> > diablo3-active.run --status</h2>
                 <p>
                     **STATUS: Aktiv & Grind-Modus**
                 </p>
@@ -679,12 +679,12 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
                     Seit Freitag ist die **Season 37 von Diablo 3: Reaper of Souls** aktiv! Wenn du mit mir Dämonen jagen möchtest, kontaktiere mich am besten über Discord!
                 </p>
                 <p>
-                    **Battle.net:** `meltymon`
+                    **Battle.net:** `ripper10#2695`
                 </p>
             </section>
 
             <section id="contact" class="section" style="border-left-color: #ff9800;">
-                <h2>> kontakt@meltymon.org</h2>
+                <h2><span class="icon-prefix">📧</span> > kontakt@meltymon.org</h2>
                 <p>
                     Du brauchst Hilfe mit deinem **PC, Mac, Linux-System, Smartphone oder Tablet**? Oder willst einfach über Retro-Games fachsimpeln? Wähle den schnellsten Weg:
                 </p>
@@ -705,17 +705,84 @@ CONTENT: Erstellung der Basis-Sektionen (Whoami, Mission).
                     <li>**Twitch:** `@meltymon`</li>
                 </ul>
             </section>
+
+            <section id="versions-log" class="section" style="border-left-color: var(--cachy-blue);">
+                <h2><span class="icon-prefix">⚙️</span> > versions.log --full-dump</h2>
+                <p>Dokumentation der wichtigsten Änderungen und Feature-Implementierungen seit der Initialisierung der Seite.</p>
+
+                <div style="max-height: 400px; overflow-y: auto; padding: 10px; background-color: #000; border: 1px solid #333;">
+                    <pre style="font-family: var(--font-terminal); font-size: 0.85rem; color: #FFF; line-height: 1.4;">
+<span style="color: var(--accent-color);">[SYSTEM] Initializing Version Log...</span>
+
+<span style="color: var(--cachy-blue);">-- V 9.2 (2025-12-07) --</span>
+UPDATE: Sektion <span style="color: var(--warning-color);">#hardware</span> mit detaillierten Lenovo Thinkstation P700 Specs, Dual-Xeon, 768GB ECC-RAM und Intel Arc A750 aktualisiert.
+UPDATE: Netzwerk-Infrastruktur und Peripherie (10Gbit LAN, Fritzbox 6860/4690) hinzugefügt.
+
+<span style="color: var(--cachy-blue);">-- V 9.1 (2025-12-07) --</span>
+FIX: Hauptschriftart global auf Terminal-Schriftart (Courier New) zurückgesetzt.
+FIX: Battle.net-ID in #diablo auf <span style="color: var(--warning-color);">ripper10#2695</span> korrigiert.
+
+<span style="color: var(--cachy-blue);">-- V 9.0 (2025-12-07) --</span>
+FEATURE: Implementierung einer DSGVO-konformen Datenschutzerklärung für statische Seite.
+UPDATE: Icons und Emojis für visuelle Attraktivität hinzugefügt.
+UPDATE: Gaming-Tools um <a style="color:var(--cachy-blue);">Steam</a> und <a style="color:var(--cachy-blue);">Ubisoft-Connector</a> erweitert.
+FIX: Sektion <a style="color:var(--cachy-blue);">versions.log</a> ans Ende des Hauptinhalts verschoben.
+
+<span style="color: var(--cachy-blue);">-- V 8.7 (2025-12-07) --</span>
+FIX: Header-Ausrichtung auf Links-Seiten-Bündig gesetzt (Terminal-Look).
+
+<span style="color: var(--cachy-blue);">-- V 8.0 (2025-12-06) --</span>
+REFACTOR: Umfassender Refactor zu Flexbox-Layout (Sidebar links, Content rechts).
+
+<span style="color: var(--cachy-blue);">-- V 1.0 (2025-12-01) --</span>
+INIT: Initialer Aufbau der Seite als statische HTML-Datei.
+</pre>
+                </div>
+            </section>
             
-            <section id="privacy" class="section" style="border-left-color: #ff5722;">
-                <h2>> datenschutz.txt --read</h2>
+            <section id="privacy" class="section datenschutz" style="border-left-color: #ff5722;">
+                <h2><span class="icon-prefix" style="color:#ff5722;">🔒</span> > datenschutz.txt --read</h2>
+
                 <p>
-                    **Hinweis:** Diese Sektion ist für die **Datenschutzerklärung** vorgesehen, welche Sie für die Einhaltung der DSGVO benötigen.
+                    **Verantwortlicher im Sinne der DSGVO:**<br>
+                    Christian Faßbender<br>
+                    [Ihre Adresse] <br>
+                    [Ihre E-Mail-Adresse] 
                 </p>
+
+                <h3>1. Allgemeines zur Datenverarbeitung</h3>
                 <p>
-                    Bitte fügen Sie hier den korrekten Text der Datenschutzerklärung ein.
+                    Diese Website ist eine **rein statische HTML-Seite**. Sie verwendet **keine Cookies**, **kein Tracking** (wie Google Analytics oder Piwik) und **keine Datenbanken**. Personenbezogene Daten werden weder erhoben, gespeichert noch verarbeitet. 
                 </p>
-                <div class="quote-box" style="border-left-color: #ff5722; color: #ff5722;">
-                    [Hier den vollständigen Text der Datenschutzerklärung einfügen]
+
+                <h3>2. Hosting und Logfiles</h3>
+                <p>
+                    Die Bereitstellung der Website erfolgt über einen externen Hosting-Provider. Der Provider erhebt automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+                </p>
+                <ul>
+                    <li>Browsertyp und Browserversion</li>
+                    <li>verwendetes Betriebssystem</li>
+                    <li>Referrer URL (die zuvor besuchte Seite)</li>
+                    <li>Hostname des zugreifenden Rechners</li>
+                    <li>Uhrzeit der Serveranfrage</li>
+                    <li>IP-Adresse</li>
+                </ul>
+                <p>
+                    Diese Daten dienen lediglich der technischen Funktion der Website (fehlerfreie Darstellung) und der Gewährleistung der Sicherheit der informationstechnischen Systeme. Sie werden nicht dazu verwendet, Rückschlüsse auf Ihre Person zu ziehen.
+                </p>
+
+                <h3>3. Externe Links (E-Mail, Discord, Twitch)</h3>
+                <p>
+                    Die Links zu E-Mail-Adressen, Discord oder Twitch sind **reine Hyperlinks** und stellen **keine direkte Datenübermittlung** an diese Dienste beim Besuch der Website dar. Erst wenn Sie aktiv auf diese Links klicken, verlassen Sie diese Website, und es gelten die Datenschutzbestimmungen der jeweiligen externen Dienste.
+                </p>
+
+                <h3>4. Ihre Rechte</h3>
+                <p>
+                    Da von uns keine personenbezogenen Daten verarbeitet werden, besteht kein Anlass zur Geltendmachung des Rechts auf Auskunft, Löschung oder Berichtigung der Daten.
+                </p>
+
+                <div class="quote-box" style="border-left-color: #ff5722; color: #ff5722; margin-top: 20px;">
+                    **Stand dieser Erklärung:** 07. Dezember 2025
                 </div>
             </section>
 
