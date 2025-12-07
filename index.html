@@ -12,9 +12,9 @@
             --accent-color: #4caf50; /* Terminal Grün */
             --card-bg: #1e1e1e;
             --font-main: 'Roboto Mono', monospace; 
+            --secondary-accent: #00bcd4; /* Türkis für neue Sektionen */
         }
 
-        /* Aktiviert sanftes Scrollen für die Sidebar-Links */
         html {
             scroll-behavior: smooth; 
         }
@@ -28,16 +28,15 @@
             padding: 0;
         }
 
-        /* Typography für den Tech-Look */
         h1, h2, h3 {
             font-family: var(--font-main);
             color: var(--accent-color);
         }
-
+        
         /* NEUES LAYOUT: Flexbox für Sidebar und Content */
         .main-layout {
             display: flex;
-            max-width: 1200px; /* Gesamtbreite erhöht */
+            max-width: 1200px; 
             margin: 0 auto;
             padding: 20px;
         }
@@ -47,7 +46,7 @@
             width: 250px; 
             margin-right: 30px;
             padding: 20px 0;
-            position: sticky; /* Sidebar bleibt beim Scrollen fixiert */
+            position: sticky; 
             top: 20px;
             height: fit-content;
             background: var(--card-bg); 
@@ -110,6 +109,11 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             border-left: 4px solid var(--accent-color);
         }
+        
+        /* Zweiter Akzent für neue Sektionen */
+        .section.secondary {
+            border-left-color: var(--secondary-accent);
+        }
 
         /* Gaming Liste */
         ul.game-list {
@@ -119,6 +123,17 @@
         
         ul.game-list li::marker {
             color: var(--accent-color);
+        }
+
+        /* Easter Egg ASCII Art */
+        .ascii-art {
+            white-space: pre; 
+            font-size: 0.7rem;
+            opacity: 0.15; /* Sehr subtil, fast unsichtbar */
+            margin-top: 15px;
+            color: var(--text-color);
+            line-height: 1;
+            text-align: center;
         }
 
         /* Footer */
@@ -147,7 +162,7 @@
             50% { opacity: 0; }
         }
 
-        /* Responsiveness: Sidebar verschwindet auf kleinen Geräten */
+        /* Responsiveness: Sidebar wird auf kleinen Geräten horizontal */
         @media (max-width: 950px) {
             .main-layout {
                 flex-direction: column;
@@ -188,7 +203,8 @@
             <nav>
                 <a href="#whoami">Wer bin ich?</a>
                 <a href="#mission">Meine Philosophie</a>
-                <a href="#specialty">Schwerpunkte</a>
+                <a href="#tools">Das Handwerkszeug</a>
+                <a href="#ethics">Ethik & Reparatur</a>
                 <a href="#gaming">Gaming-Logbuch</a>
                 <a href="#contact">Kontakt & Hilfe</a>
             </nav>
@@ -199,33 +215,54 @@
             <section id="whoami" class="section">
                 <h2>> whoami</h2>
                 <p>
-                    Willkommen in meiner digitalen Ecke. Ich bin **Christian Faßbender**, IT-Techniker aus Leidenschaft und Überzeugung. Seit über 10 Jahren ist mein digitales Zuhause eine 'Windows-freie Zone'. Ich glaube an **Open Source**, Reparierbarkeit und daran, dass ein Computer dem Menschen dienen muss – nicht umgekehrt.
+                    Willkommen in meiner digitalen Ecke. Ich bin **Christian Faßbender**, IT-Techniker aus Leidenschaft und Überzeugung. Seit über 10 Jahren ist mein digitales Zuhause eine **'Windows-freie Zone'**. Ich glaube an Open Source, Reparierbarkeit und daran, dass ein Computer dem Menschen dienen muss – nicht umgekehrt.
                 </p>
                 <p>
-                    Beruflich stehe ich abseits der großen Tech-Konzerne. Mich treibt nicht der Verkauf teurer Neuware an, sondern das Leuchten in den Augen meiner Kunden, wenn ein 'kaputtes' Gerät wieder läuft und die Lösung fair bepreist ist.
+                    Beruflich stehe ich abseits der großen Tech-Konzerne. Mich treibt nicht der Verkauf teurer Neuware an, sondern das Leuchten in den Augen meiner Kunden, wenn ein 'kaputtes' Gerät wieder läuft und die Lösung fair bepreist ist. Meine Fähigkeit, **geduldig und verständnisvoll** auf Menschen, besonders die ältere Generation, einzugehen, ist dabei genauso wichtig wie das technische Know-how.
                 </p>
+                <div class="ascii-art">
+                   / \
+                  | O |
+                  \ _ /
+                   / \ 
+                </div>
             </section>
 
             <section id="mission" class="section">
                 <h2>> mission</h2>
                 <p>
-                    Ich helfe Menschen. Das ist meine Berufung. In einer Welt, die immer schneller und komplizierter wird, sorge ich dafür, dass die Technik einfach, verständlich und vor allem **erschwinglich** bleibt. Mein Ansatz ist die direkte, ehrliche Hilfe.
+                    Meine Aufgabe ist es, **Komplexität zu reduzieren** und **Vertrauen** zu schaffen. Ich helfe Menschen. Das ist meine Berufung. In einer Welt, die immer schneller und komplizierter wird, sorge ich dafür, dass die Technik einfach, verständlich und vor allem **erschwinglich** bleibt. Mein Ansatz ist die direkte, ehrliche Hilfe – ohne versteckte Kosten oder unnötige Abos.
                 </p>
                 <p>
-                    Meine besondere Leidenschaft gilt der **Unterstützung der älteren Generation**. Mit Geduld, Klarheit und ohne unnötigen Fachjargon nehme ich die Angst vor der Digitalisierung. Ich biete faire Hilfe statt horrender Rechnungen. Ehrlichkeit und Geduld sind mir wichtiger als Profitmaximierung.
+                    **Patience is Key:** Speziell bei der Arbeit mit Senioren ist mir wichtig, nicht nur Probleme zu lösen, sondern Wissen zu vermitteln.
+                </p>
+            </section>
+            
+            <section id="tools" class="section secondary">
+                <h2>> tools</h2>
+                <p>
+                    Ich arbeite am liebsten mit freier Software und stabilen Umgebungen. Diese Werkzeuge setze ich auch erfolgreich bei Kunden ein, da sie Sicherheit, Stabilität und Langlebigkeit garantieren.
+                </p>
+                <h3>Meine bevorzugten Distributionen:</h3>
+                <ul class="game-list" style="list-style-type: circle;">
+                    <li>**Debian & Ubuntu LTS:** Als stabiles Fundament für fast alle Anwendungsfälle.</li>
+                    <li>**Arch Linux / Manjaro:** Für Power-User und die Optimierung eigener Systeme.</li>
+                    <li>**DOSBox:** Unverzichtbar für die Pflege alter Schätze und die DOS-Gaming-Kultur.</li>
+                </ul>
+                <h3>Hardware-Ansatz:</h3>
+                <p>
+                    Ich bin fest davon überzeugt, dass man mit der richtigen Software auch älterer Hardware neues Leben einhauchen kann. **Reparieren ist immer besser als neu kaufen.**
                 </p>
             </section>
 
-            <section id="specialty" class="section" style="border-left-color: #00bcd4;">
-                <h2>> specialty</h2>
+            <section id="ethics" class="section secondary" style="border-left-color: #ff5722;">
+                <h2>> ethics --repair_not_replace</h2>
                 <p>
-                    Meine Expertise liegt in der robusten und nachhaltigen Gestaltung von IT-Systemen für Privatkunden und kleine Unternehmen. Meine Schwerpunkte sind:
+                    Die Wegwerf-Mentalität großer Konzerne lehne ich ab. Ich berate meine Kunden immer dahingehend, das **Nachhaltigste** und **Kostengünstigste** zu tun. Das bedeutet oft: Hochwertige Ersatzteile statt kompletter Austausch, und offene Standards statt proprietärer Lock-ins.
                 </p>
-                <ul class="game-list" style="list-style-type: circle;">
-                    <li>**Linux-Migration & Wartung:** Von Windows-Löschung bis zur Einrichtung sicherer, stabiler Linux-Umgebungen (Debian, Ubuntu, Arch, etc.).</li>
-                    <li>**Hardware-Reparatur:** Diagnose, Aufrüstung und Reparieren von Laptops und PCs, um die Lebensdauer der Geräte zu maximieren.</li>
-                    <li>**Netzwerk & Sicherheit:** Einrichtung privater Netzwerke, Router-Optimierung und Beratung zum Thema Datensicherheit.</li>
-                </ul>
+                <p>
+                    **Das Recht auf Reparatur** ist für mich mehr als nur ein politisches Schlagwort – es ist die tägliche Praxis. Ich zeige gerne, wie man kleine Probleme selbst behebt und behalte Wissen nicht für mich.
+                </p>
             </section>
 
             <section id="gaming" class="section">
