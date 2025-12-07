@@ -8,8 +8,8 @@ const translations = {
         tagline_3: "CachyOS-Enthusiast",
         tagline_4: "Deployed via Cloudflare A-Record",
         nav_start_echo: "Willkommen",
-        nav_status: "STATUS: System-Check OK.",
-        nav_contact: "Kontakt",
+        nav_status: "STATUS: System-Check OK. | Akkuzellen-Prüfung läuft...",
+        nav_contact: "kontakt@meltymon.org",
         whoami_text: "<p>Ich bin **Christian Faßbender**, IT-Techniker und Linux-User aus tiefster Überzeugung. Seit über 10 Jahren ist mein System **Windows-frei**, und mein aktueller Daily Driver ist das superschnelle **CachyOS** <span style='color:var(--cachy-blue);'>🐧</span>. Ich liebe Systeme, die nicht nur funktionieren, sondern die man bis ins Detail verstehen und optimieren kann. <code>Pacman -Syu</code> ist bei mir eine tägliche Routine.</p><p>Mein technisches Know-how setze ich ein, um Menschen zu helfen. Besonders die ältere Generation unterstütze ich mit der nötigen **Geduld und Verständlichkeit**, fernab der überteuerten Preise und der Wegwerfmentalität der großen Konzerne.</p>",
         mission_quote: "Technik muss bezahlbar und verständlich sein. Ich biete faire Hilfe statt horrender Rechnungen. Ehrlichkeit und Geduld sind mir wichtiger als Profitmaximierung.",
         mission_text: "Meine Aufgabe ist es, **Komplexität zu reduzieren** und **Vertrauen** zu schaffen. Ich bin der IT-Techniker, den man gerne anruft, weil er zuhört und nicht urteilt.",
@@ -38,9 +38,9 @@ const translations = {
         contact_intro: "Du brauchst Hilfe mit deinem **PC, Mac, Linux-System, Smartphone oder Tablet**? Oder willst einfach über Retro-Games fachsimpeln? Wähle den schnellsten Weg:",
         btn_email: "E-Mail senden",
         versions_intro: "Dokumentation der wichtigsten Änderungen und Feature-Implementierungen seit der Initialisierung der Seite.",
-        versions_log_content: "<span style='color: var(--cachy-blue);'>-- V 9.5 (2025-12-07) --</span>\nCLEANUP: Reduzierung auf Deutsch und Englisch. Einführung der JSON-basierten i18n Struktur.\n\n<span style='color: var(--cachy-blue);'>-- V 9.3 (2025-12-07) --</span>\nFIX: Entfernung des alten Hardware-Platzhalter-Textes.\n\n<span style='color: var(--cachy-blue);'>-- V 9.2 (2025-12-07) --</span>\nUPDATE: Hardware (P700) und Netzwerk (10Gbit) aktualisiert.",
+        versions_log_content: "<span style='color: var(--cachy-blue);'>-- V 9.5 (2025-12-07) --</span>\nCLEANUP: Reduzierung auf Deutsch und Englisch. Einführung der JS-basierten i18n Struktur.\n\n<span style='color: var(--cachy-blue);'>-- V 9.3 (2025-12-07) --</span>\nFIX: Entfernung des alten Hardware-Platzhalter-Textes.\n\n<span style='color: var(--cachy-blue);'>-- V 9.2 (2025-12-07) --</span>\nUPDATE: Hardware (P700) und Netzwerk (10Gbit) aktualisiert.",
         privacy_content: "<p>**Verantwortlicher im Sinne der DSGVO:**<br>Christian Faßbender<br>[Ihre Adresse]<br>[Ihre E-Mail-Adresse]</p><h3>1. Allgemeines zur Datenverarbeitung</h3><p>Diese Website ist eine **rein statische HTML-Seite**. Sie verwendet **keine Cookies**, **kein Tracking** und **keine Datenbanken**.</p><h3>2. Hosting und Logfiles</h3><p>Der Provider erhebt automatisch Server-Log-Dateien (IP-Adresse, Browser, Uhrzeit). Diese dienen nur der technischen Funktion und Sicherheit.</p><h3>3. Externe Links</h3><p>Links zu E-Mail, Discord oder Twitch sind reine Hyperlinks. Keine Datenübermittlung ohne Klick.</p><h3>4. Ihre Rechte</h3><p>Da wir keine personenbezogenen Daten verarbeiten, entfallen Auskunfts- und Löschrechte.</p>",
-        footer_visitor: "Besucher:",
+        footer_visitor: "Besucher seit Deployment (Total):",
         footer_easter_egg: "<strong>System Log: [HINWEIS]</strong> - Scan nach versteckten Assets beendet.<span class='status-indicator'>[OK]</span><br>Ergebnis: 3 nicht indizierte Dateien gefunden.",
         footer_copyright: "Erstellt mit 100% Handarbeit. Keine Cookies. Kein Tracking. Nur HTML & CSS.",
         footer_xcom: "[OLD-SCHOOL MODE: X-COM START]"
@@ -53,7 +53,7 @@ const translations = {
         tagline_3: "CachyOS Enthusiast",
         tagline_4: "Deployed via Cloudflare A-Record",
         nav_start_echo: "Welcome",
-        nav_status: "STATUS: System Check OK.",
+        nav_status: "STATUS: System Check OK. | Battery Cell Inspection Running...",
         nav_contact: "Contact",
         whoami_text: "<p>I am **Christian Faßbender**, an IT technician and Linux user by deepest conviction. My system has been **Windows-free** for over 10 years, and my current daily driver is the super-fast **CachyOS** <span style='color:var(--cachy-blue);'>🐧</span>. I love systems that not only work but can be understood and optimized down to the smallest detail. <code>Pacman -Syu</code> is a daily routine for me.</p><p>I use my technical expertise to help people. Especially the older generation, I support with the necessary **patience and clarity**, far away from overpriced bills and the throwaway mentality of large corporations.</p>",
         mission_quote: "Technology must be affordable and understandable. I offer fair help instead of horrendous bills. Honesty and patience are more important to me than maximizing profit.",
@@ -70,8 +70,8 @@ const translations = {
         comp_intro: "My focus is on **longevity, efficiency, and security** – in both private and business IT.",
         comp_area1_title: "Competence Area I: IT Services (Private & Business)",
         comp_area1_list: "<li>**Network & Infrastructure Maintenance:** Setup, configuration, and maintenance of stable, secure networks (routers, firewalls, VPNs).</li><li>**Data Backup & Recovery:** Development of solid backup strategies for private and SME clients.</li><li>**Repair, Install, and Maintain:** Service for **all kinds of devices**.</li><li>**Digitalization Support:** Support with cloud solutions and the understandable setup of digital processes.</li>",
-        comp_area2_title": "Competence Area II: Hardware & Battery Building",
-        comp_area2_list": "<li style='color: var(--warning-color);'>**Hardware Repair:** I breathe new life into devices. **Repair before replace** is the motto here.</li><li style='color: var(--warning-color);'>**Battery Building & Refurbishment:** **Reconstruction and repair** of battery packs (soldering, balancing, BMS understanding).</li>",
+        comp_area2_title: "Competence Area II: Hardware & Battery Building",
+        comp_area2_list: "<li style='color: var(--warning-color);'>**Hardware Repair:** I breathe new life into devices. **Repair before replace** is the motto here.</li><li style='color: var(--warning-color);'>**Battery Building & Refurbishment:** **Reconstruction and repair** of battery packs (soldering, balancing, BMS understanding).</li>",
         blog_intro: "Here you will find my current thoughts, projects, and technical challenges.",
         blog_post_1: "<p>Switching to the **CachyOS kernel** was one of the best decisions in recent months. The performance increase, especially in I/O-heavy tasks, is impressive. I feel my system is finally 100% tailored to me.</p><p>The next project is optimizing the **motorcycle battery charging electronics** for the next trip. I am currently researching a BMS bypass for critical situations. More details to follow!</p>",
         blog_post_2: "<p>I successfully replaced the old FritzBox 7490 with an AVM Repeater running **OpenWRT firmware**. Stability is now significantly better, and I have full control over all traffic rules. A complete success.</p>",
@@ -83,9 +83,9 @@ const translations = {
         contact_intro: "Do you need help with your **PC, Mac, Linux system, smartphone, or tablet**? Or do you just want to talk shop about retro games? Choose the fastest route:",
         btn_email: "Send E-Mail",
         versions_intro: "Documentation of the most important changes and feature implementations since site initialization.",
-        versions_log_content: "<span style='color: var(--cachy-blue);'>-- V 9.5 (2025-12-07) --</span>\nCLEANUP: Reduction to German and English. Introduction of JSON-based i18n structure.\n\n<span style='color: var(--cachy-blue);'>-- V 9.3 (2025-12-07) --</span>\nFIX: Removal of old hardware placeholder text.\n\n<span style='color: var(--cachy-blue);'>-- V 9.2 (2025-12-07) --</span>\nUPDATE: Hardware (P700) and Network (10Gbit) updated.",
+        versions_log_content: "<span style='color: var(--cachy-blue);'>-- V 9.5 (2025-12-07) --</span>\nCLEANUP: Reduction to German and English. Introduction of JS-based i18n structure.\n\n<span style='color: var(--cachy-blue);'>-- V 9.3 (2025-12-07) --</span>\nFIX: Removal of old hardware placeholder text.\n\n<span style='color: var(--cachy-blue);'>-- V 9.2 (2025-12-07) --</span>\nUPDATE: Hardware (P700) and Network (10Gbit) updated.",
         privacy_content: "<p>**Controller within the meaning of the GDPR:**<br>Christian Faßbender<br>[Your Address]<br>[Your E-Mail Address]</p><h3>1. General information on data processing</h3><p>This website is a **purely static HTML page**. It uses **no cookies**, **no tracking**, and **no databases**.</p><h3>2. Hosting and Logfiles</h3><p>The provider automatically collects server log files (IP address, browser, time). These serve only for technical function and security.</p><h3>3. External Links</h3><p>Links to E-Mail, Discord, or Twitch are pure hyperlinks. No data transmission without clicking.</p><h3>4. Your Rights</h3><p>Since we do not process personal data, rights to information and deletion do not apply.</p>",
-        footer_visitor: "Visitors:",
+        footer_visitor: "Visitors since Deployment (Total):",
         footer_easter_egg: "<strong>System Log: [NOTE]</strong> - Scan for hidden assets complete.<span class='status-indicator'>[OK]</span><br>Result: 3 unindexed files found.",
         footer_copyright: "Created with 100% manual work. No cookies. No tracking. Only HTML & CSS.",
         footer_xcom: "[OLD-SCHOOL MODE: X-COM START]"
@@ -96,7 +96,10 @@ const translations = {
 const defaultLang = 'de';
 
 function changeLanguage(lang) {
-    if (!translations[lang]) return;
+    if (!translations[lang]) {
+        console.error(`Sprache ${lang} nicht in der Datenbank gefunden.`);
+        return;
+    }
 
     // 1. Buttons aktualisieren (Visuelles Feedback)
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
@@ -109,6 +112,7 @@ function changeLanguage(lang) {
     for (const key in data) {
         const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
         elements.forEach(el => {
+            // Wichtig: innerHTML verwenden, um Fettdruck (**), Links und Spans zu erhalten
             el.innerHTML = data[key];
         });
     }
