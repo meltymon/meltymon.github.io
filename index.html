@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christian Faßbender | meltymon.org</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self';">
+    
+    <link rel="canonical" href="https://www.meltymon.org/">
+    <link rel="alternate" hreflang="de" href="https://www.meltymon.org/index.html">
+    <link rel="alternate" hreflang="en" href="https://www.meltymon.org/index_en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.meltymon.org/index.html">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self';">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -293,36 +300,17 @@ INFO: CachyOS kernel loaded successfully.
                     <pre style="font-family: var(--font-terminal); font-size: 0.85rem; color: #FFF; line-height: 1.4;">
 <span style="color: var(--accent-color);">[SYSTEM] Initializing Version Log...</span>
 
+<span style="color: var(--cachy-blue);">-- V 10.0 (2025-12-18) --</span>
+UPDATE: **SEO-Hardening** (Canonical tags, hreflang für DE/EN).
+UPDATE: **Security-Patch** (CSP erweitert für Cloudflare Insights).
+FIX: GitHub DNS-Mapping für www.meltymon.org abgeschlossen.
+
 <span style="color: var(--cachy-blue);">-- V 9.6 (2025-12-07) --</span>
-FEATURE: Visuelle Aufwertung auf **Neo-Retro/Cyberpunk-Ästhetik** (Neue Farbpalette, Neon-Glow, Magenta-Akzente).
-FEATURE: Neues, dreistufiges **Easter Egg/Rätsel** im CSS-Code implementiert.
-FIX: Code-Struktur für zukünftige Blog-Integration vorbereitet (#blog-area).
-
-<span style="color: var(--cachy-blue);">-- V 9.5 (2025-12-07) --</span>
-MAJOR FIX: **Rückkehr zum 2-Dateien-Prinzip** (index.html/index_en.html) zur Eliminierung hartnäckiger JavaScript-Fehler beim Laden von Texten (CORS/File-Protokoll Problem).
-FIX: Header-Ausrichtung auf **Zentrierung** korrigiert.
-
-<span style="color: var(--cachy-blue);">-- V 9.0 (2025-12-06) --</span>
-FEATURE: **Erste Internationalisierungsversuche** (i18n) mit externen JSON-Dateien (.json) und JavaScript-Logik zur Trennung von Inhalt und Struktur (später wieder verworfen).
-FEATURE: Implementierung der **DSGVO-konformen Datenschutzerklärung** für statische Seite.
-UPDATE: Icons und Emojis für visuelle Attraktivität hinzugefügt.
-
-<span style="color: var(--cachy-blue);">-- V 8.0 (2025-12-05) --</span>
-REFACTOR: Umfassender Refactor zu **Flexbox-Layout** (Sidebar links, Content rechts).
-FEATURE: Implementierung des **Terminal-Overlays** (simulierter Log-Screen).
-UPDATE: Kontakt-Sektion mit Action-Buttons (E-Mail, Discord, Twitch) erweitert.
-
-<span style="color: var(--cachy-blue);">-- V 7.5 (2025-12-04) --</span>
-FEATURE: Hinzufügen der detaillierten **Hardware-Sektion** (Lenovo Thinkstation P700 Specs: Dual-Xeon, 768GB ECC-RAM, Intel Arc A750).
-UPDATE: Netzwerk-Infrastruktur und Peripherie (10Gbit LAN, Fritzbox 6860/4690) hinzugefügt.
-FEATURE: Implementierung der **Kompetenzmatrix** und der Abschnitte **Ethics & Vitals**.
-
-<span style="color: var(--cachy-blue);">-- V 5.0 (2025-12-03) --</span>
-FEATURE: Integration der **Gaming/Diablo-Sektion** und des `journal.log` (Blog-Einträge).
-FIX: Hauptschriftart global auf Terminal-Schriftart (Courier New) gesetzt.
+FEATURE: Visuelle Aufwertung auf **Neo-Retro/Cyberpunk-Ästhetik**.
+FEATURE: Neues, dreistufiges **Easter Egg/Rätsel** im CSS.
 
 <span style="color: var(--cachy-blue);">-- V 1.0 (2025-12-01) --</span>
-INIT: Initialer Aufbau der Seite als statische HTML-Datei (Basic Structure & ASCII-Logo).
+INIT: Initialer Aufbau der Seite (Basic Structure & ASCII-Logo).
 </pre>
                 </div>
             </section>
@@ -339,37 +327,15 @@ INIT: Initialer Aufbau der Seite als statische HTML-Datei (Basic Structure & ASC
 
                 <h3>1. Allgemeines zur Datenverarbeitung</h3>
                 <p>
-                    Diese Website ist eine **rein statische HTML-Seite**. Sie verwendet **keine Cookies**, **kein Tracking** (wie Google Analytics oder Piwik) und **keine Datenbanken**. Personenbezogene Daten werden weder erhoben, gespeichert noch verarbeitet. 
+                    Diese Website ist eine **rein statische HTML-Seite**. Sie verwendet **keine Cookies**, **kein Tracking** und **keine Datenbanken**.
                 </p>
 
                 <h3>2. Hosting und Logfiles</h3>
                 <p>
-                    Die Bereitstellung der Website erfolgt über einen externen Hosting-Provider. Der Provider erhebt automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+                    Die Bereitstellung erfolgt über GitHub Pages/Cloudflare. Der Provider erhebt automatisch Server-Log-Dateien für die technische Funktion und Sicherheit.
                 </p>
-                <ul>
-                    <li>Browsertyp und Browserversion</li>
-                    <li>verwendetes Betriebssystem</li>
-                    <li>Referrer URL (die zuvor besuchte Seite)</li>
-                    <li>Hostname des zugreifenden Rechners</li>
-                    <li>Uhrzeit der Serveranfrage</li>
-                    <li>IP-Adresse</li>
-                </ul>
-                <p>
-                    Diese Daten dienen lediglich der technischen Funktion der Website (fehlerfreie Darstellung) und der Gewährleistung der Sicherheit der informationstechnischen Systeme. Sie werden nicht dazu verwendet, Rückschlüsse auf Ihre Person zu ziehen.
-                </p>
-
-                <h3>3. Externe Links (E-Mail, Discord, Twitch)</h3>
-                <p>
-                    Die Links zu E-Mail-Adressen, Discord oder Twitch sind **reine Hyperlinks** und stellen **keine direkte Datenübermittlung** an diese Dienste beim Besuch der Website dar. Erst wenn Sie aktiv auf diese Links klicken, verlassen Sie diese Website, und es gelten die Datenschutzbestimmungen der jeweiligen externen Dienste.
-                </p>
-
-                <h3>4. Ihre Rechte</h3>
-                <p>
-                    Da von uns keine personenbezogenen Daten verarbeitet werden, besteht kein Anlass zur Geltendmachung des Rechts auf Auskunft, Löschung oder Berichtigung der Daten.
-                </p>
-
                 <div class="quote-box" style="border-left-color: #ff5722; color: #ff5722; margin-top: 20px;">
-                    **Stand dieser Erklärung:** 07. Dezember 2025
+                    **Stand dieser Erklärung:** 18. Dezember 2025
                 </div>
             </section>
 
@@ -405,13 +371,13 @@ INIT: Initialer Aufbau der Seite als statische HTML-Datei (Basic Structure & ASC
      |_|\_\ |_| |_||_| |_||_| \__(_)
             </pre>
             <p>Erstellt mit 100% Handarbeit. Keine Cookies. Kein Tracking. Nur HTML & CSS.</p>
-            <p>&copy; 2025 Christian Faßbender | <a href="https://meltymon.org" style="color:var(--accent-color);">meltymon.org</a></p>
+            <p>&copy; 2025 Christian Faßbender | <a href="https://www.meltymon.org" style="color:var(--accent-color);">meltymon.org</a></p>
             
             <p style="font-size: 0.8rem; margin-top: 10px;">
                 <a href="https://de.wikipedia.org/wiki/UFO:_Enemy_Unknown" target="_blank" 
                    title="Das wahre Ende des Tages..." 
                    style="color: var(--accent-color); text-decoration: none; font-weight: bold; border-bottom: 1px dotted var(--accent-color);">
-                   [OLD-SCHOOL MODE: X-COM START]
+                    [OLD-SCHOOL MODE: X-COM START]
                 </a>
             </p>
         </div>
