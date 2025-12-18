@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 
 # Verweis auf die Sitemap (optional)
-# Sitemap: https://meltymon.org/sitemap.xml
+Sitemap: https://www.meltymon.org/sitemap.xml
