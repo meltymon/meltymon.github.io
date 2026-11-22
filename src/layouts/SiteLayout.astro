@@ -1,0 +1,35 @@
+---
+import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const { lang, content } = Astro.props;
+const isEnglish = lang === "en";
+const canonical = new URL(isEnglish ? "/en/" : "/", Astro.site);
+const germanUrl = new URL("/", Astro.site);
+const englishUrl = new URL("/en/", Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={content.description} />
+    <meta name="theme-color" content="#090d12" />
+    <title>{content.title}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="de" href={germanUrl} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="x-default" href={germanUrl} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{isEnglish ? "Skip to content" : "Zum Inhalt springen"}</a>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <SiteHeader lang={lang} nav={content.nav} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <SiteFooter lang={lang} footer={content.footer} />
+  </body>
+</html>
