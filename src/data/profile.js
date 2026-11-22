@@ -70,7 +70,7 @@ export const profile = {
         eyebrow: "04 / OPEN SOURCE",
         title: "Projekte statt Buzzwords",
         body:
-          "Die Projektübersicht wird aus ausgewählten GitHub-Repositories aufgebaut. Beschreibungen, Technologien und Aktivität werden vor der Veröffentlichung geprüft.",
+          "Eine Auswahl öffentlicher Repositories zeigt konkrete Arbeit an Linux-Werkzeugen, Backup und Recovery, Netzwerktechnik, Self-hosting und lokaler KI.",
         action: "GitHub-Profil öffnen",
       },
       gaming: {
@@ -175,7 +175,7 @@ export const profile = {
         eyebrow: "04 / OPEN SOURCE",
         title: "Projects over buzzwords",
         body:
-          "The project overview will be generated from selected GitHub repositories. Descriptions, technologies, and activity will be reviewed before publication.",
+          "A selection of public repositories showcases hands-on work across Linux tooling, backup and recovery, networking, self-hosting, and local AI.",
         action: "Visit GitHub profile",
       },
       gaming: {

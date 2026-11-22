@@ -1,0 +1,27 @@
+---
+const { projects, lang = "de" } = Astro.props;
+const labels =
+  lang === "en"
+    ? { open: "View repository", section: "GitHub repository" }
+    : { open: "Repository ansehen", section: "GitHub-Repository" };
+---
+
+<div class="project-grid">
+  {projects.map((project, index) => (
+    <article class="project-card">
+      <div class="project-card-top">
+        <span class="project-index">{String(index + 1).padStart(2, "0")}</span>
+        {project.status?.[lang] && <span class="project-status">{project.status[lang]}</span>}
+      </div>
+      <p class="project-category">{project.category[lang]}</p>
+      <h3>{project.title}</h3>
+      <p class="project-description">{project.description[lang]}</p>
+      <ul class="project-tags" aria-label={lang === "en" ? "Technologies" : "Technologien"}>
+        {project.technologies.map((technology) => <li>{technology}</li>)}
+      </ul>
+      <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
+        {labels.open}<span aria-hidden="true"> ↗</span>
+      </a>
+    </article>
+  ))}
+</div>
