@@ -33,7 +33,7 @@ const formatDate = (date) =>
     month: "short",
     year: "numeric",
     timeZone: "UTC",
-  }).format(new Date(\`\${date}T12:00:00Z\`));
+  }).format(new Date(date + "T12:00:00Z"));
 ---
 
 {entries.length > 0 ? (
@@ -42,7 +42,7 @@ const formatDate = (date) =>
       <li class="changelog-entry">
         <div class="changelog-meta">
           <time datetime={entry.date}>{formatDate(entry.date)}</time>
-          <span class={\`changelog-category changelog-category-\${entry.category}\`}>
+          <span class={"changelog-category changelog-category-" + entry.category}>
             {labels[entry.category] ?? labels.other}
           </span>
         </div>
@@ -53,7 +53,7 @@ const formatDate = (date) =>
               <span class="changelog-commit-count"> · {entry.commitCount} {labels.commits}</span>
             )}
           </p>
-          <a href={entry.url} target="_blank" rel="noopener noreferrer" aria-label={\`\${labels.commit} \${entry.shortHash}\`}>
+          <a href={entry.url} target="_blank" rel="noopener noreferrer" aria-label={labels.commit + " " + entry.shortHash}>
             {entry.shortHash} ↗
           </a>
         </div>
