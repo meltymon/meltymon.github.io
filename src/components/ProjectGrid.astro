@@ -1,27 +1,76 @@
 ---
-const { projects, lang = "de" } = Astro.props;
+const { projects, metadata = {}, lang = "de" } = Astro.props;
 const labels =
   lang === "en"
-    ? { open: "View repository", section: "GitHub repository" }
-    : { open: "Repository ansehen", section: "GitHub-Repository" };
+    ? {
+        open: "View repository",
+        lastPush: "Last push",
+        branch: "Default branch",
+        archived: "Archived",
+        cached: "Cached data",
+      }
+    : {
+        open: "Repository ansehen",
+        lastPush: "Letzter Push",
+        branch: "Standardbranch",
+        archived: "Archiviert",
+        cached: "Zwischengespeicherte Daten",
+      };
+
+const locale = lang === "en" ? "en-GB" : "de-DE";
+const formatDate = (value) =>
+  new Intl.DateTimeFormat(locale, {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(value));
 ---
 
 <div class="project-grid">
-  {projects.map((project, index) => (
-    <article class="project-card">
-      <div class="project-card-top">
-        <span class="project-index">{String(index + 1).padStart(2, "0")}</span>
-        {project.status?.[lang] && <span class="project-status">{project.status[lang]}</span>}
-      </div>
-      <p class="project-category">{project.category[lang]}</p>
-      <h3>{project.title}</h3>
-      <p class="project-description">{project.description[lang]}</p>
-      <ul class="project-tags" aria-label={lang === "en" ? "Technologies" : "Technologien"}>
-        {project.technologies.map((technology) => <li>{technology}</li>)}
-      </ul>
-      <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
-        {labels.open}<span aria-hidden="true"> ↗</span>
-      </a>
-    </article>
-  ))}
+  {projects.map((project, index) => {
+    const repository = metadata[project.slug];
+    return (
+      <article class="project-card">
+        <div class="project-card-top">
+          <span class="project-index">{String(index + 1).padStart(2, "0")}</span>
+          <div class="project-badges">
+            {project.status?.[lang] && <span class="project-status">{project.status[lang]}</span>}
+            {repository?.archived && <span class="project-status project-status-archived">{labels.archived}</span>}
+          </div>
+        </div>
+        <p class="project-category">{project.category[lang]}</p>
+        <h3>{project.title}</h3>
+        <p class="project-description">{project.description[lang]}</p>
+        <ul class="project-tags" aria-label={lang === "en" ? "Technologies" : "Technologien"}>
+          {project.technologies.map((technology) => <li>{technology}</li>)}
+        </ul>
+        {repository && (
+          <dl class="project-metadata">
+            {repository.pushedAt && (
+              <div>
+                <dt>{labels.lastPush}</dt>
+                <dd>{formatDate(repository.pushedAt)}</dd>
+              </div>
+            )}
+            {repository.defaultBranch && (
+              <div>
+                <dt>{labels.branch}</dt>
+                <dd><code>{repository.defaultBranch}</code></dd>
+              </div>
+            )}
+            {repository.source === "fallback" && (
+              <div class="project-metadata-source">
+                <dt>{labels.cached}</dt>
+                <dd aria-label={labels.cached}>●</dd>
+              </div>
+            )}
+          </dl>
+        )}
+        <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
+          {labels.open}<span aria-hidden="true"> ↗</span>
+        </a>
+      </article>
+    );
+  })}
 </div>

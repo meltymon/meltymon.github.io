@@ -8,11 +8,13 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run validate && npm run changelog:write && astro build",
+    "build": "npm run project-metadata:write && npm run validate && npm run changelog:write && astro build",
     "preview": "astro preview",
     "validate": "node scripts/validate-content.js",
     "changelog": "node scripts/generate-changelog.js",
-    "changelog:write": "node scripts/generate-changelog.js --write"
+    "changelog:write": "node scripts/generate-changelog.js --write",
+    "project-metadata": "node scripts/generate-github-metadata.js",
+    "project-metadata:write": "node scripts/generate-github-metadata.js"
   },
   "dependencies": {
     "astro": "7.4.13"

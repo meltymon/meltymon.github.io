@@ -319,3 +319,54 @@ h1 { max-width: 800px; margin-bottom: .6rem; font-size: clamp(2.8rem, 7vw, 5.8re
   font: .72rem var(--font-mono);
   white-space: nowrap;
 }
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .4rem;
+}
+.project-status-archived {
+  border-color: rgba(245, 158, 11, .38);
+  color: #f0bd73;
+}
+.project-metadata {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .7rem;
+  margin: 0 0 1.15rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--line);
+}
+.project-metadata > div {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  min-width: 0;
+}
+.project-metadata dt {
+  color: var(--muted);
+  font: .62rem var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.project-metadata dd {
+  margin: 0;
+  color: var(--text);
+  font: .72rem var(--font-mono);
+}
+.project-metadata dd code {
+  color: var(--cyan);
+  font: inherit;
+}
+.project-metadata .project-metadata-source {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: .4rem;
+  color: var(--muted);
+}
+.project-metadata-source dd {
+  color: var(--muted);
+  font-size: .55rem;
+}
