@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { profile } from "../../data/profile.js";
+import { hardware } from "../../data/hardware.js";
 
 const content = profile.en;
 const sections = content.sections;
@@ -59,11 +60,18 @@ const sections = content.sections;
         <span class="hardware-type">WORKSTATION</span>
         <h3>P700</h3>
         <p>{sections.infrastructure.p700}</p>
+        <ul class="hardware-specs">
+          <li>{hardware.p700.cpu}</li>
+          <li>{hardware.p700.memory}</li>
+          <li>{hardware.p700.gpu}</li>
+          <li>{hardware.p700.network}</li>
+        </ul>
       </article>
       <article class="hardware-card">
         <span class="hardware-type">CLUSTER</span>
         <h3>P900</h3>
         <p>{sections.infrastructure.p900}</p>
+        <p class="hardware-note">{hardware.p900.summary}</p>
       </article>
     </div>
   </section>
