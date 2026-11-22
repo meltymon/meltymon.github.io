@@ -26,7 +26,7 @@ function parseArguments(args) {
       options.limit = value;
       index += 1;
     } else {
-      throw new Error(`Unknown argument: ${argument}`);
+      throw new Error("Unknown argument: " + argument);
     }
   }
 
@@ -34,7 +34,7 @@ function parseArguments(args) {
 }
 
 function categoryFor(subject) {
-  const match = subject.match(/^([a-z]+)(?:\\([^)]*\\))?(!)?:\\s+/i);
+  const match = subject.match(/^([a-z]+)(?:\([^)]*\))?(!)?:\s+/i);
   const type = match?.[1]?.toLowerCase();
 
   if (["security", "sec", "vuln"].includes(type) || /security|vulnerab|cve/i.test(subject)) {
@@ -48,10 +48,10 @@ function categoryFor(subject) {
     return "maintenance";
   }
 
-  if (/\\b(add|implement|introduce|create|support)\\b/i.test(subject)) return "feature";
-  if (/\\b(fix|repair|resolve|correct)\\b/i.test(subject)) return "fix";
-  if (/\\b(refactor|optim|improv)\\b/i.test(subject)) return "improvement";
-  if (/\\b(document|readme|docs)\\b/i.test(subject)) return "docs";
+  if (/\b(add|implement|introduce|create|support)\b/i.test(subject)) return "feature";
+  if (/\b(fix|repair|resolve|correct)\b/i.test(subject)) return "fix";
+  if (/\b(refactor|optim|improv)\b/i.test(subject)) return "improvement";
+  if (/\b(document|readme|docs)\b/i.test(subject)) return "docs";
 
   return "other";
 }
@@ -61,9 +61,9 @@ function main() {
 
   if (options.help) {
     process.stdout.write(
-      "Usage: node scripts/generate-changelog.js [--limit 1..50] [--write]\\n" +
-      "Without --write, generated JSON is printed to stdout.\\n" +
-      "With --write, src/data/changelog.generated.json is replaced.\\n",
+      "Usage: node scripts/generate-changelog.js [--limit 1..50] [--write]\n" +
+      "Without --write, generated JSON is printed to stdout.\n" +
+      "With --write, src/data/changelog.generated.json is replaced.\n",
     );
     return;
   }
@@ -77,7 +77,7 @@ function main() {
     [
       "log",
       "--no-merges",
-      `--max-count=${options.limit}`,
+      "--max-count=" + options.limit,
       "--date=short",
       "--format=%H%x1f%h%x1f%cs%x1f%s",
     ],
@@ -88,10 +88,10 @@ function main() {
     throw new Error("No Git commits found. Run this command inside a repository with commit history.");
   }
 
-  const entries = log.split("\\n").filter(Boolean).map((line) => {
-    const [hash, shortHash, date, subject] = line.split("\\x1f");
+  const entries = log.split("\n").filter(Boolean).map((line) => {
+    const [hash, shortHash, date, subject] = line.split("\x1f");
     if (!hash || !shortHash || !date || !subject) {
-      throw new Error(`Could not parse Git log entry: ${line}`);
+      throw new Error("Could not parse Git log entry: " + line);
     }
 
     return {
@@ -100,7 +100,7 @@ function main() {
       date,
       subject,
       category: categoryFor(subject),
-      url: `${REPOSITORY_URL}/commit/${hash}`,
+      url: REPOSITORY_URL + "/commit/" + hash,
     };
   });
 
@@ -109,7 +109,7 @@ function main() {
     generatedFrom: "git log",
     entries,
   };
-  const json = `${JSON.stringify(output, null, 2)}\\n`;
+  const json = JSON.stringify(output, null, 2) + "\n";
 
   if (!options.write) {
     process.stdout.write(json);
@@ -117,16 +117,16 @@ function main() {
   }
 
   const outputPath = resolve(root, OUTPUT_FILE);
-  const temporaryPath = `${outputPath}.tmp`;
+  const temporaryPath = outputPath + ".tmp";
   mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(temporaryPath, json, "utf8");
   renameSync(temporaryPath, outputPath);
-  process.stdout.write(`Generated ${entries.length} changelog entries: ${OUTPUT_FILE}\\n`);
+  process.stdout.write("Generated " + entries.length + " changelog entries: " + OUTPUT_FILE + "\n");
 }
 
 try {
   main();
 } catch (error) {
-  process.stderr.write(`Changelog generation failed: ${error.message}\\n`);
+  process.stderr.write("Changelog generation failed: " + error.message + "\n");
   process.exitCode = 1;
 }
