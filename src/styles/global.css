@@ -540,3 +540,24 @@ html[data-theme="cyberpunk"] .content-section { border-top-style:dashed; }
 @media (prefers-reduced-motion:reduce) {
   html[data-theme="cyberpunk"] .hero-cursor { animation:none; }
 }
+
+/* Original meltymon terminal identity, available in the selectable Cyberpunk theme. */
+.cyberpunk-sidebar { display:none; }
+html[data-theme="cyberpunk"] body { overflow-x:hidden; }
+html[data-theme="cyberpunk"] .site-header { margin-left:max(1rem,calc((100vw - var(--content-width))/2 + 270px)); width:calc(min(100% - 3rem,var(--content-width)) - 270px); }
+html[data-theme="cyberpunk"] .main-nav { display:none; }
+html[data-theme="cyberpunk"] .cyberpunk-sidebar { display:block; position:fixed; z-index:7; top:96px; left:max(1rem,calc((100vw - var(--content-width))/2)); width:238px; max-height:calc(100vh - 116px); overflow:auto; border:1px solid var(--cyan); border-left:3px solid var(--magenta); background:rgba(3,8,10,.96); box-shadow:0 0 22px rgba(0,245,212,.18); font:.72rem/1.5 var(--font-mono); }
+html[data-theme="cyberpunk"] .cyberpunk-sidebar h2 { margin:0; padding:.8rem; color:#00110e; background:var(--cyan); font-size:.8rem; }
+html[data-theme="cyberpunk"] .cyberpunk-sidebar nav a { display:block; padding:.62rem .75rem; border-top:1px solid rgba(0,245,212,.12); color:var(--text); text-decoration:none; }
+html[data-theme="cyberpunk"] .cyberpunk-sidebar nav a span { color:var(--magenta); }
+html[data-theme="cyberpunk"] .cyberpunk-sidebar nav a:hover { color:#030608; background:var(--magenta); }
+html[data-theme="cyberpunk"] .sidebar-status { padding:0 .8rem; color:var(--cyan); }
+html[data-theme="cyberpunk"] .hero-copy::before { content:"root@meltymon:~# ./profile --verbose"; display:block; margin-bottom:1.1rem; color:var(--cyan); font:.82rem var(--font-mono); text-shadow:0 0 12px rgba(0,245,212,.5); }
+.easter-eggs { width:min(100% - 3rem,760px); margin:2rem auto; padding:1rem; border:1px dashed var(--line); color:var(--muted); font:.75rem/1.6 var(--font-mono); }
+.easter-eggs summary { color:var(--magenta); cursor:pointer; }
+.easter-eggs output { display:block; min-height:1.5rem; margin-top:.5rem; color:var(--cyan); }
+.easter-eggs .ascii-logo { overflow:auto; color:var(--magenta); font-size:.65rem; }
+html[data-theme="cyberpunk"] .easter-eggs { border-color:rgba(255,60,172,.55); background:rgba(3,8,10,.7); }
+html[data-theme="cyberpunk"] .site-footer { border-top:2px solid var(--magenta); }
+@media (max-width:1050px) { html[data-theme="cyberpunk"] .site-header { margin-inline:auto; width:min(100% - 3rem,var(--content-width)); } html[data-theme="cyberpunk"] .cyberpunk-sidebar { display:none; } html[data-theme="cyberpunk"] .main-nav { display:flex; } }
+@media (max-width:600px) { html[data-theme="cyberpunk"] .site-header { width:min(100% - 2rem,var(--content-width)); } .easter-eggs { width:calc(100% - 2rem); } }
