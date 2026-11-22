@@ -15,7 +15,7 @@ export const profile = {
       { label: "Kontakt", href: "#kontakt" },
     ],
     hero: {
-      eyebrow: "IT-Veteran · Gaming-Stratege · CachyOS-Enthusiast",
+      eyebrow: "Linux · Infrastruktur · Automatisierung",
       role: "CloudSecOps Engineer",
       statement: "Seit 25 Jahren Windows-frei.",
       intro:
@@ -77,6 +77,10 @@ export const profile = {
           {
             title: "Automation",
             detail: "Node.js, Bash und Fish für wiederholbare Abläufe",
+          },
+          {
+            title: "Entwicklung & Datenbanken",
+            detail: "Python und SQL in eigenen Projekten; Kotlin und Java mit Grundlagen aus der Mobile-App-Developer-Weiterbildung und praktischer Vertiefung.",
           },
           {
             title: "Backup & Recovery",
@@ -146,7 +150,7 @@ export const profile = {
       { label: "Contact", href: "#contact" },
     ],
     hero: {
-      eyebrow: "IT veteran · Gaming strategist · CachyOS enthusiast",
+      eyebrow: "Linux · Infrastructure · Automation",
       role: "CloudSecOps Engineer",
       statement: "Windows-free for 25 years.",
       intro:
@@ -208,6 +212,10 @@ export const profile = {
           {
             title: "Automation",
             detail: "Node.js, Bash, and Fish for repeatable workflows",
+          },
+          {
+            title: "Development & databases",
+            detail: "Python and SQL in independent projects; Kotlin and Java introduced through Mobile App Developer training and further practical work.",
           },
           {
             title: "Backup & Recovery",
