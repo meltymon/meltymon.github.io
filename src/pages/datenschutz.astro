@@ -1,0 +1,65 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const content = {
+  title: "Datenschutzerklärung | meltymon.org",
+  description: "Informationen zur Verarbeitung personenbezogener Daten beim Besuch von meltymon.org.",
+  nav: [],
+  footer: { note: "Mit Sorgfalt gebaut. Inhalte und Projekte werden laufend überprüft." },
+};
+---
+
+<SiteLayout lang="de" content={content}>
+  <article class="content-section section-shell legal-page">
+    <p class="eyebrow">RECHTLICHES / DATENSCHUTZ</p>
+    <h1>Datenschutzerklärung</h1>
+    <p class="section-lead">Diese Hinweise informieren darüber, welche personenbezogenen Daten beim Besuch dieser Website verarbeitet werden und welche Rechte Besucher haben.</p>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>Verantwortlich für die Verarbeitung personenbezogener Daten auf dieser Website ist:</p>
+    <p><strong>Christian Faßbender</strong><br />E-Mail: <a href="mailto:kontakt@meltymon.org">kontakt@meltymon.org</a></p>
+    <p>Für Datenschutzanfragen kannst du mich über diese E-Mail-Adresse erreichen.</p>
+
+    <h2>2. Hosting und Bereitstellung der Website</h2>
+    <p>Diese Website wird als statische Website mit Astro erstellt und über GitHub Pages bereitgestellt. Die Domain wird über Cloudflare vermittelt; der DNS-Eintrag für die Website ist mit aktiviertem Cloudflare-Proxy (orange Wolke) konfiguriert.</p>
+    <p>Beim Aufruf läuft die Verbindung daher zunächst über die Infrastruktur von Cloudflare und wird von dort an GitHub Pages weitergeleitet. Cloudflare kann Anfragen unter anderem zur Bereitstellung, Beschleunigung, Zwischenspeicherung und Absicherung der Website verarbeiten. GitHub dokumentiert, dass bei Besuchen einer GitHub-Pages-Website IP-Adressen zu Sicherheitszwecken protokolliert werden. Da diese Website Cloudflare als vorgeschalteten Proxy verwendet, lässt sich aus der allgemeinen GitHub-Dokumentation allein nicht ableiten, welche konkrete Quell-IP GitHub bei dieser Konfiguration erhält.</p>
+    <p>Anbieterinformationen:</p>
+    <ul>
+      <li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare – Datenschutzhinweise</a></li>
+      <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub – Privacy Statement</a></li>
+      <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages – Informationen zur Datenerfassung</a></li>
+    </ul>
+
+    <h2>3. Technische Zugriffsdaten</h2>
+    <p>Beim Abruf der Website werden technisch erforderliche Verbindungs- und Zugriffsdaten verarbeitet. Dazu können insbesondere gehören:</p>
+    <ul>
+      <li>IP-Adresse des anfragenden Geräts,</li>
+      <li>Datum und Uhrzeit der Anfrage,</li>
+      <li>aufgerufene Adresse und übertragene Ressource,</li>
+      <li>Informationen zum verwendeten Browser und Betriebssystem (User-Agent),</li>
+      <li>Referrer-Adresse, soweit vom Browser übermittelt,</li>
+      <li>übertragene Datenmenge und Status der Anfrage.</li>
+    </ul>
+    <p>Die Verarbeitung dient der technischen Auslieferung, Stabilität, Fehleranalyse sowie dem Schutz vor Missbrauch und Angriffen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Das berechtigte Interesse liegt im sicheren und zuverlässigen Betrieb der Website.</p>
+    <p>Die Daten werden durch die jeweils beteiligten Infrastruktur-Anbieter nach deren technischen und vertraglichen Vorgaben verarbeitet. Auf deren konkrete Protokollierung und Speicherdauer habe ich nicht in jedem Fall unmittelbaren Einfluss. Eine eigene Besucher- oder Nutzungsanalyse betreibe ich mit dieser Website derzeit nicht.</p>
+
+    <h2>4. Cookies und vergleichbare Technologien</h2>
+    <p>Der Website-Code setzt derzeit keine eigenen Analyse-, Werbe- oder Tracking-Cookies und verwendet keine vergleichbaren Technologien zu Marketing- oder Profilbildungszwecken. Für die reine Darstellung der statischen Inhalte ist kein Nutzerkonto erforderlich.</p>
+    <p>Cloudflare und GitHub können im Rahmen ihrer Infrastruktur eigene technisch erforderliche Mechanismen einsetzen. Informationen dazu findest du in den Datenschutzhinweisen der jeweiligen Anbieter. Sollte die Website künftig zusätzliche einwilligungsbedürftige Technologien einsetzen, werden die Informationen und gegebenenfalls erforderlichen Einwilligungen vor deren Einsatz ergänzt.</p>
+
+    <h2>5. Externe Links</h2>
+    <p>Diese Website enthält Links zu externen Angeboten, insbesondere GitHub, Discord und Twitch. Es handelt sich um gewöhnliche Links und nicht um eingebettete Inhalte. Erst wenn du einen solchen Link öffnest, wird eine Verbindung zum jeweiligen Anbieter hergestellt. Dabei gelten dessen Datenschutzbestimmungen.</p>
+
+    <h2>6. Projekt-Metadaten</h2>
+    <p>Für die Darstellung ausgewählter öffentlicher GitHub-Projekte werden beim Erstellen der Website öffentliche Repository-Metadaten über die GitHub-API abgerufen und in die statischen Website-Dateien übernommen. Dieser Abruf erfolgt serverseitig im Build-Prozess. Beim normalen Besuch der Website wird dafür keine direkte API-Verbindung zwischen deinem Browser und GitHub hergestellt.</p>
+
+    <h2>7. Deine Rechte</h2>
+    <p>Du hast im Rahmen der gesetzlichen Voraussetzungen insbesondere das Recht auf Auskunft über deine personenbezogenen Daten (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (Art. 21).</p>
+    <p>Du kannst dich außerdem bei einer Datenschutz-Aufsichtsbehörde beschweren. Für Nordrhein-Westfalen ist dies die <a href="https://www.ldi.nrw.de/" target="_blank" rel="noopener noreferrer">Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</a>.</p>
+    <p>Zur Wahrnehmung deiner Rechte genügt eine Nachricht an <a href="mailto:kontakt@meltymon.org">kontakt@meltymon.org</a>.</p>
+
+    <h2>8. Aktualität</h2>
+    <p>Diese Datenschutzhinweise werden angepasst, wenn sich die technische Umsetzung oder die eingesetzten Dienste ändern.</p>
+    <p><small>Stand: 22. November 2026</small></p>
+  </article>
+</SiteLayout>
