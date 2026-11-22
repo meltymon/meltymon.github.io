@@ -1,0 +1,65 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const content = {
+  title: "Privacy Policy | meltymon.org",
+  description: "Information about the processing of personal data when visiting meltymon.org.",
+  nav: [],
+  footer: { note: "Built with care. Content and projects are reviewed continuously." },
+};
+---
+
+<SiteLayout lang="en" content={content}>
+  <article class="content-section section-shell legal-page">
+    <p class="eyebrow">LEGAL / PRIVACY</p>
+    <h1>Privacy Policy</h1>
+    <p class="section-lead">This notice explains what personal data may be processed when you visit this website and what rights you have.</p>
+
+    <h2>1. Data controller</h2>
+    <p>The controller responsible for processing personal data on this website is:</p>
+    <p><strong>Christian Faßbender</strong><br />Email: <a href="mailto:kontakt@meltymon.org">kontakt@meltymon.org</a></p>
+    <p>You can contact me at this email address with privacy-related requests.</p>
+
+    <h2>2. Hosting and delivery</h2>
+    <p>This website is built as a static Astro site and hosted using GitHub Pages. The domain is routed through Cloudflare; the website's DNS record uses the Cloudflare proxy (orange-cloud status).</p>
+    <p>Requests therefore pass through Cloudflare infrastructure before being forwarded to GitHub Pages. Cloudflare may process requests to deliver, accelerate, cache and protect the website. GitHub Pages states in its documentation that visitor IP addresses are logged for security purposes.</p>
+    <p>Provider information:</p>
+    <ul>
+      <li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare – Privacy Policy</a></li>
+      <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub – Privacy Statement</a></li>
+      <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages – Data collection information</a></li>
+    </ul>
+
+    <h2>3. Technical access data</h2>
+    <p>When the website is accessed, technical connection and access data may be processed. This may include:</p>
+    <ul>
+      <li>IP address of the requesting device,</li>
+      <li>date and time of the request,</li>
+      <li>requested URL and resource,</li>
+      <li>browser and operating system information (user agent),</li>
+      <li>referrer URL, if provided by the browser,</li>
+      <li>amount of data transferred and request status.</li>
+    </ul>
+    <p>This processing is used for technical delivery, stability, troubleshooting and protection against abuse and attacks. The legal basis is Article 6(1)(f) GDPR. The legitimate interest is operating the website securely and reliably.</p>
+    <p>The infrastructure providers process this data according to their respective technical and contractual terms. I do not have direct control over every aspect of their logging and retention periods. I do not currently run my own visitor or usage analytics on this website.</p>
+
+    <h2>4. Cookies and similar technologies</h2>
+    <p>The current website code does not set its own analytics, advertising or tracking cookies and does not use similar technologies for marketing or profiling. No user account is required to view the static content.</p>
+    <p>Cloudflare and GitHub may use their own technically necessary mechanisms as part of their infrastructure. Please refer to their privacy information for details. If additional technologies requiring consent are introduced in the future, this notice and any required consent process will be updated before they are used.</p>
+
+    <h2>5. External links</h2>
+    <p>This website contains links to external services, including GitHub, Discord and Twitch. These are ordinary links, not embedded third-party content. A connection to the relevant provider is only made when you open a link. The provider's own privacy terms then apply.</p>
+
+    <h2>6. Project metadata</h2>
+    <p>Public repository metadata for selected GitHub projects is retrieved through the GitHub API when the website is built and included in the static website files. This request is made server-side during the build process. A normal visit to the website does not create a direct API connection between your browser and GitHub for this purpose.</p>
+
+    <h2>7. Your rights</h2>
+    <p>Subject to the applicable legal requirements, you have the right to access your personal data (Article 15 GDPR), rectification (Article 16), erasure (Article 17), restriction of processing (Article 18), data portability (Article 20), and to object to processing based on Article 6(1)(f) GDPR (Article 21).</p>
+    <p>You also have the right to lodge a complaint with a data protection supervisory authority. In North Rhine-Westphalia, this is the <a href="https://www.ldi.nrw.de/" target="_blank" rel="noopener noreferrer">State Commissioner for Data Protection and Freedom of Information of North Rhine-Westphalia (LDI NRW)</a>.</p>
+    <p>To exercise your rights, contact me at <a href="mailto:kontakt@meltymon.org">kontakt@meltymon.org</a>.</p>
+
+    <h2>8. Updates</h2>
+    <p>This privacy notice will be updated if the technical implementation or the services used by this website change.</p>
+    <p><small>Last updated: 22 November 2026</small></p>
+  </article>
+</SiteLayout>
