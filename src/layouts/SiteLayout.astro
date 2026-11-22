@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import EasterEggs from "../components/EasterEggs.astro";
 
 const { lang, content } = Astro.props;
 const isEnglish = lang === "en";
@@ -47,6 +48,7 @@ const alternateHref = isEnglish ? germanUrl.pathname : englishUrl.pathname;
     </script>
     <script>
       import "../scripts/theme-toggle.js";
+      import "../scripts/easter-eggs.js";
     </script>
   </head>
   <body>
@@ -54,9 +56,15 @@ const alternateHref = isEnglish ? germanUrl.pathname : englishUrl.pathname;
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="crt-overlay" aria-hidden="true"></div>
     <SiteHeader lang={lang} nav={content.nav} alternateHref={alternateHref} />
+    <aside class="cyberpunk-sidebar" aria-label={isEnglish ? "Terminal navigation" : "Terminalnavigation"}>
+      <h2>$ meltymon-cli.sh</h2>
+      <nav>{content.nav.map((item, index) => <a href={item.href}><span>{String(index + 1).padStart(2, "0")}</span> {item.label}</a>)}</nav>
+      <p class="sidebar-status">SYS.STATUS: ONLINE</p>
+    </aside>
     <main id="main-content">
       <slot />
     </main>
+    <EasterEggs lang={lang} />
     <SiteFooter lang={lang} footer={content.footer} />
   </body>
 </html>
