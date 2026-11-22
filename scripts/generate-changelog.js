@@ -26,7 +26,7 @@ function parseArguments(args) {
 }
 
 function categoryFor(subject) {
-  const match = subject.match(/^([a-z]+)(?:\\([^)]*\\))?(!)?:\\s+/i);
+  const match = subject.match(/^([a-z]+)(?:\([^)]*\))?(!)?:\s+/i);
   const type = match?.[1]?.toLowerCase();
   if (["security", "sec", "vuln"].includes(type) || /security|vulnerab|cve/i.test(subject)) return "security";
   if (["feat", "feature"].includes(type)) return "feature";
@@ -34,17 +34,17 @@ function categoryFor(subject) {
   if (["refactor", "perf", "style", "improve", "ui"].includes(type)) return "improvement";
   if (["docs", "doc", "content"].includes(type)) return "docs";
   if (["test", "build", "ci", "chore", "deps", "release"].includes(type)) return "maintenance";
-  if (/\\b(add|implement|introduce|create|support)\\b/i.test(subject)) return "feature";
-  if (/\\b(fix|repair|resolve|correct)\\b/i.test(subject)) return "fix";
-  if (/\\b(refactor|optim|improv)\\b/i.test(subject)) return "improvement";
-  if (/\\b(document|readme|docs)\\b/i.test(subject)) return "docs";
+  if (/\b(add|implement|introduce|create|support)\b/i.test(subject)) return "feature";
+  if (/\b(fix|repair|resolve|correct)\b/i.test(subject)) return "fix";
+  if (/\b(refactor|optim|improv)\b/i.test(subject)) return "improvement";
+  if (/\b(document|readme|docs)\b/i.test(subject)) return "docs";
   return "other";
 }
 
 function groupEntries(log) {
   const grouped = new Map();
-  for (const line of log.split("\\n").filter(Boolean)) {
-    const [hash, shortHash, date, subject] = line.split("\\x1f");
+  for (const line of log.split("\n").filter(Boolean)) {
+    const [hash, shortHash, date, subject] = line.split("\x1f");
     if (!hash || !shortHash || !date || !subject) throw new Error("Could not parse Git log entry: " + line);
     const key = subject.trim();
     const existing = grouped.get(key);
@@ -60,7 +60,7 @@ function groupEntries(log) {
 function main() {
   const options = parseArguments(process.argv.slice(2));
   if (options.help) {
-    process.stdout.write("Usage: node scripts/generate-changelog.js [--limit 1..5000] [--write]\\nDefault: include the complete non-merge Git history.\\n");
+    process.stdout.write("Usage: node scripts/generate-changelog.js [--limit 1..5000] [--write]\nDefault: include the complete non-merge Git history.\n");
     return;
   }
   const root = execFileSync("git", ["rev-parse", "--show-toplevel"], { encoding: "utf8" }).trim();
@@ -71,16 +71,16 @@ function main() {
   if (!log) throw new Error("No Git commits found. Run this command inside a repository with commit history.");
   const entries = groupEntries(log);
   const output = { repository: "meltymon/meltymon.github.io", generatedFrom: "git log", entries };
-  const json = JSON.stringify(output, null, 2) + "\\n";
+  const json = JSON.stringify(output, null, 2) + "\n";
   if (!options.write) { process.stdout.write(json); return; }
   const outputPath = resolve(root, OUTPUT_FILE);
   const temporaryPath = outputPath + ".tmp";
   mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(temporaryPath, json, "utf8");
   renameSync(temporaryPath, outputPath);
-  process.stdout.write("Generated " + entries.length + " changelog entries from complete Git history: " + OUTPUT_FILE + "\\n");
+  process.stdout.write("Generated " + entries.length + " changelog entries from complete Git history: " + OUTPUT_FILE + "\n");
 }
 try { main(); } catch (error) {
-  process.stderr.write("Changelog generation failed: " + error.message + "\\n");
+  process.stderr.write("Changelog generation failed: " + error.message + "\n");
   process.exitCode = 1;
 }
