@@ -448,3 +448,26 @@ h1 { max-width: 800px; margin-bottom: .6rem; font-size: clamp(2.8rem, 7vw, 5.8re
     overflow-wrap: anywhere;
   }
 }
+
+
+/* Keep the gaming section present but visually secondary to technical work. */
+.gaming-section {
+  padding-block: 2.75rem;
+  background: linear-gradient(90deg, rgba(215,139,216,.035), transparent 70%);
+}
+.gaming-section h2 {
+  margin-bottom: .65rem;
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+}
+.gaming-section .section-lead {
+  margin-bottom: 0;
+  font-size: .92rem;
+}
+.gaming-section .tag-list {
+  gap: .5rem;
+  margin-top: 1.15rem;
+}
+.gaming-section .tag-list li {
+  padding: .38rem .65rem;
+  font-size: .7rem;
+}
