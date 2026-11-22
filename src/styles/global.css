@@ -542,6 +542,7 @@ html[data-theme="cyberpunk"] .content-section { border-top-style:dashed; }
 }
 
 /* Original meltymon terminal identity, available in the selectable Cyberpunk theme. */
+/* KEY_FRITZ: 6860_4690 */
 .cyberpunk-sidebar { display:none; }
 html[data-theme="cyberpunk"] body { overflow-x:hidden; }
 html[data-theme="cyberpunk"] .site-header { margin-left:max(1rem,calc((100vw - var(--content-width))/2 + 270px)); width:calc(min(100% - 3rem,var(--content-width)) - 270px); }
@@ -576,8 +577,8 @@ html[data-theme="cyberpunk"] .hero::after {
 html[data-theme="cyberpunk"] .hero-aside { position:relative; }
 html[data-theme="cyberpunk"] .hero-aside::before { content:"┌─ TERMINAL / STATUS ─────────────────┐"; display:block; margin-bottom:.8rem; color:var(--magenta); }
 html[data-theme="cyberpunk"] .hero-aside::after { content:"└─────────────────────────────────────┘"; display:block; margin-top:.8rem; color:var(--magenta); }
-html[data-theme="cyberpunk"] [data-easter-egg="xcom"] body { background-image:radial-gradient(ellipse at 50% 0%,rgba(255,60,172,.15),transparent 60%); }
-html[data-theme="cyberpunk"] [data-easter-egg="xcom"] .hero-copy::before { content:"root@meltymon:~# xcom --launch // COMMANDER"; color:var(--magenta); }
+html[data-theme="cyberpunk"][data-easter-egg="xcom"] body { background-image:radial-gradient(ellipse at 50% 0%,rgba(255,60,172,.15),transparent 60%); }
+html[data-theme="cyberpunk"][data-easter-egg="xcom"] .hero-copy::before { content:"root@meltymon:~# xcom --launch // COMMANDER"; color:var(--magenta); }
 @media (max-width:1050px) {
   html[data-theme="cyberpunk"] main#main-content { width:100%; margin-left:0; }
 }
