@@ -10,6 +10,7 @@ export const profile = {
       { label: "Infrastruktur", href: "#infrastruktur" },
       { label: "Projekte", href: "#projekte" },
       { label: "Gaming", href: "#gaming" },
+      { label: "Changelog", href: "#changelog" },
       { label: "Kontakt", href: "#kontakt" },
     ],
     hero: {
@@ -89,7 +90,7 @@ export const profile = {
         ],
       },
       contact: {
-        eyebrow: "06 / KONTAKT",
+        eyebrow: "07 / KONTAKT",
         title: "Austausch ist willkommen.",
         body:
           "Für fachlichen Austausch, Fragen zu Projekten oder einfach ein gutes Gespräch über Linux und Technik.",
@@ -115,6 +116,7 @@ export const profile = {
       { label: "Infrastructure", href: "#infrastructure" },
       { label: "Projects", href: "#projects" },
       { label: "Gaming", href: "#gaming" },
+      { label: "Changelog", href: "#changelog" },
       { label: "Contact", href: "#contact" },
     ],
     hero: {
@@ -194,7 +196,7 @@ export const profile = {
         ],
       },
       contact: {
-        eyebrow: "06 / CONTACT",
+        eyebrow: "07 / CONTACT",
         title: "Good conversations are always welcome.",
         body:
           "For technical exchange, questions about projects, or simply a good conversation about Linux and technology.",
