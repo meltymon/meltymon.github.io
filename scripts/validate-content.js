@@ -1,9 +1,44 @@
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { profile } from "../src/data/profile.js";
 import { hardware } from "../src/data/hardware.js";
 import { projects } from "../src/data/projects.js";
 import githubMetadata from "../src/data/github-metadata.generated.json" with { type: "json" };
 
 const errors = [];
+const root = process.cwd();
+
+for (const [file, label] of [
+  ["src/pages/datenschutz.astro", "German privacy page"],
+  ["src/pages/en/privacy.astro", "English privacy page"],
+]) {
+  if (!existsSync(resolve(root, file))) errors.push(`Missing ${label}: ${file}`);
+}
+
+const sitemapPath = resolve(root, "public/sitemap.xml");
+const robotsPath = resolve(root, "public/robots.txt");
+if (!existsSync(sitemapPath)) {
+  errors.push("Missing public/sitemap.xml");
+} else {
+  const sitemap = readFileSync(sitemapPath, "utf8");
+  for (const route of ["/", "/en/", "/datenschutz/", "/en/privacy/"]) {
+    if (!sitemap.includes(`https://www.meltymon.org${route}`)) {
+      errors.push(`Sitemap is missing route: ${route}`);
+    }
+  }
+  for (const language of ['hreflang="de"', 'hreflang="en"', 'hreflang="x-default"']) {
+    if (!sitemap.includes(language)) errors.push(`Sitemap is missing language alternate: ${language}`);
+  }
+}
+
+if (!existsSync(robotsPath)) {
+  errors.push("Missing public/robots.txt");
+} else {
+  const robots = readFileSync(robotsPath, "utf8");
+  if (!robots.includes("Sitemap: https://www.meltymon.org/sitemap.xml")) {
+    errors.push("robots.txt does not reference the canonical sitemap URL");
+  }
+}
 
 for (const language of ["de", "en"]) {
   const content = profile[language];
