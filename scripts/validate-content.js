@@ -18,10 +18,18 @@ for (const language of ["de", "en"]) {
     }
   }
 
-  for (const section of ["profile", "skills", "infrastructure", "projects", "gaming", "contact"]) {
+  for (const section of ["profile", "career", "skills", "infrastructure", "projects", "gaming", "contact"]) {
     if (!content.sections?.[section]) {
       errors.push(`[${language}] Missing section: ${section}`);
     }
+  }
+
+  if (!Array.isArray(content.sections?.career?.items) || content.sections.career.items.length === 0) {
+    errors.push(`[${language}] Career section must contain at least one item`);
+  }
+
+  if (!Array.isArray(content.sections?.gaming?.games) || content.sections.gaming.games.length === 0) {
+    errors.push(`[${language}] Gaming section must contain at least one game`);
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(content.sections?.contact?.email ?? "")) {
