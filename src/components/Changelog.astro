@@ -1,0 +1,58 @@
+---
+const { entries = [], lang = "de" } = Astro.props;
+const labels =
+  lang === "en"
+    ? {
+        feature: "Feature",
+        fix: "Fix",
+        security: "Security",
+        improvement: "Improvement",
+        docs: "Documentation",
+        maintenance: "Maintenance",
+        other: "Change",
+        commit: "Commit",
+        empty: "No changelog entries are available yet.",
+      }
+    : {
+        feature: "Funktion",
+        fix: "Fehlerbehebung",
+        security: "Sicherheit",
+        improvement: "Verbesserung",
+        docs: "Dokumentation",
+        maintenance: "Wartung",
+        other: "Änderung",
+        commit: "Commit",
+        empty: "Noch sind keine Changelog-Einträge verfügbar.",
+      };
+const dateLocale = lang === "en" ? "en-GB" : "de-DE";
+const formatDate = (date) =>
+  new Intl.DateTimeFormat(dateLocale, {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${date}T12:00:00Z`));
+---
+
+{entries.length > 0 ? (
+  <ol class="changelog-list">
+    {entries.map((entry) => (
+      <li class="changelog-entry">
+        <div class="changelog-meta">
+          <time datetime={entry.date}>{formatDate(entry.date)}</time>
+          <span class={`changelog-category changelog-category-${entry.category}`}>
+            {labels[entry.category] ?? labels.other}
+          </span>
+        </div>
+        <div class="changelog-content">
+          <p>{entry.subject}</p>
+          <a href={entry.url} target="_blank" rel="noopener noreferrer" aria-label={`${labels.commit} ${entry.shortHash}`}>
+            {entry.shortHash} ↗
+          </a>
+        </div>
+      </li>
+    ))}
+  </ol>
+) : (
+  <p class="section-lead">{labels.empty}</p>
+)}
