@@ -22,7 +22,7 @@ const content = {
 
     <h2>2. Hosting und Bereitstellung der Website</h2>
     <p>Diese Website wird als statische Website mit Astro erstellt und über GitHub Pages bereitgestellt. Die Domain wird über Cloudflare vermittelt; der DNS-Eintrag für die Website ist mit aktiviertem Cloudflare-Proxy (orange Wolke) konfiguriert.</p>
-    <p>Beim Aufruf läuft die Verbindung daher zunächst über die Infrastruktur von Cloudflare und wird von dort an GitHub Pages weitergeleitet. Cloudflare kann Anfragen unter anderem zur Bereitstellung, Beschleunigung, Zwischenspeicherung und Absicherung der Website verarbeiten. GitHub Pages protokolliert nach eigener Dokumentation die IP-Adresse von Besuchern zu Sicherheitszwecken.</p>
+    <p>Beim Aufruf läuft die Verbindung daher zunächst über die Infrastruktur von Cloudflare und wird von dort an GitHub Pages weitergeleitet. Cloudflare kann Anfragen unter anderem zur Bereitstellung, Beschleunigung, Zwischenspeicherung und Absicherung der Website verarbeiten. GitHub dokumentiert, dass bei Besuchen einer GitHub-Pages-Website IP-Adressen zu Sicherheitszwecken protokolliert werden. Da diese Website Cloudflare als vorgeschalteten Proxy verwendet, lässt sich aus der allgemeinen GitHub-Dokumentation allein nicht ableiten, welche konkrete Quell-IP GitHub bei dieser Konfiguration erhält.</p>
     <p>Anbieterinformationen:</p>
     <ul>
       <li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare – Datenschutzhinweise</a></li>
