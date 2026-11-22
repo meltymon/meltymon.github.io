@@ -13,4 +13,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.meltymon.org/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meltymon.org/" />
   </url>
+  <url>
+    <loc>https://www.meltymon.org/datenschutz/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.meltymon.org/datenschutz/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.meltymon.org/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meltymon.org/datenschutz/" />
+  </url>
+  <url>
+    <loc>https://www.meltymon.org/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.meltymon.org/datenschutz/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.meltymon.org/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meltymon.org/datenschutz/" />
+  </url>
 </urlset>
