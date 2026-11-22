@@ -561,3 +561,23 @@ html[data-theme="cyberpunk"] .easter-eggs { border-color:rgba(255,60,172,.55); b
 html[data-theme="cyberpunk"] .site-footer { border-top:2px solid var(--magenta); }
 @media (max-width:1050px) { html[data-theme="cyberpunk"] .site-header { margin-inline:auto; width:min(100% - 3rem,var(--content-width)); } html[data-theme="cyberpunk"] .cyberpunk-sidebar { display:none; } html[data-theme="cyberpunk"] .main-nav { display:flex; } }
 @media (max-width:600px) { html[data-theme="cyberpunk"] .site-header { width:min(100% - 2rem,var(--content-width)); } .easter-eggs { width:calc(100% - 2rem); } }
+
+/* Desktop terminal shell layout: file-browser sidebar + full-width content column. */
+html[data-theme="cyberpunk"] main#main-content { width:calc(100% - 270px); margin-left:270px; }
+html[data-theme="cyberpunk"] .hero,
+html[data-theme="cyberpunk"] .content-section,
+html[data-theme="cyberpunk"] .contact-section { width:min(calc(100% - 3rem),var(--content-width)); margin-left:auto; margin-right:auto; }
+html[data-theme="cyberpunk"] .hero { position:relative; }
+html[data-theme="cyberpunk"] .hero::after {
+  content:"[ SYSTEM ONLINE ]  [ LOCAL-FIRST ]  [ SECURITY: ENABLED ]";
+  display:block; grid-column:1/-1; padding:.7rem 1rem; border:1px dashed rgba(0,245,212,.35);
+  color:var(--cyan); font:.68rem var(--font-mono); letter-spacing:.08em;
+}
+html[data-theme="cyberpunk"] .hero-aside { position:relative; }
+html[data-theme="cyberpunk"] .hero-aside::before { content:"┌─ TERMINAL / STATUS ─────────────────┐"; display:block; margin-bottom:.8rem; color:var(--magenta); }
+html[data-theme="cyberpunk"] .hero-aside::after { content:"└─────────────────────────────────────┘"; display:block; margin-top:.8rem; color:var(--magenta); }
+html[data-theme="cyberpunk"] [data-easter-egg="xcom"] body { background-image:radial-gradient(ellipse at 50% 0%,rgba(255,60,172,.15),transparent 60%); }
+html[data-theme="cyberpunk"] [data-easter-egg="xcom"] .hero-copy::before { content:"root@meltymon:~# xcom --launch // COMMANDER"; color:var(--magenta); }
+@media (max-width:1050px) {
+  html[data-theme="cyberpunk"] main#main-content { width:100%; margin-left:0; }
+}
