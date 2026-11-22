@@ -96,12 +96,16 @@ const sections = content.sections;
         <p class="hardware-description">{hardware.p900.summary}</p>
         <ul class="hardware-specs">
           <li>{hardware.p900.compute}</li>
+          <li>{hardware.p900.memory}</li>
+          <li>{hardware.p900.nvme}</li>
+          <li>{hardware.p900.storage}</li>
           <li>{hardware.p900.platform}</li>
-          {hardware.p900.storage.map((item) => <li>{item}</li>)}
           <li>{hardware.p900.acceleration}</li>
           <li>{hardware.p900.network}</li>
+          <li>{hardware.p900.management}</li>
+          <li>{hardware.p900.cooling}</li>
         </ul>
-        <p class="hardware-note">{hardware.p900.details}</p>
+        <p class="hardware-note">{hardware.p900.topologyNote}</p>
       </article>
     </div>
   </section>
