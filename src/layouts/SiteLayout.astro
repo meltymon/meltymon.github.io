@@ -39,10 +39,20 @@ const alternateHref = isEnglish ? germanUrl.pathname : englishUrl.pathname;
     <link rel="alternate" hreflang="de" href={germanUrl} />
     <link rel="alternate" hreflang="en" href={englishUrl} />
     <link rel="alternate" hreflang="x-default" href={germanUrl} />
+    <script is:inline>
+      try {
+        const savedTheme = localStorage.getItem("meltymon-theme");
+        if (savedTheme === "cyberpunk") document.documentElement.dataset.theme = "cyberpunk";
+      } catch {}
+    </script>
+    <script>
+      import "../scripts/theme-toggle.js";
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">{isEnglish ? "Skip to content" : "Zum Inhalt springen"}</a>
     <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="crt-overlay" aria-hidden="true"></div>
     <SiteHeader lang={lang} nav={content.nav} alternateHref={alternateHref} />
     <main id="main-content">
       <slot />
