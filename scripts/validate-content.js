@@ -24,7 +24,15 @@ for (const language of ["de", "en"]) {
     }
   }
 
-  if (!Array.isArray(content.sections?.career?.items) || content.sections.career.items.length === 0) {\n    errors.push(`[${language}] Career section must contain at least one item`);\n  }\n\n  if (!Array.isArray(content.sections?.gaming?.games) || content.sections.gaming.games.length === 0) {\n    errors.push(`[${language}] Gaming section must contain at least one game`);\n  }\n\n  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(content.sections?.contact?.email ?? "")) {
+  if (!Array.isArray(content.sections?.career?.items) || content.sections.career.items.length === 0) {
+    errors.push(`[${language}] Career section must contain at least one item`);
+  }
+
+  if (!Array.isArray(content.sections?.gaming?.games) || content.sections.gaming.games.length === 0) {
+    errors.push(`[${language}] Gaming section must contain at least one game`);
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(content.sections?.contact?.email ?? "")) {
     errors.push(`[${language}] Invalid contact email`);
   }
 }
