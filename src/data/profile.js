@@ -10,6 +10,7 @@ export const profile = {
       { label: "Infrastruktur", href: "#infrastruktur" },
       { label: "Projekte", href: "#projekte" },
       { label: "Gaming", href: "#gaming" },
+      { label: "Changelog", href: "#changelog" },
       { label: "Kontakt", href: "#kontakt" },
     ],
     hero: {
@@ -115,6 +116,7 @@ export const profile = {
       { label: "Infrastructure", href: "#infrastructure" },
       { label: "Projects", href: "#projects" },
       { label: "Gaming", href: "#gaming" },
+      { label: "Changelog", href: "#changelog" },
       { label: "Contact", href: "#contact" },
     ],
     hero: {
