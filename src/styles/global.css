@@ -389,3 +389,62 @@ h1 { max-width: 800px; margin-bottom: .6rem; font-size: clamp(2.8rem, 7vw, 5.8re
   border-top: 1px solid var(--line);
   overflow-wrap: anywhere;
 }
+
+
+/* Mobile navigation and layout hardening */
+@media (max-width: 900px) {
+  .main-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding: .25rem 0 .55rem;
+    scroll-snap-type: x proximity;
+  }
+  .main-nav a {
+    flex: 0 0 auto;
+    padding: .35rem 0;
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 10.5vw, 3.2rem);
+    overflow-wrap: anywhere;
+  }
+  .hero-aside {
+    min-width: 0;
+    padding: 1.1rem;
+    overflow-wrap: anywhere;
+  }
+  .hero-aside p span {
+    width: 4.8rem;
+  }
+  .info-card,
+  .hardware-card,
+  .project-card {
+    min-width: 0;
+    padding: 1.1rem;
+  }
+  .hardware-specs,
+  .project-metadata dd,
+  .changelog-content p {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  .project-badges {
+    justify-content: flex-start;
+  }
+  .contact-links .button {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .tag-list li {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
