@@ -11,8 +11,21 @@ const root = process.cwd();
 for (const [file, label] of [
   ["src/pages/datenschutz.astro", "German privacy page"],
   ["src/pages/en/privacy.astro", "English privacy page"],
+  ["src/pages/impressum.astro", "German legal notice"],
+  ["src/pages/en/legal-notice.astro", "English legal notice"],
 ]) {
   if (!existsSync(resolve(root, file))) errors.push(`Missing ${label}: ${file}`);
+}
+
+const germanLegalPath = resolve(root, "src/pages/impressum.astro");
+const englishLegalPath = resolve(root, "src/pages/en/legal-notice.astro");
+if (existsSync(germanLegalPath) &&
+    !readFileSync(germanLegalPath, "utf8").includes("Wird nur auf Anfrage herausgegeben.")) {
+  errors.push("German legal notice is missing the requested address wording");
+}
+if (existsSync(englishLegalPath) &&
+    !readFileSync(englishLegalPath, "utf8").includes("Provided upon request.")) {
+  errors.push("English legal notice is missing the address wording");
 }
 
 const sitemapPath = resolve(root, "public/sitemap.xml");
@@ -21,7 +34,7 @@ if (!existsSync(sitemapPath)) {
   errors.push("Missing public/sitemap.xml");
 } else {
   const sitemap = readFileSync(sitemapPath, "utf8");
-  for (const route of ["/", "/en/", "/datenschutz/", "/en/privacy/"]) {
+  for (const route of ["/", "/en/", "/datenschutz/", "/en/privacy/", "/impressum/", "/en/legal-notice/"]) {
     if (!sitemap.includes(`https://www.meltymon.org${route}`)) {
       errors.push(`Sitemap is missing route: ${route}`);
     }
@@ -51,6 +64,10 @@ for (const language of ["de", "en"]) {
     if (content[key] === undefined || content[key] === null) {
       errors.push(`[${language}] Missing profile field: ${key}`);
     }
+  }
+
+  if (content.hero?.role !== "Senior CloudSecOps Engineer") {
+    errors.push(`[${language}] Hero role must be "Senior CloudSecOps Engineer"`);
   }
 
   for (const section of ["profile", "career", "skills", "infrastructure", "projects", "gaming", "contact"]) {
@@ -131,5 +148,5 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exitCode = 1;
 } else {
-  console.log(`Content validation passed (DE/EN profile, hardware, and ${projects.length} GitHub projects).`);
+  console.log(`Content validation passed (DE/EN profile, legal pages, hardware, and ${projects.length} GitHub projects).`);
 }
