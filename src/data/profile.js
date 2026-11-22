@@ -58,34 +58,13 @@ export const profile = {
         eyebrow: "03 / KOMPETENZEN",
         title: "Technische Schwerpunkte",
         items: [
-          {
-            title: "Linux & System Engineering",
-            detail: "Linux-Administration, Systempflege und Fehleranalyse",
-          },
-          {
-            title: "Cloud Security Operations",
-            detail: "Security-orientierte Infrastruktur, Zugriffskonzepte und Betrieb",
-          },
-          {
-            title: "Netzwerk & Infrastruktur",
-            detail: "Netzwerkdesign, Segmentierung, VPN und technische Fehlersuche",
-          },
-          {
-            title: "Virtualisierung & Storage",
-            detail: "Proxmox, Ceph und hochverfügbare Homelab-Architekturen",
-          },
-          {
-            title: "Automation",
-            detail: "Node.js, Bash und Fish für wiederholbare Abläufe",
-          },
-          {
-            title: "Entwicklung & Datenbanken",
-            detail: "Python und SQL in eigenen Projekten; Kotlin und Java mit Grundlagen aus der Mobile-App-Developer-Weiterbildung und praktischer Vertiefung.",
-          },
-          {
-            title: "Backup & Recovery",
-            detail: "Backup-Strategien, Wiederherstellung und Ausfallsicherheit",
-          },
+          { title: "Linux & System Engineering", detail: "Linux-Administration, Systempflege und Fehleranalyse" },
+          { title: "Cloud Security Operations", detail: "Security-orientierte Infrastruktur, Zugriffskonzepte und Betrieb" },
+          { title: "Netzwerk & Infrastruktur", detail: "Netzwerkdesign, Segmentierung, VPN und technische Fehlersuche" },
+          { title: "Virtualisierung & Storage", detail: "Proxmox, Ceph und hochverfügbare Homelab-Architekturen" },
+          { title: "Automation", detail: "Node.js, Bash und Fish für wiederholbare Abläufe" },
+          { title: "Entwicklung & Datenbanken", detail: "Python und SQL in eigenen Projekten; Kotlin und Java mit Grundlagen aus der Mobile-App-Developer-Weiterbildung und praktischer Vertiefung." },
+          { title: "Backup & Recovery", detail: "Backup-Strategien, Wiederherstellung und Ausfallsicherheit" },
         ],
       },
       infrastructure: {
@@ -151,7 +130,7 @@ export const profile = {
     ],
     hero: {
       eyebrow: "Linux · Infrastructure · Automation",
-      role: "CloudSecOps Engineer",
+      role: "Senior CloudSecOps Engineer",
       statement: "Windows-free for 25 years.",
       intro:
         "I combine extensive hands-on experience in telecommunications and technical services with Linux, infrastructure, security operations, and independent automation projects.",
@@ -193,34 +172,13 @@ export const profile = {
         eyebrow: "03 / EXPERTISE",
         title: "Technical focus areas",
         items: [
-          {
-            title: "Linux & System Engineering",
-            detail: "Linux administration, system maintenance, and troubleshooting",
-          },
-          {
-            title: "Cloud Security Operations",
-            detail: "Security-minded infrastructure, access concepts, and operations",
-          },
-          {
-            title: "Networks & Infrastructure",
-            detail: "Network design, segmentation, VPN, and technical troubleshooting",
-          },
-          {
-            title: "Virtualization & Storage",
-            detail: "Proxmox, Ceph, and highly available homelab architectures",
-          },
-          {
-            title: "Automation",
-            detail: "Node.js, Bash, and Fish for repeatable workflows",
-          },
-          {
-            title: "Development & databases",
-            detail: "Python and SQL in independent projects; Kotlin and Java introduced through Mobile App Developer training and further practical work.",
-          },
-          {
-            title: "Backup & Recovery",
-            detail: "Backup strategies, restoration, and resilience",
-          },
+          { title: "Linux & System Engineering", detail: "Linux administration, system maintenance, and troubleshooting" },
+          { title: "Cloud Security Operations", detail: "Security-minded infrastructure, access concepts, and operations" },
+          { title: "Networks & Infrastructure", detail: "Network design, segmentation, VPN, and technical troubleshooting" },
+          { title: "Virtualization & Storage", detail: "Proxmox, Ceph, and highly available homelab architectures" },
+          { title: "Automation", detail: "Node.js, Bash, and Fish for repeatable workflows" },
+          { title: "Development & databases", detail: "Python and SQL in independent projects; Kotlin and Java introduced through Mobile App Developer training and further practical work." },
+          { title: "Backup & Recovery", detail: "Backup strategies, restoration, and resilience" },
         ],
       },
       infrastructure: {
@@ -255,9 +213,9 @@ export const profile = {
       },
       contact: {
         eyebrow: "08 / CONTACT",
-        title: "Good conversations are always welcome.",
+        title: "Always open to a good conversation.",
         body:
-          "For technical exchange, questions about projects, or simply a good conversation about Linux and technology.",
+          "For professional exchange, questions about projects, or simply a good conversation about Linux and technology.",
         email: "kontakt@meltymon.org",
         discord: "Discord",
         twitch: "Twitch",
