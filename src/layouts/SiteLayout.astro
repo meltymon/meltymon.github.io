@@ -5,9 +5,24 @@ import SiteFooter from "../components/SiteFooter.astro";
 
 const { lang, content } = Astro.props;
 const isEnglish = lang === "en";
-const isPrivacyPage = Astro.url.pathname === "/datenschutz/" || Astro.url.pathname === "/en/privacy/";
-const germanUrl = new URL(isPrivacyPage ? "/datenschutz/" : "/", Astro.site);
-const englishUrl = new URL(isPrivacyPage ? "/en/privacy/" : "/en/", Astro.site);
+const pathname = Astro.url.pathname;
+const pageType = pathname === "/datenschutz/" || pathname === "/en/privacy/"
+  ? "privacy"
+  : pathname === "/impressum/" || pathname === "/en/legal-notice/"
+    ? "legal"
+    : "home";
+const germanPath = pageType === "privacy"
+  ? "/datenschutz/"
+  : pageType === "legal"
+    ? "/impressum/"
+    : "/";
+const englishPath = pageType === "privacy"
+  ? "/en/privacy/"
+  : pageType === "legal"
+    ? "/en/legal-notice/"
+    : "/en/";
+const germanUrl = new URL(germanPath, Astro.site);
+const englishUrl = new URL(englishPath, Astro.site);
 const canonical = isEnglish ? englishUrl : germanUrl;
 const alternateHref = isEnglish ? germanUrl.pathname : englishUrl.pathname;
 ---
