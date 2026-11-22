@@ -5,9 +5,11 @@ import SiteFooter from "../components/SiteFooter.astro";
 
 const { lang, content } = Astro.props;
 const isEnglish = lang === "en";
-const canonical = new URL(isEnglish ? "/en/" : "/", Astro.site);
-const germanUrl = new URL("/", Astro.site);
-const englishUrl = new URL("/en/", Astro.site);
+const isPrivacyPage = Astro.url.pathname === "/datenschutz/" || Astro.url.pathname === "/en/privacy/";
+const germanUrl = new URL(isPrivacyPage ? "/datenschutz/" : "/", Astro.site);
+const englishUrl = new URL(isPrivacyPage ? "/en/privacy/" : "/en/", Astro.site);
+const canonical = isEnglish ? englishUrl : germanUrl;
+const alternateHref = isEnglish ? germanUrl.pathname : englishUrl.pathname;
 ---
 
 <!doctype html>
@@ -26,7 +28,7 @@ const englishUrl = new URL("/en/", Astro.site);
   <body>
     <a class="skip-link" href="#main-content">{isEnglish ? "Skip to content" : "Zum Inhalt springen"}</a>
     <div class="ambient-grid" aria-hidden="true"></div>
-    <SiteHeader lang={lang} nav={content.nav} />
+    <SiteHeader lang={lang} nav={content.nav} alternateHref={alternateHref} />
     <main id="main-content">
       <slot />
     </main>
