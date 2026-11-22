@@ -1,0 +1,16 @@
+---
+const { lang = "de" } = Astro.props;
+const isEnglish = lang === "en";
+---
+<details class="easter-eggs" data-easter-eggs>
+  <summary>{isEnglish ? "SYSTEM LOG // Hidden challenge" : "SYSTEM-LOG // Versteckte Herausforderung"}</summary>
+  <p>{isEnglish ? "Three stages. No account, tracking or external service required. Start with the classic Konami sequence, then inspect the old stylesheet clue." : "Drei Stufen. Kein Konto, Tracking oder externer Dienst nötig. Beginne mit der klassischen Konami-Sequenz und entdecke danach den Hinweis aus dem alten Stylesheet."}</p>
+  <pre class="ascii-logo" aria-label="meltymon ASCII logo">
+      _  __         _    _  _   _
+     | |/ /  _ __  | |__| || |_| |
+     | ' /  | '_ \\ | '_ \\| || __| |
+     | . \\ | | | || | | | || |_|_|
+     |_|\\_\\ |_| |_||_| |_||_| \\__(_)
+  </pre>
+  <output data-easter-status aria-live="polite">{isEnglish ? "Awaiting input..." : "Warte auf Eingabe..."}</output>
+</details>
