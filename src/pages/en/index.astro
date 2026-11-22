@@ -4,6 +4,8 @@ import { profile } from "../../data/profile.js";
 import { hardware } from "../../data/hardware.js";
 import { projects } from "../../data/projects.js";
 import ProjectGrid from "../../components/ProjectGrid.astro";
+import Changelog from "../../components/Changelog.astro";
+import changelog from "../../data/changelog.generated.json";
 
 const content = profile.en;
 const sections = content.sections;
@@ -93,6 +95,14 @@ const sections = content.sections;
     <ul class="tag-list">
       {sections.gaming.games.map((game) => <li>{game}</li>)}
     </ul>
+  </section>
+
+
+  <section id="changelog" class="content-section section-shell">
+    <p class="eyebrow">06 / CHANGELOG</p>
+    <h2>Changes you can trace.</h2>
+    <p class="section-lead">A commit-based view of the latest changes to this website. Every entry links directly to its source commit.</p>
+    <Changelog entries={changelog.entries} lang="en" />
   </section>
 
   <section id="contact" class="contact-section section-shell">

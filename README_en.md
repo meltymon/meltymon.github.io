@@ -27,6 +27,19 @@ npm run preview
 
 The generated static site is written to `dist/`.
 
+## Changelog automation
+
+The changelog is generated from the repository's Git commit history. It preserves commit subjects, assigns conservative categories, and links each entry to its source commit.
+
+```sh
+npm run changelog                 # preview generated JSON in the terminal
+npm run changelog -- --limit 20   # preview up to 20 commits
+npm run changelog:write           # write src/data/changelog.generated.json
+npm run build                     # validate, regenerate changelog, and build Astro
+```
+
+The generator excludes merge commits and defaults to the latest 12 commits. It does not invent summaries from code changes; commit subjects remain the source of truth. The `--write` flag is required to overwrite the generated data file when running the script directly.
+
 ## Project structure
 
 - `src/pages/`: German and English routes
@@ -34,7 +47,7 @@ The generated static site is written to `dist/`.
 - `src/layouts/`: shared page layout and metadata
 - `src/data/`: structured profile and hardware data
 - `src/styles/`: global design system
-- `scripts/`: Node.js automation planned for later implementation steps
+- `scripts/`: Node.js content validation and Git-based changelog generation
 - `public/`: static assets, custom domain and crawler files
 
 ## Content policy

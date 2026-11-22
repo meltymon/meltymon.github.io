@@ -8,9 +8,11 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run validate && astro build",
+    "build": "npm run validate && npm run changelog:write && astro build",
     "preview": "astro preview",
-    "validate": "node scripts/validate-content.js"
+    "validate": "node scripts/validate-content.js",
+    "changelog": "node scripts/generate-changelog.js",
+    "changelog:write": "node scripts/generate-changelog.js --write"
   },
   "dependencies": {
     "astro": "7.4.13"

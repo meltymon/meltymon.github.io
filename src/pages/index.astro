@@ -4,6 +4,8 @@ import { profile } from "../data/profile.js";
 import { hardware } from "../data/hardware.js";
 import { projects } from "../data/projects.js";
 import ProjectGrid from "../components/ProjectGrid.astro";
+import Changelog from "../components/Changelog.astro";
+import changelog from "../data/changelog.generated.json";
 
 const content = profile.de;
 const sections = content.sections;
@@ -93,6 +95,14 @@ const sections = content.sections;
     <ul class="tag-list">
       {sections.gaming.games.map((game) => <li>{game}</li>)}
     </ul>
+  </section>
+
+
+  <section id="changelog" class="content-section section-shell">
+    <p class="eyebrow">06 / CHANGELOG</p>
+    <h2>Änderungen bleiben nachvollziehbar.</h2>
+    <p class="section-lead">Die letzten Änderungen an dieser Website, direkt aus der Git-Historie. Jeder Eintrag führt zum zugehörigen Commit.</p>
+    <Changelog entries={changelog.entries} lang="de" />
   </section>
 
   <section id="kontakt" class="contact-section section-shell">
