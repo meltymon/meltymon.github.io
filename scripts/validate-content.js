@@ -75,7 +75,7 @@ for (const project of projects) {
     errors.push(`GitHub metadata missing for project: ${project.slug}`);
     continue;
   }
-  if (!/^\\d{4}-\\d{2}-\\d{2}T/.test(metadata.pushedAt ?? "")) {
+  if (!/^\d{4}-\d{2}-\d{2}T/.test(metadata.pushedAt ?? "")) {
     errors.push(`Invalid last-push timestamp for project: ${project.slug}`);
   }
   if (typeof metadata.archived !== "boolean" || !metadata.defaultBranch) {
