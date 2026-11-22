@@ -18,7 +18,7 @@ for (const language of ["de", "en"]) {
     }
   }
 
-  for (const section of ["profile", "skills", "infrastructure", "projects", "gaming", "contact"]) {
+  for (const section of ["profile", "career", "skills", "infrastructure", "projects", "gaming", "contact"]) {
     if (!content.sections?.[section]) {
       errors.push(`[${language}] Missing section: ${section}`);
     }
