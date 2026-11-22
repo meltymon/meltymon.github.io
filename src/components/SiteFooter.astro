@@ -1,0 +1,14 @@
+---
+const { lang, footer } = Astro.props;
+const isEnglish = lang === "en";
+---
+
+<footer class="site-footer">
+  <a class="footer-brand" href={isEnglish ? "/en/" : "/"}>meltymon.org</a>
+  <p>{footer.note}</p>
+  <div class="footer-links">
+    <a href="mailto:kontakt@meltymon.org">{isEnglish ? "Contact" : "Kontakt"}</a>
+    <a href="https://github.com/meltymon" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+  <small>© {new Date().getFullYear()} Christian Faßbender</small>
+</footer>
