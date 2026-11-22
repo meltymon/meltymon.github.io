@@ -1,7 +1,0 @@
-# Meldung an alle Web-Crawler
-User-agent: *
-# Erlaubt das Crawlen der gesamten Seite
-Allow: /
-
-# Verweis auf die Sitemap (optional)
-Sitemap: https://www.meltymon.org/sitemap.xml
