@@ -1,43 +1,53 @@
-# 💻 meltymon.org - Static Terminal Homepage
+# meltymon.org
 
-[🇩🇪 Zur deutschen Version (README.md)](README.md)
+Bilingual technical portfolio built with Astro and Node.js. The site is generated as static HTML and is intended for GitHub Pages hosting.
 
----
+## Requirements
 
-## ℹ️ Project Description
+- Node.js 26.13.1 (see `.nvmrc`)
+- npm 12
+- Git
 
-This is the static business card and information hub for Christian Faßbender (`meltymon`).
+## Local development
 
-The page is designed as a modern, **responsive terminal emulation** in the **CachyOS/Linux style**. It deliberately uses pure **HTML and CSS** (Vanilla approach) and avoids JavaScript for content rendering, tracking, or cookies to ensure maximum speed and privacy.
+```sh
+nvm use
+npm install
+npm run dev
+```
 
-## ✨ Core Features
+Astro prints the local development URL after startup.
 
-* **Two-File Principle (DE/EN):** Simple, click-based language switching (no JavaScript-based i18n).
-* **Minimalist & Fast:** HTML and CSS only.
-* **Terminal Aesthetic:** Uses monospace fonts, blinking effects, and a neo-green color palette.
-* **Detailed Hardware Specs:** Includes the full specification of the **Lenovo Thinkstation P700** workstation (Dual-Xeon, 768GB ECC-RAM, Intel Arc A750).
-* **GDPR Compliant:** The page is purely static and requires no consent.
+## Validation and production build
 
----
+```sh
+npm run build
+npm run preview
+```
 
-## 🚀 Deployment
+The generated static site is written to `dist/`.
 
-The project can be run on any static hosting service (e.g., GitHub Pages, Netlify, Cloudflare Pages).
+## Project structure
 
-### Required Files
+- `src/pages/`: German and English routes
+- `src/components/`: reusable interface components
+- `src/layouts/`: shared page layout and metadata
+- `src/data/`: structured profile and hardware data
+- `src/styles/`: global design system
+- `scripts/`: Node.js automation planned for later implementation steps
+- `public/`: static assets, custom domain and crawler files
 
-The following files must be present in the root directory of the repository:
+## Content policy
 
-* `index.html` (German main page)
-* `index_en.html` (English translation)
-* `style.css` (The design stylesheet)
-* `README.md` (German README)
-* `README_en.md` (This file)
+Only verified hardware and profile information should be presented as fact. Unverified cluster topology, employment details, and project claims must be checked before publication. Final3 is outside the scope of this homepage rebuild.
 
-### Language Switching
+## Deployment
 
-Switching between German and English occurs via the hyperlinks in the header of the respective `index` file.
+The production deployment workflow is intentionally not enabled in this foundation stage. GitHub Pages settings, build validation, and deployment permissions will be checked before a deployment workflow is introduced.
 
-```html
-<a href="index.html" class="lang-btn">DE</a>
-<a href="index_en.html" class="lang-btn active">EN</a>
+## Languages
+
+- German: `/`
+- English: `/en/`
+
+Both language versions share the same layout and use structured content data in `src/data/profile.js`.
