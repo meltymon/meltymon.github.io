@@ -1,0 +1,24 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const content = {
+  title: "Legal Notice | meltymon.org",
+  description: "Operator information and contact details for meltymon.org.",
+  nav: [],
+  footer: { note: "Built with care. Content and projects are reviewed continuously.", imprint: "Legal notice" },
+};
+---
+
+<SiteLayout lang="en" content={content}>
+  <article class="content-section section-shell legal-page">
+    <p class="eyebrow">LEGAL / OPERATOR INFORMATION</p>
+    <h1>Legal Notice</h1>
+    <h2>Website operator</h2>
+    <p><strong>Christian Faßbender</strong></p>
+    <p>Email: <a href="mailto:kontakt@meltymon.org">kontakt@meltymon.org</a></p>
+    <p>Address: Provided upon request.</p>
+    <h2>Content responsibility</h2>
+    <p>Christian Faßbender</p>
+    <p>This website is intended for personal biographical and technical presentation and for showcasing independent projects.</p>
+  </article>
+</SiteLayout>
