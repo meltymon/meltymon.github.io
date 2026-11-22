@@ -6,6 +6,7 @@ export const profile = {
       "Technisches Portfolio von Christian Faßbender: CloudSecOps, Linux, Infrastruktur, Automatisierung und eigene Projekte.",
     nav: [
       { label: "Profil", href: "#profil" },
+      { label: "Werdegang", href: "#werdegang" },
       { label: "Kompetenzen", href: "#kompetenzen" },
       { label: "Infrastruktur", href: "#infrastruktur" },
       { label: "Projekte", href: "#projekte" },
@@ -29,8 +30,32 @@ export const profile = {
         body:
           "Mein Weg in der IT ist praxisorientiert: von Telekommunikationsnetzen und technischer Infrastruktur über Außendienst und Elektromechanik bis zu Linux-Systemen, Cloud Security Operations und eigenen Automatisierungsprojekten.",
       },
+      career: {
+        eyebrow: "02 / WERDEGANG",
+        title: "Von technischer Praxis zu Linux und Security Operations",
+        body:
+          "Mein beruflicher Weg verbindet industrielle Fertigung, Telekommunikation, technischen Außendienst und Medizintechnik. Die Erfahrungen aus Netzbetrieb, Fehlersuche und elektromechanischen Systemen bilden heute eine praktische Grundlage für meine Arbeit mit Linux, Infrastruktur, Automatisierung und Security Operations.",
+        items: [
+          {
+            title: "Behälter- und Apparatebau",
+            detail: "Ausbildung und praktische Arbeit in der industriellen Fertigung – mit technischem Verständnis, Präzision und elektromechanischen Grundlagen.",
+          },
+          {
+            title: "Telekommunikation & Netzinfrastruktur",
+            detail: "Viele Jahre bei der Deutschen Telekom: Geschäftskunden, Netzebenen NE 5 bis NE 1, Teilnehmeranschlussleitungen, Glasfaser, Infrastruktur und technische Baugruppen.",
+          },
+          {
+            title: "Medizintechnik & technischer Außendienst",
+            detail: "Service und technische Betreuung medizinischer Geräte im Umfeld von Pathologie, Histologie und Zytologie – mit systematischer Diagnose und verantwortungsvollem Arbeiten.",
+          },
+          {
+            title: "Mobilfunk, Weiterbildung & heutiger Schwerpunkt",
+            detail: "Weitere praktische Erfahrung in Telekommunikation und Mobilfunk. Ergänzend eine Weiterbildung zum Mobile App Developer (UX/UI, Kotlin und Java-Grundlagen). Heute liegt mein technischer Schwerpunkt auf Linux, Infrastruktur, Automatisierung und Cloud Security Operations.",
+          },
+        ],
+      },
       skills: {
-        eyebrow: "02 / KOMPETENZEN",
+        eyebrow: "03 / KOMPETENZEN",
         title: "Technische Schwerpunkte",
         items: [
           {
@@ -60,7 +85,7 @@ export const profile = {
         ],
       },
       infrastructure: {
-        eyebrow: "03 / HOMELAB",
+        eyebrow: "04 / HOMELAB",
         title: "Infrastruktur als Praxislabor",
         body:
           "Im eigenen Homelab werden Architekturentscheidungen praktisch erprobt: Linux-Workstations, Virtualisierung, Storage, Netzwerke und lokale KI-Infrastruktur. Details und Messwerte werden projektbezogen dokumentiert.",
@@ -68,14 +93,14 @@ export const profile = {
         p900: "Lenovo ThinkStation P900 · Proxmox- und Ceph-Cluster",
       },
       projects: {
-        eyebrow: "04 / OPEN SOURCE",
+        eyebrow: "05 / OPEN SOURCE",
         title: "Projekte statt Buzzwords",
         body:
           "Eine Auswahl öffentlicher Repositories zeigt konkrete Arbeit an Linux-Werkzeugen, Backup und Recovery, Netzwerktechnik, Self-hosting und lokaler KI.",
         action: "GitHub-Profil öffnen",
       },
       gaming: {
-        eyebrow: "05 / LINUX & GAMING",
+        eyebrow: "06 / LINUX & GAMING",
         title: "Auch Gaming gehört zum Linux-Alltag",
         body:
           "Linux-Gaming, Kompatibilität und Performance-Tuning sind seit Jahren Teil meiner praktischen Linux-Erfahrung.",
@@ -90,7 +115,7 @@ export const profile = {
         ],
       },
       contact: {
-        eyebrow: "07 / KONTAKT",
+        eyebrow: "08 / KONTAKT",
         title: "Austausch ist willkommen.",
         body:
           "Für fachlichen Austausch, Fragen zu Projekten oder einfach ein gutes Gespräch über Linux und Technik.",
@@ -112,6 +137,7 @@ export const profile = {
       "Technical portfolio of Christian Faßbender: CloudSecOps, Linux, infrastructure, automation, and independent projects.",
     nav: [
       { label: "Profile", href: "#profile" },
+      { label: "Career", href: "#career" },
       { label: "Expertise", href: "#expertise" },
       { label: "Infrastructure", href: "#infrastructure" },
       { label: "Projects", href: "#projects" },
@@ -135,8 +161,32 @@ export const profile = {
         body:
           "My path in IT is rooted in hands-on work: from telecommunications networks and technical infrastructure to field service and electromechanics, then into Linux systems, cloud security operations, and independent automation projects.",
       },
+      career: {
+        eyebrow: "02 / CAREER",
+        title: "From hands-on engineering to Linux and security operations",
+        body:
+          "My professional background connects industrial manufacturing, telecommunications, field service, and medical technology. Experience in network operations, troubleshooting, and electromechanical systems now provides a practical foundation for my work with Linux, infrastructure, automation, and security operations.",
+        items: [
+          {
+            title: "Industrial manufacturing",
+            detail: "Vocational training and hands-on work in industrial vessel and apparatus manufacturing, building a foundation in technical precision and electromechanics.",
+          },
+          {
+            title: "Telecommunications & network infrastructure",
+            detail: "Many years at Deutsche Telekom, covering business customers, network levels NE 5 to NE 1, subscriber access lines, fibre, infrastructure, and technical assemblies.",
+          },
+          {
+            title: "Medical technology & field service",
+            detail: "Field service and technical support for medical equipment used in pathology, histology, and cytology, with a focus on systematic diagnostics and responsible operation.",
+          },
+          {
+            title: "Mobile networks, further training & current focus",
+            detail: "Further hands-on experience in telecommunications and mobile networks, complemented by Mobile App Developer training in UX/UI, Kotlin, and Java fundamentals. My current technical focus is Linux, infrastructure, automation, and cloud security operations.",
+          },
+        ],
+      },
       skills: {
-        eyebrow: "02 / EXPERTISE",
+        eyebrow: "03 / EXPERTISE",
         title: "Technical focus areas",
         items: [
           {
@@ -166,7 +216,7 @@ export const profile = {
         ],
       },
       infrastructure: {
-        eyebrow: "03 / HOMELAB",
+        eyebrow: "04 / HOMELAB",
         title: "Infrastructure as a practical lab",
         body:
           "My homelab is where architecture decisions are tested in practice: Linux workstations, virtualization, storage, networking, and local AI infrastructure. Details and measurements will be documented per project.",
@@ -174,14 +224,14 @@ export const profile = {
         p900: "Lenovo ThinkStation P900 · Proxmox and Ceph cluster",
       },
       projects: {
-        eyebrow: "04 / OPEN SOURCE",
+        eyebrow: "05 / OPEN SOURCE",
         title: "Projects over buzzwords",
         body:
           "A selection of public repositories showcases hands-on work across Linux tooling, backup and recovery, networking, self-hosting, and local AI.",
         action: "Visit GitHub profile",
       },
       gaming: {
-        eyebrow: "05 / LINUX & GAMING",
+        eyebrow: "06 / LINUX & GAMING",
         title: "Gaming is part of everyday Linux, too",
         body:
           "Linux gaming, compatibility, and performance tuning have been part of my practical Linux experience for years.",
@@ -196,7 +246,7 @@ export const profile = {
         ],
       },
       contact: {
-        eyebrow: "07 / CONTACT",
+        eyebrow: "08 / CONTACT",
         title: "Good conversations are always welcome.",
         body:
           "For technical exchange, questions about projects, or simply a good conversation about Linux and technology.",

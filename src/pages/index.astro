@@ -40,6 +40,21 @@ const sections = content.sections;
     <p class="section-lead">{sections.profile.body}</p>
   </section>
 
+  <section id="werdegang" class="content-section section-shell">
+    <p class="eyebrow">{sections.career.eyebrow}</p>
+    <h2>{sections.career.title}</h2>
+    <p class="section-lead">{sections.career.body}</p>
+    <div class="card-grid">
+      {sections.career.items.map((item, index) => (
+        <article class="info-card">
+          <span class="card-index">{String(index + 1).padStart(2, "0")}</span>
+          <h3>{item.title}</h3>
+          <p>{item.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
   <section id="kompetenzen" class="content-section section-shell">
     <p class="eyebrow">{sections.skills.eyebrow}</p>
     <h2>{sections.skills.title}</h2>
@@ -100,7 +115,7 @@ const sections = content.sections;
 
 
   <section id="changelog" class="content-section section-shell">
-    <p class="eyebrow">06 / CHANGELOG</p>
+    <p class="eyebrow">07 / CHANGELOG</p>
     <h2>Änderungen bleiben nachvollziehbar.</h2>
     <p class="section-lead">Die letzten Änderungen an dieser Website, direkt aus der Git-Historie. Jeder Eintrag führt zum zugehörigen Commit.</p>
     <Changelog entries={changelog.entries} lang="de" />
