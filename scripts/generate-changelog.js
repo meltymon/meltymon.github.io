@@ -42,8 +42,8 @@ function categoryFor(subject) {
   }
   if (["feat", "feature"].includes(type)) return "feature";
   if (["fix", "bugfix"].includes(type)) return "fix";
-  if (["refactor", "perf", "style", "improve"].includes(type)) return "improvement";
-  if (["docs", "doc"].includes(type)) return "docs";
+  if (["refactor", "perf", "style", "improve", "ui"].includes(type)) return "improvement";
+  if (["docs", "doc", "content"].includes(type)) return "docs";
   if (["test", "build", "ci", "chore", "deps", "release"].includes(type)) {
     return "maintenance";
   }
@@ -54,6 +54,37 @@ function categoryFor(subject) {
   if (/\b(document|readme|docs)\b/i.test(subject)) return "docs";
 
   return "other";
+}
+
+function groupEntries(log) {
+  const grouped = new Map();
+
+  for (const line of log.split("\n").filter(Boolean)) {
+    const [hash, shortHash, date, subject] = line.split("\x1f");
+    if (!hash || !shortHash || !date || !subject) {
+      throw new Error("Could not parse Git log entry: " + line);
+    }
+
+    const key = subject.trim();
+    const existing = grouped.get(key);
+
+    if (existing) {
+      existing.commitCount += 1;
+      continue;
+    }
+
+    grouped.set(key, {
+      hash,
+      shortHash,
+      date,
+      subject,
+      category: categoryFor(subject),
+      url: REPOSITORY_URL + "/commit/" + hash,
+      commitCount: 1,
+    });
+  }
+
+  return [...grouped.values()];
 }
 
 function main() {
@@ -88,22 +119,7 @@ function main() {
     throw new Error("No Git commits found. Run this command inside a repository with commit history.");
   }
 
-  const entries = log.split("\n").filter(Boolean).map((line) => {
-    const [hash, shortHash, date, subject] = line.split("\x1f");
-    if (!hash || !shortHash || !date || !subject) {
-      throw new Error("Could not parse Git log entry: " + line);
-    }
-
-    return {
-      hash,
-      shortHash,
-      date,
-      subject,
-      category: categoryFor(subject),
-      url: REPOSITORY_URL + "/commit/" + hash,
-    };
-  });
-
+  const entries = groupEntries(log);
   const output = {
     repository: "meltymon/meltymon.github.io",
     generatedFrom: "git log",
@@ -121,7 +137,8 @@ function main() {
   mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(temporaryPath, json, "utf8");
   renameSync(temporaryPath, outputPath);
-  process.stdout.write("Generated " + entries.length + " changelog entries: " + OUTPUT_FILE + "\n");
+  process.stdout.write("Generated " + entries.length + " changelog entries from " +
+    options.limit + " commits: " + OUTPUT_FILE + "\n");
 }
 
 try {
