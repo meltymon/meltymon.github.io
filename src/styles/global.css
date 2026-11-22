@@ -582,3 +582,68 @@ html[data-theme="cyberpunk"][data-easter-egg="xcom"] .hero-copy::before { conten
 @media (max-width:1050px) {
   html[data-theme="cyberpunk"] main#main-content { width:100%; margin-left:0; }
 }
+
+/* Cyberpunk desktop: reserve a non-overlapping sidebar column. */
+@media (min-width: 1051px) {
+  html[data-theme="cyberpunk"] {
+    --cyber-sidebar-left: max(1rem, calc((100vw - var(--content-width)) / 2));
+    --cyber-sidebar-width: 238px;
+    --cyber-content-gap: clamp(1.5rem, 3vw, 3rem);
+    --cyber-main-left: calc(var(--cyber-sidebar-left) + var(--cyber-sidebar-width) + var(--cyber-content-gap));
+  }
+  html[data-theme="cyberpunk"] .cyberpunk-sidebar {
+    left: var(--cyber-sidebar-left);
+    width: var(--cyber-sidebar-width);
+  }
+  html[data-theme="cyberpunk"] .site-header {
+    width: min(calc(100vw - var(--cyber-main-left) - var(--cyber-sidebar-left)), var(--content-width));
+    margin-left: var(--cyber-main-left);
+    margin-right: var(--cyber-sidebar-left);
+  }
+  html[data-theme="cyberpunk"] main#main-content {
+    width: calc(100vw - var(--cyber-main-left) - var(--cyber-sidebar-left));
+    max-width: var(--content-width);
+    margin-left: var(--cyber-main-left);
+    margin-right: var(--cyber-sidebar-left);
+  }
+  html[data-theme="cyberpunk"] .hero,
+  html[data-theme="cyberpunk"] .content-section,
+  html[data-theme="cyberpunk"] .contact-section {
+    width: 100%; max-width: var(--content-width); margin-inline: auto;
+  }
+  html[data-theme="cyberpunk"] .easter-eggs,
+  html[data-theme="cyberpunk"] .site-footer {
+    width: min(calc(100vw - var(--cyber-main-left) - var(--cyber-sidebar-left)), var(--content-width));
+    margin-left: var(--cyber-main-left); margin-right: var(--cyber-sidebar-left);
+  }
+}
+.changelog-scroll {
+  max-height: 34rem; overflow-y: auto; overscroll-behavior: contain;
+  scrollbar-width: thin; scrollbar-color: var(--cyan) rgba(125,169,165,.12);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  padding-inline: .75rem;
+}
+.changelog-scroll:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.changelog-scroll .changelog-list { margin-top: 0; border-top: 0; }
+.changelog-subject { color: var(--text); text-decoration: none; }
+.changelog-subject:hover { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+.changelog-scroll::-webkit-scrollbar { width: 10px; }
+.changelog-scroll::-webkit-scrollbar-track { background: rgba(125,169,165,.1); }
+.changelog-scroll::-webkit-scrollbar-thumb { background: var(--cyan); border: 2px solid var(--bg); }
+.easter-progress { display:flex; flex-wrap:wrap; gap:.55rem; margin:1rem 0; }
+.easter-progress span { padding:.25rem .45rem; border:1px solid var(--line); color:var(--muted); font:.65rem var(--font-mono); }
+.easter-progress span[aria-current="step"] { border-color:var(--cyan); color:var(--cyan); }
+.easter-progress span[data-complete="true"] { border-color:var(--magenta); color:var(--magenta); }
+.easter-terminal label { display:block; margin-bottom:.4rem; color:var(--cyan); font:.68rem var(--font-mono); }
+.easter-command-row { display:flex; align-items:center; flex-wrap:wrap; gap:.55rem; padding:.6rem; border:1px solid var(--line); background:rgba(0,0,0,.25); }
+.easter-command-row > span { color:var(--magenta); font:.68rem var(--font-mono); }
+.easter-command-row input { flex:1 1 180px; min-width:0; padding:.45rem; border:1px solid rgba(0,245,212,.22); border-radius:0; outline-offset:2px; color:var(--text); background:#020607; font:.75rem var(--font-mono); }
+.easter-command-row button { padding:.5rem .7rem; border:1px solid var(--cyan); border-radius:0; color:#00110e; background:var(--cyan); cursor:pointer; font:.68rem var(--font-mono); }
+.easter-command-row button:disabled, .easter-command-row input:disabled { opacity:.55; cursor:not-allowed; }
+@media (max-width:1050px) {
+  html[data-theme="cyberpunk"] .site-header { width:min(100% - 3rem,var(--content-width)); margin-inline:auto; }
+  html[data-theme="cyberpunk"] main#main-content { width:100%; margin:0; }
+  html[data-theme="cyberpunk"] .hero,
+  html[data-theme="cyberpunk"] .content-section,
+  html[data-theme="cyberpunk"] .contact-section { width:min(100% - 3rem,var(--content-width)); margin-inline:auto; }
+}
