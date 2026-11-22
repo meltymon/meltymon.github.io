@@ -16,7 +16,7 @@ export const profile = {
     ],
     hero: {
       eyebrow: "Linux · Infrastruktur · Automatisierung",
-      role: "CloudSecOps Engineer",
+      role: "Senior CloudSecOps Engineer",
       statement: "Seit 25 Jahren Windows-frei.",
       intro:
         "Ich verbinde langjährige praktische Erfahrung in Telekommunikation und technischem Service mit Linux, Infrastruktur, Security Operations und Automatisierung.",
