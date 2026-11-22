@@ -13,9 +13,15 @@ const isEnglish = lang === "en";
     {nav.map((item) => <a href={item.href}>{item.label}</a>)}
   </nav>
 
-  <div class="language-switch" aria-label={isEnglish ? "Language" : "Sprache"}>
-    <a href={isEnglish ? alternateHref : Astro.url.pathname} lang="de" aria-current={!isEnglish ? "page" : undefined}>DE</a>
-    <span aria-hidden="true">/</span>
-    <a href={isEnglish ? Astro.url.pathname : alternateHref} lang="en" aria-current={isEnglish ? "page" : undefined}>EN</a>
+  <div class="header-tools">
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span aria-hidden="true">⌘</span>
+      <span data-theme-label>{isEnglish ? "Cyberpunk mode" : "Cyberpunk-Modus"}</span>
+    </button>
+    <div class="language-switch" aria-label={isEnglish ? "Language" : "Sprache"}>
+      <a href={isEnglish ? alternateHref : Astro.url.pathname} lang="de" aria-current={!isEnglish ? "page" : undefined}>DE</a>
+      <span aria-hidden="true">/</span>
+      <a href={isEnglish ? Astro.url.pathname : alternateHref} lang="en" aria-current={isEnglish ? "page" : undefined}>EN</a>
+    </div>
   </div>
 </header>
