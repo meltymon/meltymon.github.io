@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T09:00:00.000Z",
+  "generatedAt": "2026-11-22",
   "repositories": {
     "meltymon-ai-os": {
       "fullName": "meltymon/meltymon-ai-os",
@@ -7,8 +7,7 @@
       "archived": false,
       "defaultBranch": "main",
       "language": "Python",
-      "source": "fallback",
-      "fetchedAt": "2026-11-22T09:00:00.000Z"
+      "source": "fallback"
     },
     "restic-universal-backup-manager": {
       "fullName": "meltymon/Restic-Universal-Backup-Manager",
@@ -16,8 +15,7 @@
       "archived": false,
       "defaultBranch": "main",
       "language": "Shell",
-      "source": "fallback",
-      "fetchedAt": "2026-11-22T09:00:00.000Z"
+      "source": "fallback"
     },
     "network-bond-manager": {
       "fullName": "meltymon/Network_Bond_Manager",
@@ -25,8 +23,7 @@
       "archived": false,
       "defaultBranch": "main",
       "language": "Shell",
-      "source": "fallback",
-      "fetchedAt": "2026-11-22T09:00:00.000Z"
+      "source": "fallback"
     },
     "nextcloud-talk-stack": {
       "fullName": "meltymon/-Nextcloud-High-Performance-HP-Docker-Stack",
@@ -34,8 +31,7 @@
       "archived": false,
       "defaultBranch": "main",
       "language": "PHP",
-      "source": "fallback",
-      "fetchedAt": "2026-11-22T09:00:00.000Z"
+      "source": "fallback"
     },
     "melty-nexus": {
       "fullName": "meltymon/melty-nexus",
@@ -43,8 +39,7 @@
       "archived": false,
       "defaultBranch": "main",
       "language": "Python",
-      "source": "fallback",
-      "fetchedAt": "2026-11-22T09:00:00.000Z"
+      "source": "fallback"
     }
   }
 }
