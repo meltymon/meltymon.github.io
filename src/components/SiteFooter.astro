@@ -7,6 +7,7 @@ const isEnglish = lang === "en";
   <a class="footer-brand" href={isEnglish ? "/en/" : "/"}>meltymon.org</a>
   <p>{footer.note}</p>
   <div class="footer-links">
+    <a href={isEnglish ? "/en/privacy/" : "/datenschutz/"}>{isEnglish ? "Privacy" : "Datenschutz"}</a>
     <a href="mailto:kontakt@meltymon.org">{isEnglish ? "Contact" : "Kontakt"}</a>
     <a href="https://github.com/meltymon" target="_blank" rel="noopener noreferrer">GitHub</a>
   </div>
