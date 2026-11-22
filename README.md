@@ -1,43 +1,53 @@
-# 💻 meltymon.org - Statische Terminal-Homepage
+# meltymon.org
 
-[🇬🇧 Switch to English (README_en.md)](README_en.md)
+Bilingual technical portfolio built with Astro and Node.js. The site is generated as static HTML and is intended for GitHub Pages hosting.
 
----
+## Requirements
 
-## ℹ️ Projektbeschreibung
+- Node.js 26.13.1 (see `.nvmrc`)
+- npm 12
+- Git
 
-Dies ist die statische Visitenkarte und Informationszentrale von Christian Faßbender (`meltymon`).
+## Local development
 
-Die Seite ist als moderne, **responsive Terminal-Emulation** im **CachyOS/Linux-Stil** konzipiert. Sie verwendet reines **HTML und CSS** (Vanilla-Ansatz) und verzichtet bewusst auf JavaScript für die Content-Darstellung, Tracking oder Cookies, um maximale Geschwindigkeit und Privatsphäre zu gewährleisten.
+```sh
+nvm use
+npm install
+npm run dev
+```
 
-## ✨ Kern-Features
+Astro prints the local development URL after startup.
 
-* **Zwei-Dateien-Prinzip (DE/EN):** Einfacher, klickbasierter Sprachwechsel (kein JavaScript-basiertes i18n).
-* **Minimalistisch & Schnell:** Nur HTML und CSS.
-* **Terminal-Ästhetik:** Verwendet Monospace-Schriften, Blinking-Effekte und eine Neo-Grün-Farbpalette.
-* **Detaillierte Hardware-Specs:** Enthält die vollständige Spezifikation der **Lenovo Thinkstation P700** Workstation (Dual-Xeon, 768GB ECC-RAM, Intel Arc A750).
-* **DSGVO-Konform:** Die Seite ist rein statisch und benötigt keine Zustimmung.
+## Validation and production build
 
----
+```sh
+npm run build
+npm run preview
+```
 
-## 🚀 Deployment
+The generated static site is written to `dist/`.
 
-Das Projekt kann auf jedem statischen Hosting-Service (z.B. GitHub Pages, Netlify, Cloudflare Pages) betrieben werden.
+## Project structure
 
-### Erforderliche Dateien
+- `src/pages/`: German and English routes
+- `src/components/`: reusable interface components
+- `src/layouts/`: shared page layout and metadata
+- `src/data/`: structured profile and hardware data
+- `src/styles/`: global design system
+- `scripts/`: Node.js automation planned for later implementation steps
+- `public/`: static assets, custom domain and crawler files
 
-Im Hauptverzeichnis des Repositories müssen folgende Dateien vorhanden sein:
+## Content policy
 
-* `index.html` (Deutsche Hauptseite)
-* `index_en.html` (Englische Übersetzung)
-* `style.css` (Das Design-Stylesheet)
-* `README.md` (Diese Datei)
-* `README_en.md` (Englische README)
+Only verified hardware and profile information should be presented as fact. Unverified cluster topology, employment details, and project claims must be checked before publication. Final3 is outside the scope of this homepage rebuild.
 
-### Sprachwechsel
+## Deployment
 
-Der Wechsel zwischen Deutsch und Englisch erfolgt über die Hyperlinks im Header der jeweiligen `index` Datei.
+The production deployment workflow is intentionally not enabled in this foundation stage. GitHub Pages settings, build validation, and deployment permissions will be checked before a deployment workflow is introduced.
 
-```html
-<a href="index.html" class="lang-btn active">DE</a>
-<a href="index_en.html" class="lang-btn">EN</a>
+## Languages
+
+- German: `/`
+- English: `/en/`
+
+Both language versions share the same layout and use structured content data in `src/data/profile.js`.
