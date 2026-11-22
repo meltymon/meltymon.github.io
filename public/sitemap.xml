@@ -25,4 +25,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.meltymon.org/en/privacy/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meltymon.org/datenschutz/" />
   </url>
+  <url>
+    <loc>https://www.meltymon.org/impressum/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.meltymon.org/impressum/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.meltymon.org/en/legal-notice/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meltymon.org/impressum/" />
+  </url>
+  <url>
+    <loc>https://www.meltymon.org/en/legal-notice/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.meltymon.org/impressum/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.meltymon.org/en/legal-notice/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meltymon.org/impressum/" />
+  </url>
 </urlset>
