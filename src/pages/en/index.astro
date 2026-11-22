@@ -80,18 +80,28 @@ const sections = content.sections;
         <span class="hardware-type">WORKSTATION</span>
         <h3>P700</h3>
         <p>{sections.infrastructure.p700}</p>
+        <p class="hardware-description">{hardware.p700.summary}</p>
         <ul class="hardware-specs">
           <li>{hardware.p700.cpu}</li>
           <li>{hardware.p700.memory}</li>
           <li>{hardware.p700.gpu}</li>
           <li>{hardware.p700.network}</li>
+          {hardware.p700.storage.map((item) => <li>{item}</li>)}
         </ul>
       </article>
       <article class="hardware-card">
         <span class="hardware-type">CLUSTER</span>
         <h3>P900</h3>
         <p>{sections.infrastructure.p900}</p>
-        <p class="hardware-note">{hardware.p900.summary}</p>
+        <p class="hardware-description">{hardware.p900.summary}</p>
+        <ul class="hardware-specs">
+          <li>{hardware.p900.compute}</li>
+          <li>{hardware.p900.platform}</li>
+          {hardware.p900.storage.map((item) => <li>{item}</li>)}
+          <li>{hardware.p900.acceleration}</li>
+          <li>{hardware.p900.network}</li>
+        </ul>
+        <p class="hardware-note">{hardware.p900.details}</p>
       </article>
     </div>
   </section>

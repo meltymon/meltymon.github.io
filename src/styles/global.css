@@ -370,3 +370,22 @@ h1 { max-width: 800px; margin-bottom: .6rem; font-size: clamp(2.8rem, 7vw, 5.8re
   color: var(--muted);
   font-size: .55rem;
 }
+
+.hardware-description {
+  margin: .85rem 0 0 !important;
+  color: var(--text) !important;
+  font-size: .86rem !important;
+}
+.hardware-specs {
+  display: grid;
+  gap: .2rem;
+  padding-left: 1.1rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font: .72rem/1.8 var(--font-mono);
+}
+.hardware-note {
+  padding-top: .8rem;
+  border-top: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
