@@ -1,0 +1,99 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { profile } from "../data/profile.js";
+
+const content = profile.de;
+const sections = content.sections;
+---
+
+<SiteLayout lang="de" content={content}>
+  <section class="hero section-shell">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>{content.hero.eyebrow}</p>
+      <h1>{content.hero.role}<span class="hero-cursor" aria-hidden="true">_</span></h1>
+      <p class="hero-statement">{content.hero.statement}</p>
+      <p class="hero-intro">{content.hero.intro}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#profil">{content.hero.primaryAction}</a>
+        <a class="button button-quiet" href="https://github.com/meltymon" target="_blank" rel="noopener noreferrer">{content.hero.secondaryAction}</a>
+      </div>
+    </div>
+    <div class="hero-aside" aria-label="Technische Schwerpunkte">
+      <span class="terminal-label">~/meltymon $ whoami</span>
+      <p><span>role</span> cloudsecops.engineer</p>
+      <p><span>system</span> linux / cachyos</p>
+      <p><span>focus</span> infrastructure + security</p>
+      <p><span>mode</span> local-first</p>
+      <div class="terminal-status"><span></span> systems operational</div>
+    </div>
+  </section>
+
+  <section id="profil" class="content-section section-shell">
+    <p class="eyebrow">{sections.profile.eyebrow}</p>
+    <h2>{sections.profile.title}</h2>
+    <p class="section-lead">{sections.profile.body}</p>
+  </section>
+
+  <section id="kompetenzen" class="content-section section-shell">
+    <p class="eyebrow">{sections.skills.eyebrow}</p>
+    <h2>{sections.skills.title}</h2>
+    <div class="card-grid">
+      {sections.skills.items.map((item, index) => (
+        <article class="info-card">
+          <span class="card-index">{String(index + 1).padStart(2, "0")}</span>
+          <h3>{item.title}</h3>
+          <p>{item.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="infrastruktur" class="content-section section-shell split-section">
+    <div>
+      <p class="eyebrow">{sections.infrastructure.eyebrow}</p>
+      <h2>{sections.infrastructure.title}</h2>
+      <p class="section-lead">{sections.infrastructure.body}</p>
+    </div>
+    <div class="hardware-list">
+      <article class="hardware-card">
+        <span class="hardware-type">WORKSTATION</span>
+        <h3>P700</h3>
+        <p>{sections.infrastructure.p700}</p>
+      </article>
+      <article class="hardware-card">
+        <span class="hardware-type">CLUSTER</span>
+        <h3>P900</h3>
+        <p>{sections.infrastructure.p900}</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="projekte" class="content-section section-shell">
+    <p class="eyebrow">{sections.projects.eyebrow}</p>
+    <h2>{sections.projects.title}</h2>
+    <p class="section-lead">{sections.projects.body}</p>
+    <a class="text-link" href="https://github.com/meltymon" target="_blank" rel="noopener noreferrer">{sections.projects.action} ↗</a>
+  </section>
+
+  <section id="gaming" class="content-section section-shell gaming-section">
+    <p class="eyebrow">{sections.gaming.eyebrow}</p>
+    <h2>{sections.gaming.title}</h2>
+    <p class="section-lead">{sections.gaming.body}</p>
+    <ul class="tag-list">
+      {sections.gaming.games.map((game) => <li>{game}</li>)}
+    </ul>
+  </section>
+
+  <section id="kontakt" class="contact-section section-shell">
+    <div>
+      <p class="eyebrow">{sections.contact.eyebrow}</p>
+      <h2>{sections.contact.title}</h2>
+      <p class="section-lead">{sections.contact.body}</p>
+    </div>
+    <div class="contact-links">
+      <a class="button button-primary" href={`mailto:${sections.contact.email}`}>{sections.contact.email}</a>
+      <a class="button button-quiet" href="https://discord.com/users/meltymon" target="_blank" rel="noopener noreferrer">{sections.contact.discord}</a>
+      <a class="button button-quiet" href="https://www.twitch.tv/meltymon" target="_blank" rel="noopener noreferrer">{sections.contact.twitch}</a>
+    </div>
+  </section>
+</SiteLayout>
