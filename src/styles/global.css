@@ -313,3 +313,9 @@ h1 { max-width: 800px; margin-bottom: .6rem; font-size: clamp(2.8rem, 7vw, 5.8re
 @media (max-width: 600px) {
   .changelog-entry { grid-template-columns: 1fr; gap: .45rem; }
 }
+
+.changelog-commit-count {
+  color: var(--muted);
+  font: .72rem var(--font-mono);
+  white-space: nowrap;
+}
