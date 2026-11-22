@@ -4,7 +4,9 @@ const isEnglish = lang === "en";
 ---
 <details class="easter-eggs" data-easter-eggs>
   <summary>{isEnglish ? "SYSTEM LOG // Hidden challenge" : "SYSTEM-LOG // Versteckte Herausforderung"}</summary>
-  <p>{isEnglish ? "Three stages. No account, tracking or external service required. Start with the classic Konami sequence, then inspect the old stylesheet clue." : "Drei Stufen. Kein Konto, Tracking oder externer Dienst nötig. Beginne mit der klassischen Konami-Sequenz und entdecke danach den Hinweis aus dem alten Stylesheet."}</p>
+  <p>{isEnglish
+    ? "Three stages. Enter KONAMI (or use the classic keyboard sequence), inspect the stylesheet for KEY_FRITZ, then enter the final command."
+    : "Drei Stufen. Gib KONAMI ein (oder nutze die klassische Tastenkombination), suche KEY_FRITZ im Stylesheet und gib danach den letzten Befehl ein."}</p>
   <pre class="ascii-logo" aria-label="meltymon ASCII logo">
       _  __         _    _  _   _
      | |/ /  _ __  | |__| || |_| |
@@ -12,5 +14,18 @@ const isEnglish = lang === "en";
      | . \\ | | | || | | | || |_|_|
      |_|\\_\\ |_| |_||_| |_||_| \\__(_)
   </pre>
+  <div class="easter-progress" aria-label={isEnglish ? "Challenge progress" : "Fortschritt"}>
+    <span data-easter-step="1" aria-current="step">01 / KONAMI</span>
+    <span data-easter-step="2">02 / KEY_FRITZ</span>
+    <span data-easter-step="3">03 / XCOM</span>
+  </div>
+  <form class="easter-terminal" data-easter-form>
+    <label for="easter-command">{isEnglish ? "COMMAND INPUT" : "BEFEHLSEINGABE"}</label>
+    <div class="easter-command-row">
+      <span aria-hidden="true">root@meltymon:~#</span>
+      <input id="easter-command" data-easter-input type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="KONAMI" />
+      <button type="submit">{isEnglish ? "EXECUTE" : "AUSFÜHREN"}</button>
+    </div>
+  </form>
   <output data-easter-status aria-live="polite">{isEnglish ? "Awaiting input..." : "Warte auf Eingabe..."}</output>
 </details>

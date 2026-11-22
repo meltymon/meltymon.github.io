@@ -3,63 +3,50 @@ const { entries = [], lang = "de" } = Astro.props;
 const labels =
   lang === "en"
     ? {
-        feature: "Feature",
-        fix: "Fix",
-        security: "Security",
-        improvement: "Improvement",
-        docs: "Documentation",
-        maintenance: "Maintenance",
-        other: "Change",
-        commit: "Commit",
-        commits: "commits",
+        feature: "Feature", fix: "Fix", security: "Security",
+        improvement: "Improvement", docs: "Documentation",
+        maintenance: "Maintenance", other: "Change",
+        commit: "Commit", commits: "commits",
         empty: "No changelog entries are available yet.",
       }
     : {
-        feature: "Funktion",
-        fix: "Fehlerbehebung",
-        security: "Sicherheit",
-        improvement: "Verbesserung",
-        docs: "Dokumentation",
-        maintenance: "Wartung",
-        other: "Änderung",
-        commit: "Commit",
-        commits: "Commits",
+        feature: "Funktion", fix: "Fehlerbehebung", security: "Sicherheit",
+        improvement: "Verbesserung", docs: "Dokumentation",
+        maintenance: "Wartung", other: "Änderung",
+        commit: "Commit", commits: "Commits",
         empty: "Noch sind keine Changelog-Einträge verfügbar.",
       };
 const dateLocale = lang === "en" ? "en-GB" : "de-DE";
 const formatDate = (date) =>
   new Intl.DateTimeFormat(dateLocale, {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
+    day: "2-digit", month: "short", year: "numeric", timeZone: "UTC",
   }).format(new Date(date + "T12:00:00Z"));
 ---
-
 {entries.length > 0 ? (
-  <ol class="changelog-list">
-    {entries.map((entry) => (
-      <li class="changelog-entry">
-        <div class="changelog-meta">
-          <time datetime={entry.date}>{formatDate(entry.date)}</time>
-          <span class={"changelog-category changelog-category-" + entry.category}>
-            {labels[entry.category] ?? labels.other}
-          </span>
-        </div>
-        <div class="changelog-content">
-          <p>
-            {entry.subject}
-            {entry.commitCount > 1 && (
-              <span class="changelog-commit-count"> · {entry.commitCount} {labels.commits}</span>
-            )}
-          </p>
-          <a href={entry.url} target="_blank" rel="noopener noreferrer" aria-label={labels.commit + " " + entry.shortHash}>
-            {entry.shortHash} ↗
-          </a>
-        </div>
-      </li>
-    ))}
-  </ol>
+  <div class="changelog-scroll" tabindex="0" role="region" aria-label={lang === "en" ? "Complete commit history" : "Vollständige Commit-Historie"}>
+    <ol class="changelog-list">
+      {entries.map((entry) => (
+        <li class="changelog-entry">
+          <div class="changelog-meta">
+            <time datetime={entry.date}>{formatDate(entry.date)}</time>
+            <span class={"changelog-category changelog-category-" + entry.category}>
+              {labels[entry.category] ?? labels.other}
+            </span>
+          </div>
+          <div class="changelog-content">
+            <p><a class="changelog-subject" href={entry.url} target="_blank" rel="noopener noreferrer">{entry.subject}</a>
+              {entry.commitCount > 1 && (
+                <span class="changelog-commit-count"> · {entry.commitCount} {labels.commits}</span>
+              )}
+            </p>
+            <a href={entry.url} target="_blank" rel="noopener noreferrer" aria-label={labels.commit + " " + entry.shortHash}>
+              {entry.shortHash} ↗
+            </a>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
 ) : (
   <p class="section-lead">{labels.empty}</p>
 )}
