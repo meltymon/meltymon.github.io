@@ -266,3 +266,50 @@ h1 { max-width: 800px; margin-bottom: .6rem; font-size: clamp(2.8rem, 7vw, 5.8re
   text-decoration: none;
 }
 .project-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.changelog-list {
+  padding: 0;
+  margin: 2.5rem 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+.changelog-entry {
+  display: grid;
+  grid-template-columns: minmax(150px, .34fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.changelog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: .55rem;
+  color: var(--muted);
+  font: .72rem var(--font-mono);
+}
+.changelog-category {
+  padding: .18rem .42rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--cyan);
+}
+.changelog-category-security { border-color: rgba(215,139,216,.45); color: var(--magenta); }
+.changelog-content {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.changelog-content p { margin: 0; overflow-wrap: anywhere; }
+.changelog-content a {
+  flex: 0 0 auto;
+  color: var(--cyan);
+  font: .7rem var(--font-mono);
+  text-decoration: none;
+}
+.changelog-content a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+@media (max-width: 600px) {
+  .changelog-entry { grid-template-columns: 1fr; gap: .45rem; }
+}
